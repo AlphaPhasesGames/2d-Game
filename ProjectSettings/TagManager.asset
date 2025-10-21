@@ -47,3 +47,6 @@ TagManager:
   - name: BG
     uniqueID: 1588412455
     locked: 0
+  - name: SFG
+    uniqueID: 2029684729
+    locked: 0
