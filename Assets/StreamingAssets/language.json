@@ -1,0 +1,21 @@
+{
+    "_meta": {
+        "maxChars": {
+            "newGame": 20,
+            "continue": 20,
+            "ipadButton": 20,
+            "chromebookButton": 20,
+	    "inventoryText": 20
+        }
+    },
+    "en": {
+        "newGame": "New Game",
+        "continue": "Continue?",
+	"inventoryText": "Inventory"
+    },
+    "es": {
+        "newGame": "Nuevo Juego",
+        "continue": "Continuar?",
+	"inventoryText": "Inventario"
+    }
+}
