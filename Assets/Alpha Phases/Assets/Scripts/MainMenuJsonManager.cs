@@ -5,7 +5,7 @@ using SimpleJSON;
 using TMPro;
 
 
-namespace Alpha.Phases.Destiny.Quest
+namespace Alpha.Phases.Geoquest
 {
     public class MainMenuJsonManager : MonoBehaviour
     {

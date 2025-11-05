@@ -27,8 +27,7 @@ namespace Alpha.Phases.Geoquest
         [SerializeField, Header("Initial State Data")]
         DQWBSaveData dqwbSaveData;
         public int currentStagedqwb;
-        public bool hasIPadBeenSelected;
-        public bool iPadChosen;
+
         public bool runScriptOnce;
 
         [SerializeField] Button continueButton, newGameButton;
@@ -38,6 +37,8 @@ namespace Alpha.Phases.Geoquest
 
         #region "stage1stufftobecollapsed"
         [SerializeField, Header("Stage 1 Code")]
+
+
         #endregion
 
         JSONNode _langNode;
