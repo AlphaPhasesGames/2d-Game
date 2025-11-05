@@ -15,9 +15,9 @@
 	    "stage1Text9": 120,
 	    "stage1Text10": 170,
 	    "stage1Text11": 30,
-	    "stage1Text12": 110,
-	    "stage1Text13": 110,
-	    "stage1Text14": 100,
+	    "stage1Text12": 190,
+	    "stage1Text13": 310,
+	    "stage1Text14": 270,
 	    "stage1Text15": 270,
 	    "stage1Text16": 110,
 	    "stage1Text17": 210,
@@ -34,7 +34,7 @@
 	    "stage1Text28": 170,
 	    "stage1Text29": 110,
 	    "stage1Text30": 90,
-	    "stage1Text231": 190
+	    "stage1Text31": 190
         }
     },
     "en": {
@@ -52,9 +52,9 @@
 	 "stage1Text9": "When you find the object can you please bring it back here? You can use the E key to pick it up and carry it.",
 	 "stage1Text10": "You can open your journal by clicking the inventory button in the top right with your mouse or touchpad. Just in case you forget anything you've learned.",
 	 "stage1Text11": "Let's get going.",
-	 "stage1Text12": "This object appears to be made of organic matter. We are looking for an object made of minerals.",
-	 "stage1Text13": "Fantastic, rocks are made of minerals. Lets take it back to the raised ground we found our journal on.",
-	 "stage1Text14": "Now that we have found our rock. Let's talk about the rock cycle in greater detail.",
+	 "stage1Text12": "This is a plastic bottle, it is not made of minerals. It is however littering this beautiful island. Let's pick up any bottles we find on the way and take them home to recycle.",
+	 "stage1Text13": "You found a rock! Unlike plastic or wood, rocks are made up of minerals, naturally occurring substances with a definite chemical composition. This rock is a mix of several different minerals that give it its color, hardness, and texture. Let's take it back to the raised ground we found our journal on.",
+	 "stage1Text14": "This rock is basalt. It is a dark rock that forms when lava, cooled quickly in the earths surface. It is composed of minerals, like pyroxene and feldspar, give it strength and a deep color. Let's take it back to raised ground we found the journal on.",
 	 "stage1Text15": "Here is a diagram of the rock cycle. Like the water cycle it is cyclical. It doesn't start or end in one place but instead is a constant process that is self-sustaining and one that relies on external and internal sources of energy to keep going.",
 	 "stage1Text16": "The 7 steps are uplift, weathering, erosion, deposition, melting, crystallization, and metamorphism.",
 	 "stage1Text17": "Let's tackle our next task. Around this island there are 7 chests with a piece of paper in each. Can you collect all 7 please and come back here so we can put them in their place on this diagram?",
@@ -71,12 +71,13 @@
 	 "stage1Text28": "Can you please search for the two switches that represent what moves and changes during the rock cycle? You can check your journal if you have forgotten.",
 	 "stage1Text29": "This switch must be wrong because the boulder didn't move. Check your journal and try another switch please.",
 	 "stage1Text30": "Fantastic. Energy is moved during the rock cycle. One more switch to go.",
-	 "stage1Text31": "xcellent. Matter is also moved during the rock cycle. The boulder has moved and we can progress underground. Head into the cave to start exploring the caverns below the island."
+	 "stage1Text31": "Excellent. Matter is also moved during the rock cycle. The boulder has moved and we can progress underground. Head into the cave to start exploring the caverns below the island."
+
     },
     "es": {
-        "newGame": "Nuevo Juego",
-        "continue": "Continuar?",
-	"inventoryText": "Inventario",
+        "newGame": "New Game",
+        "continue": "Continue?",
+	"inventoryText": "Inventory",
 	 "stage1Text1": "Welcome to the island of Isla Surna.",
 	 "stage1Text2": "We’re here because we have reports that the rock cycle on this island has stopped and we need to restart it.",
 	 "stage1Text3": "During this adventure we will learn about the rock cycle and its steps in greater detail and begin to understand how rocks are formed.",
@@ -88,9 +89,9 @@
 	 "stage1Text9": "When you find the object can you please bring it back here? You can use the E key to pick it up and carry it.",
 	 "stage1Text10": "You can open your journal by clicking the inventory button in the top right with your mouse or touchpad. Just in case you forget anything you've learned.",
 	 "stage1Text11": "Let's get going.",
-	 "stage1Text12": "This object appears to be made of organic matter. We are looking for an object made of minerals.",
-	 "stage1Text13": "Fantastic, rocks are made of minerals. Lets take it back to the raised ground we found our journal on.",
-	 "stage1Text14": "Now that we have found our rock. Let's talk about the rock cycle in greater detail.",
+	 "stage1Text12": "This is a plastic bottle, it is not made of minerals. It is however littering this beautiful island. Let's pick up any bottles we find on the way and take them home to recycle.",
+	 "stage1Text13": "You found a rock! Unlike plastic or wood, rocks are made up of minerals, naturally occurring substances with a definite chemical composition. This rock is a mix of several different minerals that give it its color, hardness, and texture. Let's take it back to the raised ground we found our journal on.",
+	 "stage1Text14": "This rock is basalt. It is a dark rock that forms when lava, cooled quickly in the earths surface. It is composed of minerals, like pyroxene and feldspar, give it strength and a deep color. Let's take it back to raised ground we found the journal on.",
 	 "stage1Text15": "Here is a diagram of the rock cycle. Like the water cycle it is cyclical. It doesn't start or end in one place but instead is a constant process that is self-sustaining and one that relies on external and internal sources of energy to keep going.",
 	 "stage1Text16": "The 7 steps are uplift, weathering, erosion, deposition, melting, crystallization, and metamorphism.",
 	 "stage1Text17": "Let's tackle our next task. Around this island there are 7 chests with a piece of paper in each. Can you collect all 7 please and come back here so we can put them in their place on this diagram?",
@@ -107,6 +108,6 @@
 	 "stage1Text28": "Can you please search for the two switches that represent what moves and changes during the rock cycle? You can check your journal if you have forgotten.",
 	 "stage1Text29": "This switch must be wrong because the boulder didn't move. Check your journal and try another switch please.",
 	 "stage1Text30": "Fantastic. Energy is moved during the rock cycle. One more switch to go.",
-	 "stage1Text31": "xcellent. Matter is also moved during the rock cycle. The boulder has moved and we can progress underground. Head into the cave to start exploring the caverns below the island."
+	 "stage1Text31": "Excellent. Matter is also moved during the rock cycle. The boulder has moved and we can progress underground. Head into the cave to start exploring the caverns below the island."
     }
 }

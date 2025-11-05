@@ -1,18 +1,22 @@
 using UnityEngine;
 
-public class ArrowPointer : MonoBehaviour
+
+namespace Alpha.Phases.Geoquest
 {
-    public Transform target; // Assign the mission objective in Inspector
-
-    void Update()
+    public class ArrowPointer : MonoBehaviour
     {
-        if (target == null) return;
+        public Transform target; // Assign the mission objective in Inspector
 
-        // Calculate direction from player (this object) to target
-        Vector3 dir = target.position - transform.position;
-        float angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg - 90f; // -90f aligns with upward arrow
+        void Update()
+        {
+            if (target == null) return;
 
-        // Apply rotation
-        transform.rotation = Quaternion.Euler(0, 0, angle);
+            // Calculate direction from player (this object) to target
+            Vector3 dir = target.position - transform.position;
+            float angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg - 90f; // -90f aligns with upward arrow
+
+            // Apply rotation
+            transform.rotation = Quaternion.Euler(0, 0, angle);
+        }
     }
 }

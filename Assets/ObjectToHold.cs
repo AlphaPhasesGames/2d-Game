@@ -7,10 +7,10 @@ namespace Alpha.Phases.Geoquest
     public class ObjectToHold : MonoBehaviour
     {
         public TopDownPlayerController playerCont;
-
+        public Stage1TextManager textMan;
         public bool isInRange;
         public CircleCollider2D col;
-
+        public bool textPlayed;
         private void Update()
         {
             if (isInRange && Input.GetKeyDown(KeyCode.E))
@@ -54,7 +54,12 @@ namespace Alpha.Phases.Geoquest
                 transform.localPosition = Vector3.zero;
                 transform.localRotation = Quaternion.identity;
             }
-
+            if (!textPlayed)
+            {
+                textMan.positionChanged = true;
+                textMan.arrayPos = 12;
+                textPlayed = true;
+            }
             col.enabled = false;
         }
 

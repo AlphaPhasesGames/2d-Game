@@ -135,8 +135,14 @@ namespace Alpha.Phases.Geoquest
                     forwardParent.gameObject.SetActive(false);
                     break;
                 case 11:
+                    textPanal.gameObject.SetActive(true);
+                    StartCoroutine(MoveToBlankInvislbePanalUnit17());
                     break;
                 case 12:
+                    textPanal.gameObject.SetActive(true);
+                    StartCoroutine(MoveToBlankInvislbePanalUnit17());
+                    break;
+                case 13:
                     textPanal.gameObject.SetActive(false);
                     break;
 
@@ -161,7 +167,7 @@ namespace Alpha.Phases.Geoquest
                 forwardButton.gameObject.SetActive(false);
                
                 // Only run DelayTextButton if the next arrayPos is not 2
-                if (arrayPos != 4)
+                if (arrayPos != 4 && arrayPos != 10)
                 {
                     StartCoroutine(DelayTextButton());
                 }
@@ -214,7 +220,7 @@ namespace Alpha.Phases.Geoquest
             yield return new WaitForSeconds(5);
             //playerMoveScript.enabled = true;
             textPanal.gameObject.SetActive(false);
-            arrayPos = 12;
+            arrayPos = 13;
             Debug.Log("This start coRoutine Runs");
 
         }
