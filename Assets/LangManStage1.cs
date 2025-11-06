@@ -21,6 +21,11 @@ namespace Alpha.Phases.Geoquest
         public TextMeshProUGUI stage1Text11;
         public TextMeshProUGUI stage1Text12;
         public TextMeshProUGUI stage1Text13;
+        public TextMeshProUGUI stage1Text14;
+        public TextMeshProUGUI stage1Text15;
+        public TextMeshProUGUI stage1Text16;
+        public TextMeshProUGUI stage1Text17;
+        public TextMeshProUGUI stage1Text18;
 
         private void Awake()
         {
@@ -39,6 +44,11 @@ namespace Alpha.Phases.Geoquest
             stage1Text11.text = defs["stage1Text11"];
             stage1Text12.text = defs["stage1Text12"];
             stage1Text13.text = defs["stage1Text13"];
+            stage1Text14.text = defs["stage1Text14"];
+            stage1Text15.text = defs["stage1Text15"];
+            stage1Text16.text = defs["stage1Text16"];
+            stage1Text17.text = defs["stage1Text17"];
+            stage1Text18.text = defs["stage1Text18"];
         }
 
     }

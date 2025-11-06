@@ -24,7 +24,7 @@ namespace Alpha.Phases.Geoquest
         public GameObject[] modelArray;
         public GameObject textPanal;
 
-       // public GameObject letterOpen;
+        public GameObject basaltDiag;
 
         public bool panalOpen;
         public bool runOnce;
@@ -143,6 +143,23 @@ namespace Alpha.Phases.Geoquest
                     StartCoroutine(MoveToBlankInvislbePanalUnit17());
                     break;
                 case 13:
+                    textPanal.gameObject.SetActive(true);
+                  //  basaltDiag.gameObject.SetActive(true);
+                  
+                    break;
+                case 14:
+
+                    break;
+                case 15:
+
+                    break;
+                case 16:
+
+                    break;
+                case 17:
+                    StartCoroutine(MoveToBlankInvislbePanalUnit17());
+                    break;
+                case 18:
                     textPanal.gameObject.SetActive(false);
                     break;
 
@@ -167,7 +184,7 @@ namespace Alpha.Phases.Geoquest
                 forwardButton.gameObject.SetActive(false);
                
                 // Only run DelayTextButton if the next arrayPos is not 2
-                if (arrayPos != 4 && arrayPos != 10)
+                if (arrayPos != 4 && arrayPos != 10 && arrayPos != 12)
                 {
                     StartCoroutine(DelayTextButton());
                 }
@@ -220,7 +237,7 @@ namespace Alpha.Phases.Geoquest
             yield return new WaitForSeconds(5);
             //playerMoveScript.enabled = true;
             textPanal.gameObject.SetActive(false);
-            arrayPos = 13;
+            arrayPos = 18;
             Debug.Log("This start coRoutine Runs");
 
         }
