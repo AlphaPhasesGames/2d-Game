@@ -41,12 +41,29 @@ namespace Alpha.Phases.Geoquest
 
         public GameObject diagram;
         public GameObject switchParent;
+
+        public Button ttsButtonForAllLitter;
+        public Button ttsButtonForPaper1;
+        public Button ttsButtonForPaper2;
+        public Button ttsButtonForPaper3;
+        public Button ttsButtonForPaper4;
+        public Button ttsButtonForPaper5;
+        public Button ttsButtonForPaper6;
+        public Button ttsButtonForPaper7;
         //public bool inventoryReadToBeOpen;
 
         private void Awake()
         {
             forwardButton.onClick.AddListener(ProgressTextForward);
             backwardsButton.onClick.AddListener(ProgressTextBack);
+            ttsButtonForAllLitter.onClick.AddListener(SpeakAllLitterText2);
+            ttsButtonForPaper1.onClick.AddListener(SpeakPaper1);
+            ttsButtonForPaper2.onClick.AddListener(SpeakPaper2);
+            ttsButtonForPaper3.onClick.AddListener(SpeakPaper3);
+            ttsButtonForPaper4.onClick.AddListener(SpeakPaper4);
+            ttsButtonForPaper5.onClick.AddListener(SpeakPaper5);
+            ttsButtonForPaper6.onClick.AddListener(SpeakPaper6);
+            ttsButtonForPaper7.onClick.AddListener(SpeakPaper7);
 
             for (int i = 0; i < textButtons.Length; i++)
             {
@@ -132,6 +149,7 @@ namespace Alpha.Phases.Geoquest
                     StartCoroutine(DelayTextButton());
                     break;
                 case 6:
+                    backwardsButton.gameObject.SetActive(true);
                     break;
                 case 7:
                     break;
@@ -145,6 +163,7 @@ namespace Alpha.Phases.Geoquest
                     StartCoroutine(MoveToBlankInvislbePanalUnit17());
                     break;
                 case 11:
+                    backwardsButton.gameObject.SetActive(false);
                     textPanal.gameObject.SetActive(true);
                     StartCoroutine(MoveToBlankInvislbePanalUnit17());
                     break;
@@ -153,15 +172,16 @@ namespace Alpha.Phases.Geoquest
                     StartCoroutine(MoveToBlankInvislbePanalUnit17());
                     break;
                 case 13:
+                    backwardsButton.gameObject.SetActive(false);
                     textPanal.gameObject.SetActive(true);
                     StartCoroutine(DelayTextButton());
                     //  basaltDiag.gameObject.SetActive(true);
                     break;
                 case 14:
-
+                    backwardsButton.gameObject.SetActive(true);
                     break;
                 case 15:
-
+                    StartCoroutine(DelayTextButton());
                     break;
                 case 16:
 
@@ -174,38 +194,47 @@ namespace Alpha.Phases.Geoquest
                     StartCoroutine(MoveToBlankInvislbePanalUnit17());
                     break;
                 case 19: // rock cycle steps - 
+                    backwardsButton.gameObject.SetActive(false);
                     textPanal.gameObject.SetActive(true);
                     StartCoroutine(MoveToBlankInvislbePanalUnit17());
                     break;
                 case 20:
+                    backwardsButton.gameObject.SetActive(false);
                     textPanal.gameObject.SetActive(true);
                     StartCoroutine(MoveToBlankInvislbePanalUnit17());
                     break;
                 case 21:
+                    backwardsButton.gameObject.SetActive(false);
                     textPanal.gameObject.SetActive(true);
                     StartCoroutine(MoveToBlankInvislbePanalUnit17());
                     break;
                 case 22:
+                    backwardsButton.gameObject.SetActive(false);
                     textPanal.gameObject.SetActive(true);
                     StartCoroutine(MoveToBlankInvislbePanalUnit17());
                     break;
                 case 23:
+                    backwardsButton.gameObject.SetActive(false);
                     textPanal.gameObject.SetActive(true);
                     StartCoroutine(MoveToBlankInvislbePanalUnit17());
                     break;
                 case 24:
+                    backwardsButton.gameObject.SetActive(false);
                     textPanal.gameObject.SetActive(true);
                     StartCoroutine(MoveToBlankInvislbePanalUnit17());
                     break;
                 case 25:
+                    backwardsButton.gameObject.SetActive(false);
                     textPanal.gameObject.SetActive(true);
                     StartCoroutine(MoveToBlankInvislbePanalUnit17());
                     break;
-                case 26: 
+                case 26:
+                    backwardsButton.gameObject.SetActive(false);
                     textPanal.gameObject.SetActive(true);
                     StartCoroutine(MoveToBlankInvislbePanalUnit17());
                     break;
                 case 27:
+                    backwardsButton.gameObject.SetActive(false);
                     textPanal.gameObject.SetActive(true);
                     StartCoroutine(MoveToBlankInvislbePanalUnit17());
                     break;
@@ -228,6 +257,7 @@ namespace Alpha.Phases.Geoquest
                     textPanal.gameObject.SetActive(true);
                     break;
                 case 32:
+                    backwardsButton.gameObject.SetActive(true);
                     diagram.gameObject.SetActive(false );
                     MainGameManager.Instance.currentTask = 3;
                     MainGameManager.Instance.SaveTaskS1();
@@ -331,7 +361,45 @@ namespace Alpha.Phases.Geoquest
         {
             LOLSDK.Instance.SpeakText(textKey);
         }
+        public void SpeakAllLitterText2()
+        {
+            LOLSDK.Instance.SpeakText("stage1TextAllBottlesCollected");
+        }
 
+        public void SpeakPaper1()
+        {
+            LOLSDK.Instance.SpeakText("stage1RCStep1");
+        }
+
+        public void SpeakPaper2()
+        {
+            LOLSDK.Instance.SpeakText("stage1RCStep2");
+        }
+
+        public void SpeakPaper3()
+        {
+            LOLSDK.Instance.SpeakText("stage1RCStep3");
+        }
+
+        public void SpeakPaper4()
+        {
+            LOLSDK.Instance.SpeakText("stage1RCStep4");
+        }
+
+        public void SpeakPaper5()
+        {
+            LOLSDK.Instance.SpeakText("stage1RCStep5");
+        }
+
+        public void SpeakPaper6()
+        {
+            LOLSDK.Instance.SpeakText("stage1RCStep6");
+        }
+
+        public void SpeakPaper7()
+        {
+            LOLSDK.Instance.SpeakText("stage1RCStep7");
+        }
 
         public void ResetBools()
         {
@@ -341,7 +409,7 @@ namespace Alpha.Phases.Geoquest
         public IEnumerator DelayTextButton()
         {
 
-            yield return new WaitForSeconds(3);
+            yield return new WaitForSeconds(5);
             forwardParent.gameObject.SetActive(true);
             forwardButton.gameObject.SetActive(true);
             Debug.Log("This coRoutine Runs");

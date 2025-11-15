@@ -54,7 +54,16 @@
 	    "stage1RCStep4Name": 30,
 	    "stage1RCStep5Name": 30,
 	    "stage1RCStep6Name": 30,
-	    "stage1RCStep7Name": 30
+	    "stage1RCStep7Name": 30,
+	    "stage1RCSedimentary": 30,
+	    "stage1RCMetamorphic": 30,
+	    "stage1RCIgneous": 30,
+	    "stage1RCCompaction": 30,
+	    "stage1RCswitchMatter": 30,
+	    "stage1RCswitchEnergy": 30,
+	    "stage1RCswitchFriction": 30,
+	    "stage1RCswitchAirResistance": 30,
+
         }
     },
     "en": {
@@ -111,8 +120,15 @@
 	  "stage1RCStep4Name": "Deposition",
 	  "stage1RCStep5Name": "Melting",
 	  "stage1RCStep6Name": "Crystallization",
-	  "stage1RCStep7Name": "Metamorphism"
-
+	  "stage1RCStep7Name": "Metamorphism",
+	  "stage1RCSedimentary": "Sedimentary Rock",
+	  "stage1RCMetamorphic": "Metamorphic Rock",
+	  "stage1RCIgneous": "Igneous Rock",
+	  "stage1RCCompaction": "Compaction",
+	  "stage1RCswitchMatter": "Matter",
+	  "stage1RCswitchEnergy": "Energy",
+	  "stage1RCswitchFriction": "Friction",
+	  "stage1RCswitchAirResistance": "AirResistance"
     },
     "es": {
         "newGame": "New Game",
@@ -168,6 +184,14 @@
 	  "stage1RCStep4Name": "Deposition",
 	  "stage1RCStep5Name": "Melting",
 	  "stage1RCStep6Name": "Crystallization",
-	  "stage1RCStep7Name": "Metamorphism"
+	  "stage1RCStep7Name": "Metamorphism",
+	  "stage1RCSedimentary": "Sedimentary Rock",
+	  "stage1RCMetamorphic": "Metamorphic Rock",
+	  "stage1RCIgneous": "Igneous Rock",
+	  "stage1RCCompaction": "Compaction",
+	  "stage1RCswitchMatter": "Matter",
+	  "stage1RCswitchEnergy": "Energy",
+	  "stage1RCswitchFriction": "Friction",
+	  "stage1RCswitchAirResistance": "AirResistance"
     }
 }

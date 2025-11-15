@@ -30,6 +30,8 @@ namespace Alpha.Phases.Geoquest
 
         public bool firstAnswerCorrect;
         public bool allAnswersCorrect;
+
+        public GameObject chests;
         private void Awake()
         {
             upliftButton.onClick.AddListener(UpliftCorrect);
@@ -59,6 +61,7 @@ namespace Alpha.Phases.Geoquest
                 textMan.positionChanged = true;
                 textMan.arrayPos = 31; // not 13 - change when text setup
                 allAnswersCorrect = true;
+                chests.gameObject.SetActive(false);
             }
         }
 

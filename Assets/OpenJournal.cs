@@ -50,25 +50,25 @@ namespace Alpha.Phases.Geoquest
         public void OpenJour()
         {
             journal.SetActive(true);
-            journalOpen = true;
+            journalOpen = !journalOpen;
         }
 
         public void CloseJour()
         {
             journal.SetActive(false);
-            journalOpen = false;
+            journalOpen = !journalOpen;
         }
 
         public void OpenMap()
         {
             map.SetActive(true);
-            mapOpen = true;
+            mapOpen = !mapOpen;
         }
 
         public void CloseMap()
         {
             map.SetActive(false);
-            mapOpen = false;
+            mapOpen = !mapOpen;
         }
     }
 }

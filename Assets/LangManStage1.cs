@@ -81,7 +81,29 @@ namespace Alpha.Phases.Geoquest
         public TextMeshProUGUI stepMeltingName4;
         public TextMeshProUGUI stepCrystallizationName4;
         public TextMeshProUGUI stepMetamorphismName4;
+        public TextMeshProUGUI stepUpliftName5;
+        public TextMeshProUGUI stepWeatheringName5;
+        public TextMeshProUGUI stepErosionName5;
+        public TextMeshProUGUI stepDepositionName5;
+        public TextMeshProUGUI stepMeltingName5;
+        public TextMeshProUGUI stepCrystallizationName5;
+        public TextMeshProUGUI stepMetamorphismName5;
 
+        public TextMeshProUGUI sedimentaryRock;
+        public TextMeshProUGUI metamorphicRock;
+        public TextMeshProUGUI igenousRock;
+
+        public TextMeshProUGUI sedimentaryRock2;
+        public TextMeshProUGUI metamorphicRock2;
+        public TextMeshProUGUI igenousRock2;
+
+        public TextMeshProUGUI compaction;
+        public TextMeshProUGUI compaction2;
+
+        public TextMeshProUGUI matter;
+        public TextMeshProUGUI energy;
+        public TextMeshProUGUI friction;
+        public TextMeshProUGUI airResist;
         private void Awake()
         {
             JSONNode defs = SharedState.LanguageDefs;
@@ -159,7 +181,29 @@ namespace Alpha.Phases.Geoquest
             stepMeltingName4.text = defs["stage1RCStep5Name"];
             stepCrystallizationName4.text = defs["stage1RCStep6Name"];
             stepMetamorphismName4.text = defs["stage1RCStep7Name"];
+            stepUpliftName5.text = defs["stage1RCStep1Name"];
+            stepWeatheringName5.text = defs["stage1RCStep2Name"];
+            stepErosionName5.text = defs["stage1RCStep3Name"];
+            stepDepositionName5.text = defs["stage1RCStep4Name"];
+            stepMeltingName5.text = defs["stage1RCStep5Name"];
+            stepCrystallizationName5.text = defs["stage1RCStep6Name"];
+            stepMetamorphismName5.text = defs["stage1RCStep7Name"];
 
+            sedimentaryRock.text = defs["stage1RCSedimentary"];
+            metamorphicRock.text = defs["stage1RCMetamorphic"];
+            igenousRock.text = defs["stage1RCIgneous"];
+
+            sedimentaryRock2.text = defs["stage1RCSedimentary"];
+            metamorphicRock2.text = defs["stage1RCMetamorphic"];
+            igenousRock2.text = defs["stage1RCIgneous"];
+
+            compaction.text = defs["stage1RCCompaction"];
+            compaction2.text = defs["stage1RCCompaction"];
+
+            matter.text = defs["stage1RCswitchMatter"];
+            energy.text = defs["stage1RCswitchEnergy"];
+            friction.text = defs["stage1RCswitchFriction"];
+            airResist.text = defs["stage1RCswitchAirResistance"];
         }
 
     }
