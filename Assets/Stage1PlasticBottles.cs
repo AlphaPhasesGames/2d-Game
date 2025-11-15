@@ -7,9 +7,11 @@ namespace Alpha.Phases.Geoquest
     {
         public TopDownPlayerController playerCont;
         public Stage1TextManager textMan;
+        public Stage1BottleManager bottleMan;
         public bool isInRange;
         public CircleCollider2D col;
         public bool textPlayed;
+        public AudioSource gemSFX;
         private void Update()
         {
             if (isInRange && Input.GetKeyDown(KeyCode.E))
@@ -40,7 +42,9 @@ namespace Alpha.Phases.Geoquest
         {
          
             Destroy(this.gameObject);
-
+            bottleMan.amountOfBottles++;
+            bottleMan.amountOfGems += 5;
+            gemSFX.Play();
             if (!textPlayed)
             {
                 textMan.positionChanged = true;

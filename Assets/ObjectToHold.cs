@@ -8,9 +8,13 @@ namespace Alpha.Phases.Geoquest
     {
         public TopDownPlayerController playerCont;
         public Stage1TextManager textMan;
+        public ArrowPointer arrow;
         public bool isInRange;
         public CircleCollider2D col;
         public bool textPlayed;
+        public GameObject wPArrow;
+        public GameObject rockOnMap;
+        public Transform nextObjective;
         private void Update()
         {
             if (isInRange && Input.GetKeyDown(KeyCode.E))
@@ -44,9 +48,10 @@ namespace Alpha.Phases.Geoquest
 
         public void PickUpObject()
         {
+            
             playerCont.IsHeld = true;
             playerCont.heldObject = this.transform;
-
+           
             // Optional: parent immediately if using parentToHoldPoint
             if (playerCont.parentToHoldPoint)
             {
@@ -56,6 +61,9 @@ namespace Alpha.Phases.Geoquest
             }
             if (!textPlayed)
             {
+                wPArrow.gameObject.SetActive(true);
+                arrow.SetTarget(nextObjective);
+                rockOnMap.gameObject.SetActive(false);
                 textMan.positionChanged = true;
                 textMan.arrayPos = 12;
                 textPlayed = true;

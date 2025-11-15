@@ -13,11 +13,11 @@ using UnityEngine.AI;
 namespace Alpha.Phases.Geoquest
 {
     [System.Serializable] // serialize this save data
-    public class DQWBSaveData
+    public class GQSaveData
     {
         [Header("StageProgress")] // header for the save location for the robot
         public int current_stage; // int to hold the level number
-
+        public int current_task;
     }
     public class MainGameManager : MonoBehaviour
     {
@@ -25,9 +25,9 @@ namespace Alpha.Phases.Geoquest
 
         #region global code
         [SerializeField, Header("Initial State Data")]
-        DQWBSaveData dqwbSaveData;
+        GQSaveData gqSaveData;
         public int currentStagedqwb;
-
+        public int currentTask;
         public bool runScriptOnce;
 
         [SerializeField] Button continueButton, newGameButton;
@@ -68,13 +68,13 @@ namespace Alpha.Phases.Geoquest
 #elif UNITY_WEBGL
 	    ILOLSDK sdk = new LoLSDK.WebGL();
 #endif
-            Helper.StateButtonInitialize<DQWBSaveData>(newGameButton, continueButton, OnLoad); // initialise LOLSDK helper function and attached both new game and continue buttons to it
+            Helper.StateButtonInitialize<GQSaveData>(newGameButton, continueButton, OnLoad); // initialise LOLSDK helper function and attached both new game and continue buttons to it
 
         }
 
         private void Update()
         {
-            dqwbSaveData.current_stage = currentStagedqwb;
+            gqSaveData.current_stage = currentStagedqwb;
 
         
                 Debug.Log("Is this running twice");
@@ -101,7 +101,7 @@ namespace Alpha.Phases.Geoquest
 
         public void Save()
         {
-            LOLSDK.Instance.SaveState(dqwbSaveData); // save data to cargoSaveData
+            LOLSDK.Instance.SaveState(gqSaveData); // save data to cargoSaveData
             Debug.Log("Game Saved");
         }
 
@@ -112,21 +112,22 @@ namespace Alpha.Phases.Geoquest
         /// </summary>
         /// <param name="loadedGardenData"></param>
 
-        void OnLoad(DQWBSaveData loadedGardenData)
+        void OnLoad(GQSaveData loadedGardenData)
         {
             JSONNode langs = SharedState.LanguageDefs;
             // Overrides serialized state data or continues with editor serialized values.
             if (loadedGardenData != null)
-                dqwbSaveData = loadedGardenData;
-            currentStagedqwb = dqwbSaveData.current_stage;
-
-            if (dqwbSaveData.current_stage == 1)
+                gqSaveData = loadedGardenData;
+            currentStagedqwb = gqSaveData.current_stage;
+           
+            if (gqSaveData.current_stage == 1)
             {
                 SceneManager.LoadScene("Stage1");
+                currentTask = gqSaveData.current_task;
                 Debug.Log("Loaded Stage 1 Scene 1 Save");
             }
 
-            if (dqwbSaveData.current_stage == 2)
+            if (gqSaveData.current_stage == 2)
             {
                 SceneManager.LoadScene("Stage2");
                 Debug.Log("Loaded Stage 1 Scene 2 Save");
@@ -144,7 +145,7 @@ namespace Alpha.Phases.Geoquest
         }
         void RemoveMainMenuUIContinue()
         {
-            currentStagedqwb = dqwbSaveData.current_stage;
+            currentStagedqwb = gqSaveData.current_stage;
           
           Debug.Log("Loaded Save");
         }
@@ -154,25 +155,30 @@ namespace Alpha.Phases.Geoquest
         public void SaveS1S1()
         {
             currentStagedqwb = 1;
-            dqwbSaveData.current_stage = currentStagedqwb;
+            gqSaveData.current_stage = currentStagedqwb;
+
             Save();
         }
 
         public void SaveS1S2()
         {
             currentStagedqwb = 2;
-            dqwbSaveData.current_stage = currentStagedqwb;
+            gqSaveData.current_stage = currentStagedqwb;
             Save();
         }
 
         public void SaveS1S3()
         {
             currentStagedqwb = 3;
-            dqwbSaveData.current_stage = currentStagedqwb;
+           gqSaveData.current_stage = currentStagedqwb;
             Save();
         }
 
-
+        public void SaveTaskS1()
+        {
+            gqSaveData.current_task = currentTask;
+            Save();
+        }
         #endregion          
     }
 }

@@ -1,3 +1,5 @@
+
+
 using System.Collections;
 using System;
 using UnityEngine;
@@ -24,7 +26,7 @@ namespace Alpha.Phases.Geoquest
         public GameObject[] modelArray;
         public GameObject textPanal;
 
-        public GameObject basaltDiag;
+       // public GameObject basaltDiag;
 
         public bool panalOpen;
         public bool runOnce;
@@ -36,6 +38,9 @@ namespace Alpha.Phases.Geoquest
 
         public Button[] textButtons;
         public bool[] textBools;
+
+        public GameObject diagram;
+        public GameObject switchParent;
         //public bool inventoryReadToBeOpen;
 
         private void Awake()
@@ -48,8 +53,11 @@ namespace Alpha.Phases.Geoquest
                 int index = i + 1;  // Adjust index to match textButton number
                 textButtons[i].onClick.AddListener(() => IntroTTSSpeak(index));
             }
-
-            StartCoroutine(StartStage1());
+            if(MainGameManager.Instance.currentTask < 1)
+            {
+                StartCoroutine(StartStage1());
+            }
+            
 
         }
 
@@ -118,6 +126,9 @@ namespace Alpha.Phases.Geoquest
                     backwardsButton.gameObject.SetActive(false);
                     positionChanged = true;
                     textPanal.gameObject.SetActive(true);
+
+                    MainGameManager.Instance.currentTask = 1;
+                    MainGameManager.Instance.SaveTaskS1();
                     StartCoroutine(DelayTextButton());
                     break;
                 case 6:
@@ -132,7 +143,6 @@ namespace Alpha.Phases.Geoquest
                     break;
                 case 10:
                     StartCoroutine(MoveToBlankInvislbePanalUnit17());
-                    forwardParent.gameObject.SetActive(false);
                     break;
                 case 11:
                     textPanal.gameObject.SetActive(true);
@@ -144,8 +154,8 @@ namespace Alpha.Phases.Geoquest
                     break;
                 case 13:
                     textPanal.gameObject.SetActive(true);
-                  //  basaltDiag.gameObject.SetActive(true);
-                  
+                    StartCoroutine(DelayTextButton());
+                    //  basaltDiag.gameObject.SetActive(true);
                     break;
                 case 14:
 
@@ -159,9 +169,113 @@ namespace Alpha.Phases.Geoquest
                 case 17:
                     StartCoroutine(MoveToBlankInvislbePanalUnit17());
                     break;
-                case 18:
+                case 18: // bottlescollected
+                    textPanal.gameObject.SetActive(true);
+                    StartCoroutine(MoveToBlankInvislbePanalUnit17());
+                    break;
+                case 19: // rock cycle steps - 
+                    textPanal.gameObject.SetActive(true);
+                    StartCoroutine(MoveToBlankInvislbePanalUnit17());
+                    break;
+                case 20:
+                    textPanal.gameObject.SetActive(true);
+                    StartCoroutine(MoveToBlankInvislbePanalUnit17());
+                    break;
+                case 21:
+                    textPanal.gameObject.SetActive(true);
+                    StartCoroutine(MoveToBlankInvislbePanalUnit17());
+                    break;
+                case 22:
+                    textPanal.gameObject.SetActive(true);
+                    StartCoroutine(MoveToBlankInvislbePanalUnit17());
+                    break;
+                case 23:
+                    textPanal.gameObject.SetActive(true);
+                    StartCoroutine(MoveToBlankInvislbePanalUnit17());
+                    break;
+                case 24:
+                    textPanal.gameObject.SetActive(true);
+                    StartCoroutine(MoveToBlankInvislbePanalUnit17());
+                    break;
+                case 25:
+                    textPanal.gameObject.SetActive(true);
+                    StartCoroutine(MoveToBlankInvislbePanalUnit17());
+                    break;
+                case 26: 
+                    textPanal.gameObject.SetActive(true);
+                    StartCoroutine(MoveToBlankInvislbePanalUnit17());
+                    break;
+                case 27:
+                    textPanal.gameObject.SetActive(true);
+                    StartCoroutine(MoveToBlankInvislbePanalUnit17());
+                    break;
+                case 28: // diagram text
+                    backwardsButton.gameObject.SetActive(false);
+                    textPanal.gameObject.SetActive(true);
+                    diagram.gameObject.SetActive(true);
+                   // StartCoroutine(MoveToBlankInvislbePanalUnit172());
+                    break;
+                case 29: // incorrect
+                    StartCoroutine(MoveToQuestion());
+                    textPanal.gameObject.SetActive(true);
+                    //StartCoroutine(MoveToBlankInvislbePanalUnit17());
+                    break;
+                case 30: // correct first
+                    textPanal.gameObject.SetActive(true);
+                    break;
+                case 31: // all correct
+                    StartCoroutine(DelayTextButton());
+                    textPanal.gameObject.SetActive(true);
+                    break;
+                case 32:
+                    diagram.gameObject.SetActive(false );
+                    MainGameManager.Instance.currentTask = 3;
+                    MainGameManager.Instance.SaveTaskS1();
+                    textPanal.gameObject.SetActive(true);
+                    break;
+                case 33:
+
+                    break;
+                case 34:
+
+                    break;
+                case 35:
+                    switchParent.gameObject.SetActive(true);
+                    StartCoroutine(MoveToBlankInvislbePanalUnit17());
+                    break;
+                case 36: // wrong
+                    textPanal.gameObject.SetActive(true);
+                    StartCoroutine(MoveToBlankInvislbePanalUnit17());
+                    break;
+                case 37:
+                    textPanal.gameObject.SetActive(true);
+                    break;
+                case 38:
+                    textPanal.gameObject.SetActive(true);
+                    break;
+                case 39:
+                    textPanal.gameObject.SetActive(true);
+                    break;
+                case 40:
+                    textPanal.gameObject.SetActive(true);
+                    break;
+                case 41:
+                    textPanal.gameObject.SetActive(true);
+                    StartCoroutine(MoveToBlankInvislbePanalUnit17());               
+                    break;
+                case 42:
+                    StartCoroutine(MoveToBlankInvislbePanalUnit17());
+                    textPanal.gameObject.SetActive(true);
+                    break;
+                case 43:
+                    textPanal.gameObject.SetActive(true);
+                    break;
+                case 44:
                     textPanal.gameObject.SetActive(false);
                     break;
+
+
+
 
             }
         }
@@ -184,7 +298,9 @@ namespace Alpha.Phases.Geoquest
                 forwardButton.gameObject.SetActive(false);
                
                 // Only run DelayTextButton if the next arrayPos is not 2
-                if (arrayPos != 4 && arrayPos != 10 && arrayPos != 12)
+                if (arrayPos != 4 && arrayPos != 10 && arrayPos != 11 && arrayPos != 12 && arrayPos != 17 && arrayPos != 18
+                    && arrayPos != 19 && arrayPos != 20 && arrayPos != 21 && arrayPos != 22 && arrayPos != 23 
+                    && arrayPos != 24 && arrayPos != 25 && arrayPos != 27 && arrayPos != 28 && arrayPos != 29 && arrayPos != 30 && arrayPos != 35 && arrayPos != 37 && arrayPos != 36 && arrayPos != 38 && arrayPos != 39 && arrayPos != 40)
                 {
                     StartCoroutine(DelayTextButton());
                 }
@@ -232,12 +348,35 @@ namespace Alpha.Phases.Geoquest
 
         }
 
+        public IEnumerator MoveToQuestion()
+        {
+
+            yield return new WaitForSeconds(3);
+            positionChanged = true;
+            ResetBools();
+            arrayPos = 28;
+            Debug.Log("This coRoutine Runs");
+
+        }
+
+     
+
         public IEnumerator MoveToBlankInvislbePanalUnit17()
         {
             yield return new WaitForSeconds(5);
             //playerMoveScript.enabled = true;
             textPanal.gameObject.SetActive(false);
-            arrayPos = 18;
+            arrayPos = 44;
+            Debug.Log("This start coRoutine Runs");
+
+        }
+
+        public IEnumerator MoveToBlankInvislbePanalUnit172()
+        {
+            yield return new WaitForSeconds(5);
+            //playerMoveScript.enabled = true;
+            textPanal.gameObject.SetActive(false);
+            arrayPos = 44;
             Debug.Log("This start coRoutine Runs");
 
         }

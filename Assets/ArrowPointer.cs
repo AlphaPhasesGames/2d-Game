@@ -5,7 +5,7 @@ namespace Alpha.Phases.Geoquest
 {
     public class ArrowPointer : MonoBehaviour
     {
-        public Transform target; // Assign the mission objective in Inspector
+        public Transform target; // Current target the arrow points to
 
         void Update()
         {
@@ -17,6 +17,12 @@ namespace Alpha.Phases.Geoquest
 
             // Apply rotation
             transform.rotation = Quaternion.Euler(0, 0, angle);
+        }
+
+
+        public void SetTarget(Transform newTarget)
+        {
+            target = newTarget;
         }
     }
 }
