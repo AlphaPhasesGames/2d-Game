@@ -7,6 +7,7 @@ namespace Alpha.Phases.Geoquest
     public class DiagramManager : MonoBehaviour
     {
         public Stage1TextManager textMan;
+        public Stage1BottleManager bMan;
 
         public GameObject upliftPlaced;
         public GameObject weatheringPlaced;
@@ -61,6 +62,8 @@ namespace Alpha.Phases.Geoquest
                 textMan.positionChanged = true;
                 textMan.arrayPos = 31; // not 13 - change when text setup
                 allAnswersCorrect = true;
+                MainGameManager.Instance.collectedGems = bMan.amountOfGems += 20;
+                MainGameManager.Instance.SaveTaskS1();
                 chests.gameObject.SetActive(false);
             }
         }

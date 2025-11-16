@@ -16,6 +16,7 @@ namespace Alpha.Phases.Geoquest
         public BoxCollider2D disableCollider;
         public bool runOnce;
         public SignManager sMan;
+        public GameObject switchOnMap;
         void Start()
         {
             sr = GetComponent<SpriteRenderer>();
@@ -63,6 +64,7 @@ namespace Alpha.Phases.Geoquest
 
         public void OpenChest()
         {
+            switchOnMap.gameObject.SetActive(false);
             sMan.amountOfSwitches += 1;
             runOnce = true;
             switchToHide.gameObject.SetActive(false);

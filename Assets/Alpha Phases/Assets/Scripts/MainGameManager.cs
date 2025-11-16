@@ -18,6 +18,7 @@ namespace Alpha.Phases.Geoquest
         [Header("StageProgress")] // header for the save location for the robot
         public int current_stage; // int to hold the level number
         public int current_task;
+        public int collected_gems;
     }
     public class MainGameManager : MonoBehaviour
     {
@@ -28,6 +29,8 @@ namespace Alpha.Phases.Geoquest
         GQSaveData gqSaveData;
         public int currentStagedqwb;
         public int currentTask;
+        public int collectedGems;
+
         public bool runScriptOnce;
 
         [SerializeField] Button continueButton, newGameButton;
@@ -119,11 +122,12 @@ namespace Alpha.Phases.Geoquest
             if (loadedGardenData != null)
                 gqSaveData = loadedGardenData;
             currentStagedqwb = gqSaveData.current_stage;
-           
+            collectedGems = gqSaveData.collected_gems;
             if (gqSaveData.current_stage == 1)
             {
                 SceneManager.LoadScene("Stage1");
                 currentTask = gqSaveData.current_task;
+                
                 Debug.Log("Loaded Stage 1 Scene 1 Save");
             }
 
@@ -146,7 +150,7 @@ namespace Alpha.Phases.Geoquest
         void RemoveMainMenuUIContinue()
         {
             currentStagedqwb = gqSaveData.current_stage;
-          
+            collectedGems = gqSaveData.collected_gems;
           Debug.Log("Loaded Save");
         }
 
@@ -156,7 +160,7 @@ namespace Alpha.Phases.Geoquest
         {
             currentStagedqwb = 1;
             gqSaveData.current_stage = currentStagedqwb;
-
+         
             Save();
         }
 
@@ -177,6 +181,7 @@ namespace Alpha.Phases.Geoquest
         public void SaveTaskS1()
         {
             gqSaveData.current_task = currentTask;
+            gqSaveData.collected_gems = collectedGems;
             Save();
         }
         #endregion          

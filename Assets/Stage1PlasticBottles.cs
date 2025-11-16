@@ -9,7 +9,7 @@ namespace Alpha.Phases.Geoquest
         public Stage1TextManager textMan;
         public Stage1BottleManager bottleMan;
         public bool isInRange;
-        public CircleCollider2D col;
+       // public CircleCollider2D col;
         public bool textPlayed;
         public AudioSource gemSFX;
         private void Update()
@@ -45,6 +45,8 @@ namespace Alpha.Phases.Geoquest
             bottleMan.amountOfBottles++;
             bottleMan.amountOfGems += 5;
             gemSFX.Play();
+            MainGameManager.Instance.collectedGems = bottleMan.amountOfGems += 5;
+            MainGameManager.Instance.SaveTaskS1();
             if (!textPlayed)
             {
                 textMan.positionChanged = true;

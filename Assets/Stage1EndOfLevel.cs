@@ -2,14 +2,22 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-public class Stage1EndOfLevel : MonoBehaviour
+using LoLSDK;
+namespace Alpha.Phases.Geoquest
 {
-    private void OnTriggerEnter2D(Collider2D collision)
+    public class Stage1EndOfLevel : MonoBehaviour
     {
-        if (collision.CompareTag("Player"))
+        public Stage1BottleManager bMan;
+        private void OnTriggerEnter2D(Collider2D collision)
         {
-            SceneManager.LoadScene("Stage 2");
+            if (collision.CompareTag("Player"))
+            {
+                LOLSDK.Instance.SubmitProgress(0, 30, 100);
+                MainGameManager.Instance.collectedGems = bMan.amountOfGems;
+                MainGameManager.Instance.SaveTaskS1();
+                SceneManager.LoadScene("Stage 2");
+            }
+
         }
-    
     }
 }

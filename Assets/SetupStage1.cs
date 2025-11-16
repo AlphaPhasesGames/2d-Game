@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 namespace Alpha.Phases.Geoquest
 {
@@ -20,12 +21,21 @@ namespace Alpha.Phases.Geoquest
         public GameObject chests;
         public GameObject chestsOnMap;
 
+        public GameObject switchesOnmap;
+        public GameObject switches;
+
         public CameraMan camera;
         public GameObject rockToShow;
         public GameObject journal;
         public GameObject player;
         public GameObject boat;
+        public TextMeshProUGUI amountOfGems;
 
+        public GameObject concept1Rock;
+        public GameObject concept2RegMeta;
+
+        public GameObject concept3Process;
+        public GameObject concept4GeoProcess;
 
         private void Awake()
         {
@@ -33,10 +43,12 @@ namespace Alpha.Phases.Geoquest
             {
                 MainGameManager.Instance.currentStagedqwb = 1;
                 MainGameManager.Instance.SaveS1S1();
-
+              
 
                 if (MainGameManager.Instance.currentTask == 1)
                 {
+                    concept1Rock.gameObject.SetActive(true);
+                    concept2RegMeta.gameObject.SetActive(true);
                     camera.MoveToPlayer();
                     bottles.gameObject.SetActive(true);
                     journal.gameObject.SetActive(false);
@@ -54,6 +66,10 @@ namespace Alpha.Phases.Geoquest
 
                 if (MainGameManager.Instance.currentTask == 2)
                 {
+                    concept1Rock.gameObject.SetActive(true);
+                    concept2RegMeta.gameObject.SetActive(true);
+                    concept3Process.gameObject.SetActive(true);
+                    amountOfGems.text = MainGameManager.Instance.collectedGems.ToString();
                     camera.MoveToPlayer();
                     player.gameObject.SetActive(true);
                     textMan.positionChanged = true;
@@ -67,14 +83,18 @@ namespace Alpha.Phases.Geoquest
 
                 if (MainGameManager.Instance.currentTask == 3)
                 {
+                    concept1Rock.gameObject.SetActive(true);
+                    concept2RegMeta.gameObject.SetActive(true);
+                    concept3Process.gameObject.SetActive(true);
+                    concept4GeoProcess.gameObject.SetActive(true);
                     camera.MoveToPlayer();
                     player.gameObject.SetActive(true);
                     textMan.positionChanged = true;
                     textMan.arrayPos = 32;
                     journal.gameObject.SetActive(false);
                     wPArrow.gameObject.SetActive(false);
-                    chests.gameObject.SetActive(false);
-                    chestsOnMap.gameObject.SetActive(false);
+                    //switches.gameObject.SetActive(false);
+                    switchesOnmap.gameObject.SetActive(true);
                     boat.gameObject.SetActive(false);
                 }
                 runonce = true;

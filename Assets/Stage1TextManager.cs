@@ -50,6 +50,16 @@ namespace Alpha.Phases.Geoquest
         public Button ttsButtonForPaper5;
         public Button ttsButtonForPaper6;
         public Button ttsButtonForPaper7;
+
+        public GameObject concept1Process;
+        public GameObject concept2GeoProcess;
+        public GameObject concept3Rock;
+        public GameObject concept4RegMeta;
+
+        public Button ttsButtonForConcept1Process;
+        public Button ttsButtonForConcept2GeoProcess;
+        public Button ttsButtonForConcept3Rock;
+        public Button ttsButtonForConcept4RegMeta;
         //public bool inventoryReadToBeOpen;
 
         private void Awake()
@@ -64,6 +74,11 @@ namespace Alpha.Phases.Geoquest
             ttsButtonForPaper5.onClick.AddListener(SpeakPaper5);
             ttsButtonForPaper6.onClick.AddListener(SpeakPaper6);
             ttsButtonForPaper7.onClick.AddListener(SpeakPaper7);
+
+            ttsButtonForConcept1Process.onClick.AddListener(SpeakJournal1Process);
+            ttsButtonForConcept2GeoProcess.onClick.AddListener(SpeakJournal2GeoProcess);
+            ttsButtonForConcept3Rock.onClick.AddListener(SpeakJournal3Rock);
+            ttsButtonForConcept4RegMeta.onClick.AddListener(SpeakJournal4RegMeta);
 
             for (int i = 0; i < textButtons.Length; i++)
             {
@@ -143,7 +158,9 @@ namespace Alpha.Phases.Geoquest
                     backwardsButton.gameObject.SetActive(false);
                     positionChanged = true;
                     textPanal.gameObject.SetActive(true);
-
+                    LOLSDK.Instance.SubmitProgress(0, 10, 100);
+                    concept3Rock.gameObject.SetActive(true);
+                    concept4RegMeta.gameObject.SetActive(true);
                     MainGameManager.Instance.currentTask = 1;
                     MainGameManager.Instance.SaveTaskS1();
                     StartCoroutine(DelayTextButton());
@@ -184,7 +201,7 @@ namespace Alpha.Phases.Geoquest
                     StartCoroutine(DelayTextButton());
                     break;
                 case 16:
-
+                    concept1Process.gameObject.SetActive(true);
                     break;
                 case 17:
                     StartCoroutine(MoveToBlankInvislbePanalUnit17());
@@ -239,6 +256,7 @@ namespace Alpha.Phases.Geoquest
                     StartCoroutine(MoveToBlankInvislbePanalUnit17());
                     break;
                 case 28: // diagram text
+                    concept2GeoProcess.gameObject.SetActive(true);
                     backwardsButton.gameObject.SetActive(false);
                     textPanal.gameObject.SetActive(true);
                     diagram.gameObject.SetActive(true);
@@ -259,6 +277,8 @@ namespace Alpha.Phases.Geoquest
                 case 32:
                     backwardsButton.gameObject.SetActive(true);
                     diagram.gameObject.SetActive(false );
+                   
+                    LOLSDK.Instance.SubmitProgress(0, 20, 100);
                     MainGameManager.Instance.currentTask = 3;
                     MainGameManager.Instance.SaveTaskS1();
                     textPanal.gameObject.SetActive(true);
@@ -401,6 +421,26 @@ namespace Alpha.Phases.Geoquest
             LOLSDK.Instance.SpeakText("stage1RCStep7");
         }
 
+        public void SpeakJournal1Process()
+        {
+            LOLSDK.Instance.SpeakText("concept1Process");
+        }
+
+        public void SpeakJournal2GeoProcess()
+        {
+            LOLSDK.Instance.SpeakText("concept2GeoProcess");
+        }
+
+        public void SpeakJournal3Rock()
+        {
+            LOLSDK.Instance.SpeakText("concept3Rock");
+        }
+
+        public void SpeakJournal4RegMeta()
+        {
+            LOLSDK.Instance.SpeakText("concept4RegionalMeta");
+        }
+
         public void ResetBools()
         {
             Array.Fill(textBools, false);
@@ -455,7 +495,7 @@ namespace Alpha.Phases.Geoquest
             yield return new WaitForSeconds(4);
 
             textPanal.gameObject.SetActive(true);
-
+            LOLSDK.Instance.SubmitProgress(0, 0, 100);
             arrayPos = 0;
             positionChanged = true;      // <-- ensure Update processes arrayPos 0
                                          // textBools[0] = true;      // <-- remove this so case 0 will run

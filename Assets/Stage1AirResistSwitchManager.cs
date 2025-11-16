@@ -15,7 +15,7 @@ namespace Alpha.Phases.Geoquest
         public GameObject switchToHide;
         public BoxCollider2D disableCollider;
         public bool runOnce;
-
+        public GameObject switchOnMap;
         void Start()
         {
             sr = GetComponent<SpriteRenderer>();
@@ -63,10 +63,11 @@ namespace Alpha.Phases.Geoquest
 
         public void OpenChest()
         {
+            switchOnMap.gameObject.SetActive(false);
             runOnce = true;
             switchToHide.gameObject.SetActive(false);
             switchPaper.gameObject.SetActive(false);
-            gemMan.amountOfGems += 10;
+            gemMan.amountOfGems -= 10;
             textMan.ResetBools();
             inRange = false;
             textMan.positionChanged = true;

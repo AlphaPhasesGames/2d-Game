@@ -12,18 +12,25 @@ namespace Alpha.Phases.Geoquest
         public int amountOfGems;
         public TextMeshProUGUI onScreenGemValue;
         public Stage1TextManager textMan;
+        
         public bool bottlesCollected;
         public AudioSource gemSFX;
+
+        private void Awake()
+        {
+            amountOfGems = MainGameManager.Instance.collectedGems;
+        }
 
         private void Update()
         {
             onScreenGemValue.text = amountOfGems.ToString();
-            if(!bottlesCollected && amountOfBottles >= 5)
+            if (!bottlesCollected && amountOfBottles >= 5)
             {
                 textMan.positionChanged = true;
                 textMan.arrayPos = 18;
                 bottlesCollected = true;
-                amountOfGems += 20;
+                MainGameManager.Instance.collectedGems = amountOfGems += 20;
+                MainGameManager.Instance.SaveTaskS1();
                 gemSFX.Play();
             }
         }

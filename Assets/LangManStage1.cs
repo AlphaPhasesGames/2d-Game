@@ -104,6 +104,13 @@ namespace Alpha.Phases.Geoquest
         public TextMeshProUGUI energy;
         public TextMeshProUGUI friction;
         public TextMeshProUGUI airResist;
+
+        public TextMeshProUGUI evapLabel;
+
+        public TextMeshProUGUI concept1Process;
+        public TextMeshProUGUI concept2GeoProcess;
+        public TextMeshProUGUI concept3Rock;
+        public TextMeshProUGUI concept4RegMeta;
         private void Awake()
         {
             JSONNode defs = SharedState.LanguageDefs;
@@ -204,7 +211,17 @@ namespace Alpha.Phases.Geoquest
             energy.text = defs["stage1RCswitchEnergy"];
             friction.text = defs["stage1RCswitchFriction"];
             airResist.text = defs["stage1RCswitchAirResistance"];
-        }
+
+            evapLabel.text = defs["stage1RCEvaporation"];
+
+
+
+            concept1Process.text = defs["concept1Process"];
+            concept2GeoProcess.text = defs["concept2GeoProcess"];
+
+            concept3Rock.text = defs["concept3Rock"];
+            concept4RegMeta.text = defs["concept4RegionalMeta"];
+    }
 
     }
 }
