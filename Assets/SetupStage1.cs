@@ -37,6 +37,11 @@ namespace Alpha.Phases.Geoquest
         public GameObject concept3Process;
         public GameObject concept4GeoProcess;
 
+        public GameObject taskPanal;
+        public GameObject task1;
+        public GameObject task2;
+        public GameObject task3;
+
         private void Awake()
         {
             if (!runonce)
@@ -47,6 +52,8 @@ namespace Alpha.Phases.Geoquest
 
                 if (MainGameManager.Instance.currentTask == 1)
                 {
+                    taskPanal.gameObject.SetActive(true);
+                    task1.gameObject.SetActive(true);
                     concept1Rock.gameObject.SetActive(true);
                     concept2RegMeta.gameObject.SetActive(true);
                     camera.MoveToPlayer();
@@ -66,6 +73,8 @@ namespace Alpha.Phases.Geoquest
 
                 if (MainGameManager.Instance.currentTask == 2)
                 {
+                    taskPanal.gameObject.SetActive(true);
+                    task2.gameObject.SetActive(true);
                     concept1Rock.gameObject.SetActive(true);
                     concept2RegMeta.gameObject.SetActive(true);
                     concept3Process.gameObject.SetActive(true);
@@ -83,6 +92,8 @@ namespace Alpha.Phases.Geoquest
 
                 if (MainGameManager.Instance.currentTask == 3)
                 {
+                    taskPanal.gameObject.SetActive(true);
+                    task3.gameObject.SetActive(true);
                     concept1Rock.gameObject.SetActive(true);
                     concept2RegMeta.gameObject.SetActive(true);
                     concept3Process.gameObject.SetActive(true);
@@ -100,11 +111,6 @@ namespace Alpha.Phases.Geoquest
                 runonce = true;
             }
 
-            // public IEnumerator RemoveFlash()
-            // {
-            //      yield return new WaitForSeconds(1);
-            //      whiteFlashOut.gameObject.SetActive(false);
-            //   }
         }
     }
 }

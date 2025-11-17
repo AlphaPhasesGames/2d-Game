@@ -111,6 +111,10 @@ namespace Alpha.Phases.Geoquest
         public TextMeshProUGUI concept2GeoProcess;
         public TextMeshProUGUI concept3Rock;
         public TextMeshProUGUI concept4RegMeta;
+
+        public TextMeshProUGUI task1;
+        public TextMeshProUGUI task2;
+        public TextMeshProUGUI task3;
         private void Awake()
         {
             JSONNode defs = SharedState.LanguageDefs;
@@ -221,6 +225,10 @@ namespace Alpha.Phases.Geoquest
 
             concept3Rock.text = defs["concept3Rock"];
             concept4RegMeta.text = defs["concept4RegionalMeta"];
+
+            task1.text = defs["stage1Task1"];
+            task2.text = defs["stage1Task2"];
+            task3.text = defs["stage1Task3"];
     }
 
     }

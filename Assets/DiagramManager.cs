@@ -33,6 +33,7 @@ namespace Alpha.Phases.Geoquest
         public bool allAnswersCorrect;
 
         public GameObject chests;
+        public GameObject switches;
         private void Awake()
         {
             upliftButton.onClick.AddListener(UpliftCorrect);
@@ -65,6 +66,7 @@ namespace Alpha.Phases.Geoquest
                 MainGameManager.Instance.collectedGems = bMan.amountOfGems += 20;
                 MainGameManager.Instance.SaveTaskS1();
                 chests.gameObject.SetActive(false);
+                switches.gameObject.SetActive(true);
             }
         }
 

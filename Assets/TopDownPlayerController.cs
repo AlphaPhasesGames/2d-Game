@@ -7,7 +7,7 @@ namespace Alpha.Phases.Geoquest
     public class TopDownPlayerController : MonoBehaviour
     {
         [Header("Movement")]
-        public float moveSpeed = 5f;
+        public float moveSpeed;// = 5f;
 
         [Header("References - Animators")]
         public Animator animatorDown;

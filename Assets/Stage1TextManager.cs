@@ -10,9 +10,7 @@ namespace Alpha.Phases.Geoquest
 {
     public class Stage1TextManager : MonoBehaviour
     {
-        // public PatternQuestMain main;
-        //  public PlayerMovement playerMoveScript;
-        //  public Stage1LetterManager s1LetterMan;
+        public TopDownPlayerController playerCont;
         public bool hasScrolled;
         public GameObject currentTextSection;
         public int arrayPos;
@@ -25,8 +23,7 @@ namespace Alpha.Phases.Geoquest
 
         public GameObject[] modelArray;
         public GameObject textPanal;
-
-       // public GameObject basaltDiag;
+        public ArrowPointer arrow;
 
         public bool panalOpen;
         public bool runOnce;
@@ -60,6 +57,11 @@ namespace Alpha.Phases.Geoquest
         public Button ttsButtonForConcept2GeoProcess;
         public Button ttsButtonForConcept3Rock;
         public Button ttsButtonForConcept4RegMeta;
+
+        public GameObject taskPanal;
+        public GameObject task1;
+        public GameObject task2;
+        public GameObject task3;
         //public bool inventoryReadToBeOpen;
 
         private void Awake()
@@ -151,10 +153,12 @@ namespace Alpha.Phases.Geoquest
                 case 3:
                     break;
                 case 4:
+                    playerCont.moveSpeed = 5;
                     StartCoroutine(MoveToBlankInvislbePanalUnit17());
                    
                     break;
                 case 5:
+                    playerCont.moveSpeed = 0;
                     backwardsButton.gameObject.SetActive(false);
                     positionChanged = true;
                     textPanal.gameObject.SetActive(true);
@@ -169,6 +173,8 @@ namespace Alpha.Phases.Geoquest
                     backwardsButton.gameObject.SetActive(true);
                     break;
                 case 7:
+                    taskPanal.gameObject.SetActive(true);
+                    task1.gameObject.SetActive(true);
                     break;
                 case 8:
                  
@@ -177,6 +183,7 @@ namespace Alpha.Phases.Geoquest
                    
                     break;
                 case 10:
+                    playerCont.moveSpeed = 5;
                     StartCoroutine(MoveToBlankInvislbePanalUnit17());
                     break;
                 case 11:
@@ -189,6 +196,7 @@ namespace Alpha.Phases.Geoquest
                     StartCoroutine(MoveToBlankInvislbePanalUnit17());
                     break;
                 case 13:
+                    playerCont.moveSpeed = 0;
                     backwardsButton.gameObject.SetActive(false);
                     textPanal.gameObject.SetActive(true);
                     StartCoroutine(DelayTextButton());
@@ -198,12 +206,16 @@ namespace Alpha.Phases.Geoquest
                     backwardsButton.gameObject.SetActive(true);
                     break;
                 case 15:
+                    task1.gameObject.SetActive(false);
                     StartCoroutine(DelayTextButton());
                     break;
                 case 16:
+                   
+                    task2.gameObject.SetActive(true);
                     concept1Process.gameObject.SetActive(true);
                     break;
                 case 17:
+                    playerCont.moveSpeed = 5;
                     StartCoroutine(MoveToBlankInvislbePanalUnit17());
                     break;
                 case 18: // bottlescollected
@@ -241,6 +253,7 @@ namespace Alpha.Phases.Geoquest
                     StartCoroutine(MoveToBlankInvislbePanalUnit17());
                     break;
                 case 25:
+
                     backwardsButton.gameObject.SetActive(false);
                     textPanal.gameObject.SetActive(true);
                     StartCoroutine(MoveToBlankInvislbePanalUnit17());
@@ -251,11 +264,14 @@ namespace Alpha.Phases.Geoquest
                     StartCoroutine(MoveToBlankInvislbePanalUnit17());
                     break;
                 case 27:
+                    taskPanal.gameObject.SetActive(false);
+                    task2.gameObject.SetActive(false);
                     backwardsButton.gameObject.SetActive(false);
                     textPanal.gameObject.SetActive(true);
                     StartCoroutine(MoveToBlankInvislbePanalUnit17());
                     break;
                 case 28: // diagram text
+                    playerCont.moveSpeed = 0;
                     concept2GeoProcess.gameObject.SetActive(true);
                     backwardsButton.gameObject.SetActive(false);
                     textPanal.gameObject.SetActive(true);
@@ -276,8 +292,10 @@ namespace Alpha.Phases.Geoquest
                     break;
                 case 32:
                     backwardsButton.gameObject.SetActive(true);
+                    arrow.gameObject.SetActive(false);
                     diagram.gameObject.SetActive(false );
-                   
+                    taskPanal.gameObject.SetActive(true);
+                    task3.gameObject.SetActive(true);
                     LOLSDK.Instance.SubmitProgress(0, 20, 100);
                     MainGameManager.Instance.currentTask = 3;
                     MainGameManager.Instance.SaveTaskS1();
@@ -291,6 +309,8 @@ namespace Alpha.Phases.Geoquest
                     break;
                 case 35:
                     switchParent.gameObject.SetActive(true);
+                    
+                    playerCont.moveSpeed = 5;
                     StartCoroutine(MoveToBlankInvislbePanalUnit17());
                     break;
                 case 36: // wrong

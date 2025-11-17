@@ -8,14 +8,20 @@ namespace Alpha.Phases.Geoquest
         public int amountOfSwitches;
         public Stage1TextManager textMan;
         public Animator moveRock;
+        public bool runOnce;
         private void Update()
         {
-            if(amountOfSwitches >= 2)
+            if (!runOnce) 
             {
-                moveRock.SetBool("moveRock", true);
-                textMan.positionChanged = true;
-                textMan.arrayPos = 43;
+                if (amountOfSwitches >= 2)
+                {
+                    moveRock.SetBool("moveRock", true);
+                    textMan.positionChanged = true;
+                    textMan.arrayPos = 43;
+                    runOnce = true;
+                }
             }
+           
         }
     }
 }
