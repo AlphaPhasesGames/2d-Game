@@ -153,7 +153,7 @@ namespace Alpha.Phases.Geoquest
                 case 3:
                     break;
                 case 4:
-                    playerCont.moveSpeed = 5;
+                  
                     StartCoroutine(MoveToBlankInvislbePanalUnit17());
                    
                     break;
@@ -183,15 +183,17 @@ namespace Alpha.Phases.Geoquest
                    
                     break;
                 case 10:
-                    playerCont.moveSpeed = 5;
+               
                     StartCoroutine(MoveToBlankInvislbePanalUnit17());
                     break;
                 case 11:
+                    playerCont.moveSpeed = 0;
                     backwardsButton.gameObject.SetActive(false);
                     textPanal.gameObject.SetActive(true);
                     StartCoroutine(MoveToBlankInvislbePanalUnit17());
                     break;
                 case 12:
+                    playerCont.moveSpeed = 0;
                     textPanal.gameObject.SetActive(true);
                     StartCoroutine(MoveToBlankInvislbePanalUnit17());
                     break;
@@ -215,55 +217,64 @@ namespace Alpha.Phases.Geoquest
                     concept1Process.gameObject.SetActive(true);
                     break;
                 case 17:
-                    playerCont.moveSpeed = 5;
+                 
                     StartCoroutine(MoveToBlankInvislbePanalUnit17());
                     break;
                 case 18: // bottlescollected
+                    playerCont.moveSpeed = 0;
                     textPanal.gameObject.SetActive(true);
                     StartCoroutine(MoveToBlankInvislbePanalUnit17());
                     break;
-                case 19: // rock cycle steps - 
+                case 19: // rock cycle steps -
+                    playerCont.moveSpeed = 0;
                     backwardsButton.gameObject.SetActive(false);
                     textPanal.gameObject.SetActive(true);
                     StartCoroutine(MoveToBlankInvislbePanalUnit17());
                     break;
                 case 20:
+                    playerCont.moveSpeed = 0;
                     backwardsButton.gameObject.SetActive(false);
                     textPanal.gameObject.SetActive(true);
                     StartCoroutine(MoveToBlankInvislbePanalUnit17());
                     break;
                 case 21:
+                    playerCont.moveSpeed = 0;
                     backwardsButton.gameObject.SetActive(false);
                     textPanal.gameObject.SetActive(true);
                     StartCoroutine(MoveToBlankInvislbePanalUnit17());
                     break;
                 case 22:
+                    playerCont.moveSpeed = 0;
                     backwardsButton.gameObject.SetActive(false);
                     textPanal.gameObject.SetActive(true);
                     StartCoroutine(MoveToBlankInvislbePanalUnit17());
                     break;
                 case 23:
+                    playerCont.moveSpeed = 0;
                     backwardsButton.gameObject.SetActive(false);
                     textPanal.gameObject.SetActive(true);
                     StartCoroutine(MoveToBlankInvislbePanalUnit17());
                     break;
                 case 24:
+                    playerCont.moveSpeed = 0;
                     backwardsButton.gameObject.SetActive(false);
                     textPanal.gameObject.SetActive(true);
                     StartCoroutine(MoveToBlankInvislbePanalUnit17());
                     break;
                 case 25:
-
+                    playerCont.moveSpeed = 0;
                     backwardsButton.gameObject.SetActive(false);
                     textPanal.gameObject.SetActive(true);
                     StartCoroutine(MoveToBlankInvislbePanalUnit17());
                     break;
                 case 26:
+                    playerCont.moveSpeed = 0;
                     backwardsButton.gameObject.SetActive(false);
                     textPanal.gameObject.SetActive(true);
                     StartCoroutine(MoveToBlankInvislbePanalUnit17());
                     break;
                 case 27:
+                    playerCont.moveSpeed = 0;
                     taskPanal.gameObject.SetActive(false);
                     task2.gameObject.SetActive(false);
                     backwardsButton.gameObject.SetActive(false);
@@ -310,7 +321,7 @@ namespace Alpha.Phases.Geoquest
                 case 35:
                     switchParent.gameObject.SetActive(true);
                     
-                    playerCont.moveSpeed = 5;
+            
                     StartCoroutine(MoveToBlankInvislbePanalUnit17());
                     break;
                 case 36: // wrong
@@ -318,22 +329,33 @@ namespace Alpha.Phases.Geoquest
                     StartCoroutine(MoveToBlankInvislbePanalUnit17());
                     break;
                 case 37:
+                    backwardsButton.gameObject.SetActive(false);
                     textPanal.gameObject.SetActive(true);
                     break;
                 case 38:
+                    backwardsButton.gameObject.SetActive(false);
+
                     textPanal.gameObject.SetActive(true);
                     break;
                 case 39:
+                    backwardsButton.gameObject.SetActive(false);
+
                     textPanal.gameObject.SetActive(true);
                     break;
                 case 40:
+                    backwardsButton.gameObject.SetActive(false);
+
                     textPanal.gameObject.SetActive(true);
                     break;
                 case 41:
+                    backwardsButton.gameObject.SetActive(false);
+
                     textPanal.gameObject.SetActive(true);
                     StartCoroutine(MoveToBlankInvislbePanalUnit17());               
                     break;
                 case 42:
+                    backwardsButton.gameObject.SetActive(false);
+
                     StartCoroutine(MoveToBlankInvislbePanalUnit17());
                     textPanal.gameObject.SetActive(true);
                     break;
@@ -472,6 +494,7 @@ namespace Alpha.Phases.Geoquest
             yield return new WaitForSeconds(5);
             forwardParent.gameObject.SetActive(true);
             forwardButton.gameObject.SetActive(true);
+
             Debug.Log("This coRoutine Runs");
 
         }
@@ -495,6 +518,7 @@ namespace Alpha.Phases.Geoquest
             //playerMoveScript.enabled = true;
             textPanal.gameObject.SetActive(false);
             arrayPos = 44;
+            playerCont.moveSpeed = 5;
             Debug.Log("This start coRoutine Runs");
 
         }
@@ -505,6 +529,7 @@ namespace Alpha.Phases.Geoquest
             //playerMoveScript.enabled = true;
             textPanal.gameObject.SetActive(false);
             arrayPos = 44;
+            playerCont.moveSpeed = 5;
             Debug.Log("This start coRoutine Runs");
 
         }

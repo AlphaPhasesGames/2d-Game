@@ -77,10 +77,10 @@ namespace Alpha.Phases.Geoquest
 
         private void Update()
         {
-            gqSaveData.current_stage = currentStagedqwb;
+          //  gqSaveData.current_stage = currentStagedqwb;
 
         
-                Debug.Log("Is this running twice");
+              
 
 
 
@@ -133,7 +133,7 @@ namespace Alpha.Phases.Geoquest
 
             if (gqSaveData.current_stage == 2)
             {
-                SceneManager.LoadScene("Stage2");
+                SceneManager.LoadScene("Stage 2");
                 Debug.Log("Loaded Stage 1 Scene 2 Save");
             }
 
