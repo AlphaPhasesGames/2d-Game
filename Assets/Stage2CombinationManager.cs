@@ -7,6 +7,9 @@ namespace Alpha.Phases.Geoquest
     public class Stage2CombinationManager : MonoBehaviour
     {
 
+        public Stage2TextManager textMan;
+        public int amountOfCorrectGuesses;
+
         public Button clayButton;
 
         public Button clayButtonPlaced1;
@@ -24,6 +27,30 @@ namespace Alpha.Phases.Geoquest
         public GameObject micaPlaced2;
         public bool micaIsPlaced;
 
+        public Button calciteButton;
+
+        public Button calciteButtonPlaced1;
+        public GameObject calcitePlaced1;
+        public Button calciteButtonPlaced2;
+        public GameObject calcitePlaced2;
+        public bool calciteIsPlaced;
+
+
+        public Button quartzButton;
+
+        public Button quartzButtonPlaced1;
+        public GameObject quartzPlaced1;
+        public Button quartzButtonPlaced2;
+        public GameObject quartzPlaced2;
+        public bool quartzIsPlaced;
+
+        public Button feldsparButton;
+
+        public Button feldsparButtonPlaced1;
+        public GameObject feldsparPlaced1;
+        public Button feldsparButtonPlaced2;
+        public GameObject feldsparPlaced2;
+        public bool feldsparIsPlaced;
 
         public bool amountOFCorrectAnswers;
         public bool boxOneFilled;
@@ -32,6 +59,16 @@ namespace Alpha.Phases.Geoquest
         public GameObject slate;
         public bool slatePlaced;
 
+        public GameObject limeStone;
+        public bool limeStonePlaced;
+
+        public GameObject graniteStone;
+        public bool granitePlaced;
+
+        public Button metaCombineButton;
+        public Button igneousCombineButton;
+        public Button sedimentaryCombineButton;
+        public Button invalidCombineButton;
 
         private void Awake()
         {
@@ -42,25 +79,24 @@ namespace Alpha.Phases.Geoquest
             micaButton.onClick.AddListener(PlaceMica);
             micaButtonPlaced1.onClick.AddListener(RemoveMicaFromBox1);
             micaButtonPlaced2.onClick.AddListener(RemoveMicaFromBox2);
+
+            calciteButton.onClick.AddListener(PlaceCalcite);
+            calciteButtonPlaced1.onClick.AddListener(RemoveCalciteFromBox1);
+            calciteButtonPlaced2.onClick.AddListener(RemoveCalciteFromBox2);
+
+            quartzButton.onClick.AddListener(PlaceQuartz);
+            quartzButtonPlaced1.onClick.AddListener(RemoveQuartzFromBox1);
+            quartzButtonPlaced2.onClick.AddListener(RemoveQuartzFromBox2);
+
+            feldsparButton.onClick.AddListener(PlaceFeldspar);
+            feldsparButtonPlaced1.onClick.AddListener(RemoveFeldsparFromBox1);
+            feldsparButtonPlaced2.onClick.AddListener(RemoveFeldsparFromBox2);
+
+            metaCombineButton.onClick.AddListener(AcceptMetaComb);
+            igneousCombineButton.onClick.AddListener(AcceptIgenousComb);
+            sedimentaryCombineButton.onClick.AddListener(AcceptSedimentaryComb);
+            invalidCombineButton.onClick.AddListener(AcceptInvalidComb);
         }
-
-        private void Update()
-        {
-            if (micaIsPlaced && clayIsPlaced)
-            {
-                slatePlaced = true;
-                slate.gameObject.SetActive(true);
-
-            }
-
-            else
-            {
-                slatePlaced = false;
-                slate.gameObject.SetActive(false);
-            }
-        }
-
-
 
         public void PlaceClay()
         {
@@ -82,27 +118,10 @@ namespace Alpha.Phases.Geoquest
                 }
 
             }
-          
+
+            ShowFinalRock();
         }
-        /*
-        public void RemoveClay()
-        {
-            if (clayIsPlaced && boxOneFilled)
-            {
-                clayButton.gameObject.SetActive(true);
-                clayPlaced1.gameObject.SetActive(false);
-                clayIsPlaced = false;
-                boxOneFilled = false;
-            }
-            if (clayIsPlaced && boxTwoFilled)
-            {
-                clayButton.gameObject.SetActive(true);
-                clayPlaced2.gameObject.SetActive(false);
-                clayIsPlaced = false;
-                boxTwoFilled = false;
-            }
-        }
-        */
+
 
 
         public void RemoveClayFromBox1()
@@ -111,6 +130,7 @@ namespace Alpha.Phases.Geoquest
             clayButton.gameObject.SetActive(true);
             boxOneFilled = false;
             clayIsPlaced = false; // still true if clay in box2
+            ShowFinalRock();
         }
 
         public void RemoveClayFromBox2()
@@ -119,6 +139,7 @@ namespace Alpha.Phases.Geoquest
             clayButton.gameObject.SetActive(true);
             boxTwoFilled = false;
             clayIsPlaced = false; // still true if clay in box1
+            ShowFinalRock();
         }
 
 
@@ -143,6 +164,7 @@ namespace Alpha.Phases.Geoquest
                 }
 
             }
+            ShowFinalRock();
 
         }
 
@@ -153,6 +175,7 @@ namespace Alpha.Phases.Geoquest
             micaButton.gameObject.SetActive(true);
             boxOneFilled = false;
             micaIsPlaced = false; // still true if clay in box2
+            ShowFinalRock();
         }
 
         public void RemoveMicaFromBox2()
@@ -161,32 +184,236 @@ namespace Alpha.Phases.Geoquest
             micaButton.gameObject.SetActive(true);
             boxTwoFilled = false;
             micaIsPlaced = false; // still true if clay in box1
+            ShowFinalRock();
         }
 
-
-        /*
-        public void RemoveMica()
+        public void PlaceCalcite()
         {
-            if (micaIsPlaced && boxOneFilled)
+            if (!calciteIsPlaced)
             {
-                micaButton.gameObject.SetActive(true);
-              //  micaPlaced1.gameObject.SetActive(false);
-                micaIsPlaced = false;
-                boxOneFilled = false;
+                if (!boxOneFilled)
+                {
+                    calciteButton.gameObject.SetActive(false);
+                    calcitePlaced1.gameObject.SetActive(true);
+                    calciteIsPlaced = true;
+                    boxOneFilled = true;
+                }
+                else if (boxOneFilled)
+                {
+                    calciteButton.gameObject.SetActive(false);
+                    calcitePlaced2.gameObject.SetActive(true);
+                    calciteIsPlaced = true;
+                    boxTwoFilled = true;
+
+                }
+
             }
-           if (micaIsPlaced && boxTwoFilled)
-            {
-                micaButton.gameObject.SetActive(true);
-              //  micaPlaced2.gameObject.SetActive(false);
-                micaIsPlaced = false;
-                boxTwoFilled = false;
-            }
+
+            ShowFinalRock();
         }
-        */
+
+
+        public void RemoveCalciteFromBox1()
+        {
+            calcitePlaced1.gameObject.SetActive(false);
+            calciteButton.gameObject.SetActive(true);
+            boxOneFilled = false;
+            calciteIsPlaced = false; // still true if clay in box2
+            ShowFinalRock();
+        }
+
+        public void RemoveCalciteFromBox2()
+        {
+            calcitePlaced2.gameObject.SetActive(false);
+            calciteButton.gameObject.SetActive(true);
+            boxTwoFilled = false;
+            calciteIsPlaced = false; // still true if clay in box1
+            ShowFinalRock();
+        }
+
+        public void PlaceQuartz()
+        {
+            if (!quartzIsPlaced)
+            {
+                if (!boxOneFilled)
+                {
+                    quartzButton.gameObject.SetActive(false);
+                    quartzPlaced1.gameObject.SetActive(true);
+                    quartzIsPlaced = true;
+                    boxOneFilled = true;
+                }
+                else if (boxOneFilled)
+                {
+                    quartzButton.gameObject.SetActive(false);
+                    quartzPlaced2.gameObject.SetActive(true);
+                    quartzIsPlaced = true;
+                    boxTwoFilled = true;
+                }
+
+                ShowFinalRock();
+            }
+
+        }
+
+
+        public void RemoveQuartzFromBox1()
+        {
+            quartzPlaced1.gameObject.SetActive(false);
+            quartzButton.gameObject.SetActive(true);
+            boxOneFilled = false;
+            quartzIsPlaced = false; // still true if clay in box2
+            ShowFinalRock();
+        }
+
+        public void RemoveQuartzFromBox2()
+        {
+            quartzPlaced2.gameObject.SetActive(false);
+            quartzButton.gameObject.SetActive(true);
+            boxTwoFilled = false;
+            quartzIsPlaced = false; // still true if clay in box1
+            ShowFinalRock();
+        }
+
+        public void PlaceFeldspar()
+        {
+            if (!feldsparIsPlaced)
+            {
+                if (!boxOneFilled)
+                {
+                    feldsparButton.gameObject.SetActive(false);
+                    feldsparPlaced1.gameObject.SetActive(true);
+                    feldsparIsPlaced = true;
+                    boxOneFilled = true;
+                }
+                else if (boxOneFilled)
+                {
+                    feldsparButton.gameObject.SetActive(false);
+                    feldsparPlaced2.gameObject.SetActive(true);
+                    feldsparIsPlaced = true;
+                    boxTwoFilled = true;
+                }
+
+                ShowFinalRock();
+            }
+
+        }
+
+
+        public void RemoveFeldsparFromBox1()
+        {
+            feldsparPlaced1.gameObject.SetActive(false);
+            feldsparButton.gameObject.SetActive(true);
+            boxOneFilled = false;
+            feldsparIsPlaced = false; // still true if clay in box2
+            ShowFinalRock();
+        }
+
+        public void RemoveFeldsparFromBox2()
+        {
+            feldsparPlaced2.gameObject.SetActive(false);
+            feldsparButton.gameObject.SetActive(true);
+            boxTwoFilled = false;
+            feldsparIsPlaced = false; // still true if clay in box1
+            ShowFinalRock();
+        }
 
         public void ShowFinalRock()
         {
-           
+            // Turn all off by default
+            slatePlaced = false;
+            limeStonePlaced = false;
+            granitePlaced = false;
+
+            slate.gameObject.SetActive(false);
+            limeStone.gameObject.SetActive(false);
+            graniteStone.gameObject.SetActive(false);
+
+            metaCombineButton.gameObject.SetActive(false);
+            sedimentaryCombineButton.gameObject.SetActive(false);
+            igneousCombineButton.gameObject.SetActive(false);
+            invalidCombineButton.gameObject.SetActive(false);
+
+            // Only evaluate when BOTH boxes are filled
+            if (boxOneFilled && boxTwoFilled)
+            {
+                if (micaIsPlaced && clayIsPlaced)
+                {
+                    slatePlaced = true;
+                    slate.gameObject.SetActive(true);
+                    metaCombineButton.gameObject.SetActive(true);
+                }
+                else if (calciteIsPlaced && clayIsPlaced)
+                {
+                    limeStonePlaced = true;
+                    limeStone.gameObject.SetActive(true);
+                    sedimentaryCombineButton.gameObject.SetActive(true);
+                }
+                else if (feldsparIsPlaced && quartzIsPlaced)
+                {
+                    granitePlaced = true;
+                    graniteStone.gameObject.SetActive(true);
+                    igneousCombineButton.gameObject.SetActive(true);
+                }
+                else
+                {
+                    //  INVALID COMBINATION 
+                    invalidCombineButton.gameObject.SetActive(true);
+                    Debug.Log("Invalid combination created");
+                }
+            }
+        }
+
+
+
+            public void AcceptMetaComb()
+        {
+            amountOfCorrectGuesses += 1;
+            textMan.positionChanged = true;
+            textMan.arrayPos = 20;
+            RemoveClayFromBox1();
+            RemoveClayFromBox2();
+            RemoveMicaFromBox1();
+            RemoveMicaFromBox2();
+        }
+
+        public void AcceptIgenousComb()
+        {
+            amountOfCorrectGuesses += 1;
+            textMan.positionChanged = true;
+            textMan.arrayPos = 16;
+            RemoveQuartzFromBox1();
+            RemoveQuartzFromBox2();
+            RemoveFeldsparFromBox1();
+            RemoveFeldsparFromBox2();
+        }
+
+        public void AcceptSedimentaryComb()
+        {
+            amountOfCorrectGuesses += 1;
+            textMan.positionChanged = true;
+            textMan.arrayPos = 18;
+            RemoveClayFromBox1();
+            RemoveClayFromBox2();
+            RemoveCalciteFromBox1();
+            RemoveCalciteFromBox2();
+        }
+
+        public void AcceptInvalidComb()
+        {
+            textMan.ResetBools();
+            textMan.positionChanged = true;
+            textMan.arrayPos = 21;
+
+            RemoveClayFromBox1();
+            RemoveClayFromBox2();
+            RemoveMicaFromBox1();
+            RemoveMicaFromBox2();
+            RemoveCalciteFromBox1();
+            RemoveCalciteFromBox2();
+            RemoveQuartzFromBox1();
+            RemoveQuartzFromBox2();
+            RemoveFeldsparFromBox1();
+            RemoveFeldsparFromBox2();
         }
     }
 }

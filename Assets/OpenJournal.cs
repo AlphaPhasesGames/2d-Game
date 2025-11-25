@@ -15,10 +15,26 @@ namespace Alpha.Phases.Geoquest
         public Button mapButton;
         public bool mapOpen;
 
+        [Header("Journal Pages")]
+        public Button forwardButton;
+        public Button backButton;
+
+        public GameObject page1;
+        public GameObject page2;
+      //  public GameObject page3;
+        public int pageNo = 1; // start on page 1
+
         private void Awake()
         {
             journalButton.onClick.AddListener(ToggleJournal);
             mapButton.onClick.AddListener(ToggleMap);
+
+            // Hook up page navigation
+            forwardButton.onClick.AddListener(MovePageForward);
+            backButton.onClick.AddListener(MovePageBack);
+
+            // Make sure correct page is shown at start
+            UpdatePages();
         }
 
         private void Update()
@@ -34,12 +50,49 @@ namespace Alpha.Phases.Geoquest
         {
             journalOpen = !journalOpen;
             journal.SetActive(journalOpen);
+
+            // Optional: whenever you open the journal, go back to page 1
+            if (journalOpen)
+            {
+                pageNo = 1;
+                UpdatePages();
+            }
         }
 
         public void ToggleMap()
         {
             mapOpen = !mapOpen;
             map.SetActive(mapOpen);
+        }
+
+        public void MovePageForward()
+        {
+            pageNo++;
+
+            // Clamp so we don't go past page 3
+            if (pageNo > 2)
+                pageNo = 1;
+
+            UpdatePages();
+        }
+
+        public void MovePageBack()
+        {
+            pageNo--;
+
+            // Clamp so we don't go below page 1
+            if (pageNo < 1)
+                pageNo = 2;
+
+            UpdatePages();
+        }
+
+        private void UpdatePages()
+        {
+            // Turn on only the current page
+            page1.SetActive(pageNo == 1);
+            page2.SetActive(pageNo == 2);
+           // page3.SetActive(pageNo == 3);
         }
     }
 }

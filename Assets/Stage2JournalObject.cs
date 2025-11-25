@@ -6,6 +6,7 @@ namespace Alpha.Phases.Geoquest
     public class Stage2JournalObject : MonoBehaviour
     {
         public Stage2TextManager textMan;
+        public OpenJournal journMan;
         public GameObject journalObj;
         public GameObject journalUI;
         public GameObject minObjs;
@@ -13,6 +14,7 @@ namespace Alpha.Phases.Geoquest
         {
             if (collision.CompareTag("Player"))
             {
+                journMan.pageNo = 2;
                 journalUI.gameObject.SetActive(true);
                 textMan.positionChanged = true;
                 textMan.arrayPos = 3;

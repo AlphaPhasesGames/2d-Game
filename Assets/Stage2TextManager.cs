@@ -9,6 +9,7 @@ namespace Alpha.Phases.Geoquest
     public class Stage2TextManager : MonoBehaviour
     {
         public TopDownPlayerController playerCont;
+        public Stage2CombinationManager combMan;
         public ArrowPointer arrowMan;
         public OpenJournal openJourn;
         public bool hasScrolled;
@@ -18,6 +19,8 @@ namespace Alpha.Phases.Geoquest
         public int minLengthArray = 0;
 
         public bool positionChanged; //= true;
+
+        private int lastCorrectGuessCount = 0;
 
         public GameObject invButton;
 
@@ -41,6 +44,11 @@ namespace Alpha.Phases.Geoquest
 
         public GameObject machineONMap;
         public Transform machineInScene;
+
+        public bool firstCorrectCombination;
+        public bool secondCorrectCombination;
+        public bool thirdCorrectCombination;
+        public GameObject combineMachineUI;
         // public Button ttsButtonForConcept1Process;
         // public Button ttsButtonForConcept2GeoProcess;
         // public Button ttsButtonForConcept3Rock;
@@ -108,6 +116,29 @@ namespace Alpha.Phases.Geoquest
                     HandleArrayPosActions();
                     textBools[arrayPos] = true;
                 }
+            }
+            if (combMan.amountOfCorrectGuesses != lastCorrectGuessCount)
+            {
+                lastCorrectGuessCount = combMan.amountOfCorrectGuesses;
+
+                if (lastCorrectGuessCount == 1 && !firstCorrectCombination)
+                {
+                    StartCoroutine(FirstCorrectComb());
+                    firstCorrectCombination = true;
+                }
+
+                if (lastCorrectGuessCount == 2 && !secondCorrectCombination)
+                {
+                    StartCoroutine(SecondCorrectComb());
+                    secondCorrectCombination = true;
+                }
+
+                if (lastCorrectGuessCount == 3 && !thirdCorrectCombination)
+                {
+                    StartCoroutine(ThirdCorrectComb());
+                    thirdCorrectCombination = true;
+                }
+                Debug.Log(" This update runs once" + lastCorrectGuessCount);
             }
         }
 
@@ -189,15 +220,43 @@ namespace Alpha.Phases.Geoquest
                     StartCoroutine(DelayTextButton());
                     break;
                 case 14:
-            
+                    combineMachineUI.gameObject.SetActive(true);
                     break;
                 case 15:
               
                     break;
-                case 16:
-   
+                case 16:// igneous
+                    textPanal.gameObject.SetActive(true);
                     break;
-                case 17:
+                case 17: // correct box 1
+                    StartCoroutine(MoveToBlankInvislbePanalUnit172());
+                    break;
+                case 18: // sedimentary
+                    textPanal.gameObject.SetActive(true);
+                    break;
+                case 19: // correct box 2
+                    StartCoroutine(MoveToBlankInvislbePanalUnit172());
+                    break;
+                case 20: // MetaMorphic
+                    textPanal.gameObject.SetActive(true);
+                    break; 
+                case 21: //incorrect
+                    textPanal.gameObject.SetActive(true);
+                    StartCoroutine(MoveToBlankInvislbePanalUnit17());
+                    break;
+                case 22:
+                    textPanal.gameObject.SetActive(true);
+                    StartCoroutine(DelayTextButton());
+                    break;
+                case 23:
+                    StartCoroutine(MoveToBlankInvislbePanalUnit17());
+                    combineMachineUI.gameObject.SetActive(false);
+                    break;
+                case 24: // wrong box
+                    textPanal.gameObject.SetActive(true);
+                    combineMachineUI.gameObject.SetActive(false);
+                    break;
+                case 25:
                     textPanal.gameObject.SetActive(false);
                     break;
 
@@ -207,9 +266,9 @@ namespace Alpha.Phases.Geoquest
 
         public void IntroTTSSpeak(int textIndex)
         {
-            string textKey = $"stage1Text{textIndex}";
+            string textKey = $"stage2RCText{textIndex}";
             LOLSDK.Instance.SpeakText(textKey);
-            Debug.Log($"stage1Text{textIndex} Button is pressed");
+            Debug.Log($"stage2RCText{textIndex} Button is pressed");
         }
 
 
@@ -223,7 +282,7 @@ namespace Alpha.Phases.Geoquest
                 forwardButton.gameObject.SetActive(false);
 
                 // Only run DelayTextButton if the next arrayPos is not 2
-                if (arrayPos != 2 && arrayPos != 7 && arrayPos != 8 && arrayPos != 9 && arrayPos != 10 && arrayPos != 11)
+                if (arrayPos != 2 && arrayPos != 7 && arrayPos != 8 && arrayPos != 9 && arrayPos != 10 && arrayPos != 11 && arrayPos != 15)
                 {
                     StartCoroutine(DelayTextButton());
                 }
@@ -294,7 +353,7 @@ namespace Alpha.Phases.Geoquest
             yield return new WaitForSeconds(5);
             //playerMoveScript.enabled = true;
             textPanal.gameObject.SetActive(false);
-            arrayPos = 17;
+            arrayPos = 25;
             playerCont.moveSpeed = 5;
             Debug.Log("This start coRoutine Runs");
 
@@ -302,10 +361,10 @@ namespace Alpha.Phases.Geoquest
 
         public IEnumerator MoveToBlankInvislbePanalUnit172()
         {
-            yield return new WaitForSeconds(5);
+            yield return new WaitForSeconds(2);
             //playerMoveScript.enabled = true;
             textPanal.gameObject.SetActive(false);
-            arrayPos = 17;
+            arrayPos = 25;
             playerCont.moveSpeed = 5;
             Debug.Log("This start coRoutine Runs");
 
@@ -321,6 +380,27 @@ namespace Alpha.Phases.Geoquest
             arrayPos = 0;
             positionChanged = true;      
             Debug.Log("This start coRoutine Runs");
+        }
+
+        public IEnumerator FirstCorrectComb()
+        {
+            yield return new WaitForSeconds(5);
+            positionChanged = true;
+            arrayPos = 17;
+        }
+
+        public IEnumerator SecondCorrectComb()
+        {
+            yield return new WaitForSeconds(5);
+            positionChanged = true;
+            arrayPos = 19;
+        }
+
+        public IEnumerator ThirdCorrectComb()
+        {
+            yield return new WaitForSeconds(5);
+            positionChanged = true;
+            arrayPos = 22;
         }
     }
 }
