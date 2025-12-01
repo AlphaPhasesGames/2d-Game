@@ -56,6 +56,13 @@ namespace Alpha.Phases.Geoquest
         public bool boxOneFilled;
         public bool boxTwoFilled;
 
+        public bool metamorphicUsed;   // slate (mica + clay)
+        public bool sedimentaryUsed;   // limestone (calcite + clay)
+        public bool igneousUsed;       // granite (feldspar + quartz)
+
+        // Tracks if the current failed combo is one you've already used
+        private bool comboAlreadyUsed;
+
         public GameObject slate;
         public bool slatePlaced;
 
@@ -316,7 +323,7 @@ namespace Alpha.Phases.Geoquest
             feldsparIsPlaced = false; // still true if clay in box1
             ShowFinalRock();
         }
-
+        /*
         public void ShowFinalRock()
         {
             // Turn all off by default
@@ -362,10 +369,136 @@ namespace Alpha.Phases.Geoquest
                 }
             }
         }
+        
 
+        public void ShowFinalRock()
+        {
+            // Turn all off by default
+            slatePlaced = false;
+            limeStonePlaced = false;
+            granitePlaced = false;
 
+            slate.gameObject.SetActive(false);
+            limeStone.gameObject.SetActive(false);
+            graniteStone.gameObject.SetActive(false);
 
-            public void AcceptMetaComb()
+            metaCombineButton.gameObject.SetActive(false);
+            sedimentaryCombineButton.gameObject.SetActive(false);
+            igneousCombineButton.gameObject.SetActive(false);
+            invalidCombineButton.gameObject.SetActive(false);
+
+            // Only evaluate when BOTH boxes are filled
+            if (boxOneFilled && boxTwoFilled)
+            {
+                // Mica + Clay -> Slate (Metamorphic)
+                if (micaIsPlaced && clayIsPlaced && !metamorphicUsed)
+                {
+                    slatePlaced = true;
+                    slate.gameObject.SetActive(true);
+                    metaCombineButton.gameObject.SetActive(true);
+                }
+                // Calcite + Clay -> Limestone (Sedimentary)
+                else if (calciteIsPlaced && clayIsPlaced && !sedimentaryUsed)
+                {
+                    limeStonePlaced = true;
+                    limeStone.gameObject.SetActive(true);
+                    sedimentaryCombineButton.gameObject.SetActive(true);
+                }
+                // Feldspar + Quartz -> Granite (Igneous)
+                else if (feldsparIsPlaced && quartzIsPlaced && !igneousUsed)
+                {
+                    granitePlaced = true;
+                    graniteStone.gameObject.SetActive(true);
+                    igneousCombineButton.gameObject.SetActive(true);
+                }
+                else
+                {
+                    // Either an invalid pair, or a pair that has already been used.
+                    invalidCombineButton.gameObject.SetActive(true);
+                    Debug.Log("Invalid or already-used combination created");
+                }
+            }
+        }
+*/
+
+        public void ShowFinalRock()
+        {
+            // Reset rock visuals
+            slatePlaced = false;
+            limeStonePlaced = false;
+            granitePlaced = false;
+
+            slate.gameObject.SetActive(false);
+            limeStone.gameObject.SetActive(false);
+            graniteStone.gameObject.SetActive(false);
+
+            metaCombineButton.gameObject.SetActive(false);
+            sedimentaryCombineButton.gameObject.SetActive(false);
+            igneousCombineButton.gameObject.SetActive(false);
+            invalidCombineButton.gameObject.SetActive(false);
+
+            comboAlreadyUsed = false;  // reset for this evaluation
+
+            // Only evaluate when BOTH boxes are filled
+            if (boxOneFilled && boxTwoFilled)
+            {
+                // Mica + Clay -> Slate (Metamorphic)
+                if (micaIsPlaced && clayIsPlaced)
+                {
+                    if (!metamorphicUsed)
+                    {
+                        slatePlaced = true;
+                        slate.gameObject.SetActive(true);
+                        metaCombineButton.gameObject.SetActive(true);
+                    }
+                    else
+                    {
+                        comboAlreadyUsed = true;
+                        invalidCombineButton.gameObject.SetActive(true);
+                    }
+                }
+                // Calcite + Clay -> Limestone (Sedimentary)
+                else if (calciteIsPlaced && clayIsPlaced)
+                {
+                    if (!sedimentaryUsed)
+                    {
+                        limeStonePlaced = true;
+                        limeStone.gameObject.SetActive(true);
+                        sedimentaryCombineButton.gameObject.SetActive(true);
+                    }
+                    else
+                    {
+                        comboAlreadyUsed = true;
+                        invalidCombineButton.gameObject.SetActive(true);
+                    }
+                }
+                // Feldspar + Quartz -> Granite (Igneous)
+                else if (feldsparIsPlaced && quartzIsPlaced)
+                {
+                    if (!igneousUsed)
+                    {
+                        granitePlaced = true;
+                        graniteStone.gameObject.SetActive(true);
+                        igneousCombineButton.gameObject.SetActive(true);
+                    }
+                    else
+                    {
+                        comboAlreadyUsed = true;
+                        invalidCombineButton.gameObject.SetActive(true);
+                    }
+                }
+                else
+                {
+                    // Completely invalid combination (never a correct one)
+                    comboAlreadyUsed = false;
+                    invalidCombineButton.gameObject.SetActive(true);
+                    Debug.Log("Invalid combination created");
+                }
+            }
+        }
+
+        /*
+        public void AcceptMetaComb()
         {
             amountOfCorrectGuesses += 1;
             textMan.positionChanged = true;
@@ -375,7 +508,45 @@ namespace Alpha.Phases.Geoquest
             RemoveMicaFromBox1();
             RemoveMicaFromBox2();
         }
+        */
 
+        public void AcceptMetaComb()
+        {
+            metamorphicUsed = true;    // mark as used
+
+            amountOfCorrectGuesses += 1;
+            textMan.positionChanged = true;
+            textMan.arrayPos = 20;
+
+            RemoveClayFromBox1();
+            RemoveClayFromBox2();
+            RemoveMicaFromBox1();
+            RemoveMicaFromBox2();
+        }
+
+        /*
+        public void AcceptMetaComb()
+        {
+            // If we've already used this combo, treat as invalid / do nothing special
+            if (metamorphicUsed)
+            {
+                // Optional: show "invalid/already used" text instead of giving credit
+                AcceptInvalidComb();
+                return;
+            }
+
+            metamorphicUsed = true;  // mark as used
+
+            amountOfCorrectGuesses += 1;
+            textMan.positionChanged = true;
+            textMan.arrayPos = 20;
+
+            RemoveClayFromBox1();
+            RemoveClayFromBox2();
+            RemoveMicaFromBox1();
+            RemoveMicaFromBox2();
+        }
+        /*
         public void AcceptIgenousComb()
         {
             amountOfCorrectGuesses += 1;
@@ -386,7 +557,42 @@ namespace Alpha.Phases.Geoquest
             RemoveFeldsparFromBox1();
             RemoveFeldsparFromBox2();
         }
+       
+        public void AcceptIgenousComb()
+        {
+            if (igneousUsed)
+            {
+                AcceptInvalidComb();
+                return;
+            }
 
+            igneousUsed = true;
+
+            amountOfCorrectGuesses += 1;
+            textMan.positionChanged = true;
+            textMan.arrayPos = 16;
+
+            RemoveQuartzFromBox1();
+            RemoveQuartzFromBox2();
+            RemoveFeldsparFromBox1();
+            RemoveFeldsparFromBox2();
+        }
+         */
+
+        public void AcceptIgenousComb()
+        {
+            igneousUsed = true;
+
+            amountOfCorrectGuesses += 1;
+            textMan.positionChanged = true;
+            textMan.arrayPos = 16;
+
+            RemoveQuartzFromBox1();
+            RemoveQuartzFromBox2();
+            RemoveFeldsparFromBox1();
+            RemoveFeldsparFromBox2();
+        }
+        /*
         public void AcceptSedimentaryComb()
         {
             amountOfCorrectGuesses += 1;
@@ -397,13 +603,78 @@ namespace Alpha.Phases.Geoquest
             RemoveCalciteFromBox1();
             RemoveCalciteFromBox2();
         }
+        
+        public void AcceptSedimentaryComb()
+        {
+            if (sedimentaryUsed)
+            {
+                AcceptInvalidComb();
+                return;
+            }
 
+            sedimentaryUsed = true;
+
+            amountOfCorrectGuesses += 1;
+            textMan.positionChanged = true;
+            textMan.arrayPos = 18;
+
+            RemoveClayFromBox1();
+            RemoveClayFromBox2();
+            RemoveCalciteFromBox1();
+            RemoveCalciteFromBox2();
+        }
+*/
+
+        public void AcceptSedimentaryComb()
+        {
+            sedimentaryUsed = true;
+
+            amountOfCorrectGuesses += 1;
+            textMan.positionChanged = true;
+            textMan.arrayPos = 18;
+
+            RemoveClayFromBox1();
+            RemoveClayFromBox2();
+            RemoveCalciteFromBox1();
+            RemoveCalciteFromBox2();
+        }
+        /*
         public void AcceptInvalidComb()
         {
             textMan.ResetBools();
             textMan.positionChanged = true;
             textMan.arrayPos = 21;
 
+            RemoveClayFromBox1();
+            RemoveClayFromBox2();
+            RemoveMicaFromBox1();
+            RemoveMicaFromBox2();
+            RemoveCalciteFromBox1();
+            RemoveCalciteFromBox2();
+            RemoveQuartzFromBox1();
+            RemoveQuartzFromBox2();
+            RemoveFeldsparFromBox1();
+            RemoveFeldsparFromBox2();
+        }
+        */
+
+        public void AcceptInvalidComb()
+        {
+            textMan.ResetBools();
+            textMan.positionChanged = true;
+
+            if (comboAlreadyUsed)
+            {
+                // New "you've already tried this combination" text
+                textMan.arrayPos = 41;
+            }
+            else
+            {
+                // Original incorrect-combination text
+                textMan.arrayPos = 21;
+            }
+
+            // Clear boxes and show mineral buttons again
             RemoveClayFromBox1();
             RemoveClayFromBox2();
             RemoveMicaFromBox1();

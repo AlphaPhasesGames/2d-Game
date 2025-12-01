@@ -7,14 +7,20 @@ namespace Alpha.Phases.Geoquest
     {
         public Stage2MineralMan minMan;
         public Stage2TextManager textMan;
+        public bool runOnce;
         private void OnTriggerEnter2D(Collider2D collision)
         {
             if (collision.CompareTag("Player"))
             {
                 if(minMan.amountOFMinerals > 4)
                 {
-                    textMan.positionChanged = true;
-                    textMan.arrayPos = 13;
+                    if (!runOnce)
+                    {
+                        textMan.positionChanged = true;
+                        textMan.arrayPos = 13;
+                        runOnce = true;
+                    }
+
                 }
                 Debug.Log("In machine range");
                

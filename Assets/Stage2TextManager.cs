@@ -37,6 +37,8 @@ namespace Alpha.Phases.Geoquest
         public Button forwardButton;
         public Button backwardsButton;
 
+        public GameObject mineralSide;
+
         public Button[] textButtons;
         public bool[] textBools;
 
@@ -61,22 +63,25 @@ namespace Alpha.Phases.Geoquest
         public GameObject sideSediementIgames;
         public GameObject sedimentUI;
 
-        // public Button ttsButtonForConcept1Process;
-        // public Button ttsButtonForConcept2GeoProcess;
-        // public Button ttsButtonForConcept3Rock;
-        // public Button ttsButtonForConcept4RegMeta;
+        public GameObject mapStep1;
 
-        // public GameObject taskPanal;
-        // public GameObject task1;
-        // public GameObject task2;
-        // public GameObject task3;
+        public Button ttsButtonForWrongText;
+
+        public Button clayButton;
+        public Button micaButton;
+        public Button calciteButton;
+        public Button quartzButton;
+        public Button feldsparButton;
+
+       // public GameObject door2;
+        public BoxCollider2D doorCollider;
 
         private void Awake()
         {
             forwardButton.onClick.AddListener(ProgressTextForward);
             backwardsButton.onClick.AddListener(ProgressTextBack);
-            /*ttsButtonForAllLitter.onClick.AddListener(SpeakAllLitterText2);
-            ttsButtonForPaper1.onClick.AddListener(SpeakPaper1);
+            ttsButtonForWrongText.onClick.AddListener(PlayAlreadyUsed);
+            /*ttsButtonForPaper1.onClick.AddListener(SpeakPaper1);
             ttsButtonForPaper2.onClick.AddListener(SpeakPaper2);
             ttsButtonForPaper3.onClick.AddListener(SpeakPaper3);
             ttsButtonForPaper4.onClick.AddListener(SpeakPaper4);
@@ -97,6 +102,7 @@ namespace Alpha.Phases.Geoquest
             if (MainGameManager.Instance.currentTask < 1)
             {
                 StartCoroutine(StartStage2());
+                mapStep1.gameObject.SetActive(true);
             }
 
 
@@ -196,6 +202,7 @@ namespace Alpha.Phases.Geoquest
                     backwardsButton.gameObject.SetActive(false);
                     mineralsOnMap.gameObject.SetActive(true);
                     textPanal.gameObject.SetActive(true);
+                    playerCont.moveSpeed = 0;
                     StartCoroutine(DelayTextButton());
                     break;
                 case 7:
@@ -237,10 +244,20 @@ namespace Alpha.Phases.Geoquest
                     StartCoroutine(DelayTextButton());
                     break;
                 case 14:
+                    mineralSide.gameObject.SetActive(false);
                     combineMachineUI.gameObject.SetActive(true);
+                    clayButton.enabled = false;
+                    calciteButton.enabled = false;
+                    quartzButton.enabled = false;
+                    micaButton.enabled = false;
+                    feldsparButton.enabled = false;
                     break;
                 case 15:
-              
+                    clayButton.enabled = true;
+                    calciteButton.enabled = true;
+                    quartzButton.enabled = true;
+                    micaButton.enabled = true;
+                    feldsparButton.enabled = true;
                     break;
                 case 16:// igneous
                     textPanal.gameObject.SetActive(true);
@@ -365,10 +382,17 @@ namespace Alpha.Phases.Geoquest
                     break;
                 case 40:
                     sedimentUI.gameObject.SetActive(false);
+                    //door2.gameObject.SetActive(false);
+                    doorCollider.enabled = true;
                    // textPanal.gameObject.SetActive(false);
                     StartCoroutine(MoveToBlankInvislbePanalUnit17());
                     break;
                 case 41:
+                    textPanal.gameObject.SetActive(true);
+                    StartCoroutine(MoveToBlankInvislbePanalUnit17());
+                    break;
+
+                case 42:
                     textPanal.gameObject.SetActive(false);
                     break;
             }
@@ -463,7 +487,7 @@ namespace Alpha.Phases.Geoquest
             yield return new WaitForSeconds(5);
             //playerMoveScript.enabled = true;
             textPanal.gameObject.SetActive(false);
-            arrayPos = 41;
+            arrayPos = 42;
             playerCont.moveSpeed = 5;
             Debug.Log("This start coRoutine Runs");
 
@@ -474,7 +498,7 @@ namespace Alpha.Phases.Geoquest
             yield return new WaitForSeconds(2);
             //playerMoveScript.enabled = true;
             textPanal.gameObject.SetActive(false);
-            arrayPos = 41;
+            arrayPos = 42;
             playerCont.moveSpeed = 5;
             Debug.Log("This start coRoutine Runs");
 
@@ -512,6 +536,11 @@ namespace Alpha.Phases.Geoquest
             positionChanged = true;
             door.gameObject.SetActive(false);
             arrayPos = 22;
+        }
+
+        public void PlayAlreadyUsed()
+        {
+            LOLSDK.Instance.SpeakText("stage2RCText24Tried");
         }
     }
 }
