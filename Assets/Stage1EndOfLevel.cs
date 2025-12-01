@@ -13,6 +13,7 @@ namespace Alpha.Phases.Geoquest
             if (collision.CompareTag("Player"))
             {
                 LOLSDK.Instance.SubmitProgress(0, 30, 100);
+                MainGameManager.Instance.currentTask = 0;
                 MainGameManager.Instance.collectedGems = bMan.amountOfGems;
                 MainGameManager.Instance.SaveTaskS1();
                 SceneManager.LoadScene("Stage 2");

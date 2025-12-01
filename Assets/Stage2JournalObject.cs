@@ -18,7 +18,7 @@ namespace Alpha.Phases.Geoquest
                 journalUI.gameObject.SetActive(true);
                 textMan.positionChanged = true;
                 textMan.arrayPos = 3;
-                minObjs.gameObject.SetActive(true);
+              //  minObjs.gameObject.SetActive(true);
                 Destroy(journalObj);
             }
         }

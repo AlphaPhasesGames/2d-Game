@@ -19,6 +19,7 @@ namespace Alpha.Phases.Geoquest
         public int current_stage; // int to hold the level number
         public int current_task;
         public int collected_gems;
+        public bool stage_2_part_2;
     }
     public class MainGameManager : MonoBehaviour
     {
@@ -30,6 +31,8 @@ namespace Alpha.Phases.Geoquest
         public int currentStagedqwb;
         public int currentTask;
         public int collectedGems;
+        public bool stage2Part2;
+
 
         public bool runScriptOnce;
 
@@ -84,22 +87,22 @@ namespace Alpha.Phases.Geoquest
 
 
 
-            /*
+            
             if (Input.GetKeyDown(KeyCode.Alpha1))
             {
-                SceneManager.LoadScene("Stage2Scene3");
+                SceneManager.LoadScene("Stage 2");
             }
-           
-            if (Input.GetKeyDown(KeyCode.Alpha2))
-            {
-                SceneManager.LoadScene("ParisStudy");
+            /*
+             if (Input.GetKeyDown(KeyCode.Alpha2))
+             {
+                 SceneManager.LoadScene("ParisStudy");
 
-            }
-            if (Input.GetKeyDown(KeyCode.Alpha3))
-            {
-                SceneManager.LoadScene("Stage2Scene3");
-            }
-            */
+             }
+             if (Input.GetKeyDown(KeyCode.Alpha3))
+             {
+                 SceneManager.LoadScene("Stage2Scene3");
+             }
+             */
         }
 
         public void Save()
@@ -121,6 +124,7 @@ namespace Alpha.Phases.Geoquest
             // Overrides serialized state data or continues with editor serialized values.
             if (loadedGardenData != null)
                 gqSaveData = loadedGardenData;
+            stage2Part2 = gqSaveData.stage_2_part_2;
             currentStagedqwb = gqSaveData.current_stage;
             collectedGems = gqSaveData.collected_gems;
             if (gqSaveData.current_stage == 1)
@@ -185,6 +189,15 @@ namespace Alpha.Phases.Geoquest
             Save();
         }
         #endregion          
+
+        public void SaveStage2Part2Location()
+        {
+            stage2Part2 = true;
+            gqSaveData.current_task = currentTask;
+            gqSaveData.collected_gems = collectedGems;
+            gqSaveData.stage_2_part_2 = stage2Part2;
+            Save();
+        }
     }
 }
 

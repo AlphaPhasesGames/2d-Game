@@ -11,6 +11,7 @@ namespace Alpha.Phases.Geoquest
         public GameObject clayIcon;
         public GameObject clayObj;
         public GameObject clayOnMap;
+        public GameObject minsObj;
         private void Update()
         {
             if (inRange)
@@ -47,6 +48,7 @@ namespace Alpha.Phases.Geoquest
             clayIcon.gameObject.SetActive(true);
             textMan.positionChanged = true;
             textMan.arrayPos = 6;
+            minsObj.gameObject.SetActive(true);
             clayObj.gameObject.SetActive(false);
         }
     }

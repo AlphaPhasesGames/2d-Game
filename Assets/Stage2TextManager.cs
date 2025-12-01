@@ -12,6 +12,7 @@ namespace Alpha.Phases.Geoquest
         public Stage2CombinationManager combMan;
         public ArrowPointer arrowMan;
         public OpenJournal openJourn;
+        public GameObject journal;
         public bool hasScrolled;
         public GameObject currentTextSection;
         public int arrayPos;
@@ -42,13 +43,24 @@ namespace Alpha.Phases.Geoquest
         public GameObject mineralsOnMap;
         public GameObject mineralsObj;
 
+        public GameObject sedisOnMap;
+        public GameObject sedisObj;
+
         public GameObject machineONMap;
         public Transform machineInScene;
+
+        public Transform machineInSceneP2;
+        public Transform part2WP;
 
         public bool firstCorrectCombination;
         public bool secondCorrectCombination;
         public bool thirdCorrectCombination;
         public GameObject combineMachineUI;
+        public GameObject door;
+
+        public GameObject sideSediementIgames;
+        public GameObject sedimentUI;
+
         // public Button ttsButtonForConcept1Process;
         // public Button ttsButtonForConcept2GeoProcess;
         // public Button ttsButtonForConcept3Rock;
@@ -166,6 +178,7 @@ namespace Alpha.Phases.Geoquest
                     StartCoroutine(MoveToBlankInvislbePanalUnit17());
                     break;
                 case 3:
+                    playerCont.moveSpeed = 0;
                     backwardsButton.gameObject.SetActive(false);
                     textPanal.gameObject.SetActive(true);
                     openJourn.ToggleJournal();
@@ -176,11 +189,12 @@ namespace Alpha.Phases.Geoquest
                     break;
                 case 5:
                     openJourn.ToggleJournal();
-                    mineralsOnMap.gameObject.SetActive(true);
+                
                     StartCoroutine(MoveToBlankInvislbePanalUnit17());
                     break;
                 case 6:
                     backwardsButton.gameObject.SetActive(false);
+                    mineralsOnMap.gameObject.SetActive(true);
                     textPanal.gameObject.SetActive(true);
                     StartCoroutine(DelayTextButton());
                     break;
@@ -210,12 +224,15 @@ namespace Alpha.Phases.Geoquest
                     StartCoroutine(MoveToBlankInvislbePanalUnit17());
                     break;
                 case 12:
+                    arrowMan.gameObject.SetActive(true); 
                     arrowMan.target = machineInScene;
+                    playerCont.moveSpeed = 0;
                     machineONMap.gameObject.SetActive(true);
                     textPanal.gameObject.SetActive(true);
                     StartCoroutine(MoveToBlankInvislbePanalUnit17());
                     break;
                 case 13:
+                    playerCont.moveSpeed = 0;
                     textPanal.gameObject.SetActive(true);
                     StartCoroutine(DelayTextButton());
                     break;
@@ -250,17 +267,110 @@ namespace Alpha.Phases.Geoquest
                     break;
                 case 23:
                     StartCoroutine(MoveToBlankInvislbePanalUnit17());
+                    arrowMan.target = part2WP;
                     combineMachineUI.gameObject.SetActive(false);
                     break;
                 case 24: // wrong box
                     textPanal.gameObject.SetActive(true);
                     combineMachineUI.gameObject.SetActive(false);
+                    backwardsButton.gameObject.SetActive(false);
                     break;
+
+
+                    //Step 2 text -----------------!!!!!!!!!!!!!!!!!!!!!!------------------- not a warning just making a clear break between step texts
+                
                 case 25:
+                    backwardsButton.gameObject.SetActive(false);
+                    textPanal.gameObject.SetActive(true);
+                    StartCoroutine(DelayTextButton());
+                    break;
+
+                case 26:
+                    backwardsButton.gameObject.SetActive(true);
+                    break;
+
+                case 27:
+                    StartCoroutine(MoveToBlankInvislbePanalUnit17());
+                    break;
+
+                case 28:
+                    backwardsButton.gameObject.SetActive(false);
+                    playerCont.moveSpeed = 0;
+                    StartCoroutine(DelayTextButton());
+                    textPanal.gameObject.SetActive(true);
+                    break;
+
+                case 29:
+                    backwardsButton.gameObject.SetActive(true);
+                    journal.gameObject.SetActive(false);
+                     sedisOnMap.SetActive(true);
+                     sedisObj.SetActive(true);
+                    StartCoroutine(MoveToBlankInvislbePanalUnit17());
+                    break;
+                case 30: // sand
+                    forwardParent.gameObject.SetActive(false);
+                    forwardButton.gameObject.SetActive(false);
+                    textPanal.gameObject.SetActive(true);
+                    backwardsButton.gameObject.SetActive(false);
+                    StartCoroutine(MoveToBlankInvislbePanalUnit17());
+                    break;
+                case 31: // silt
+                    forwardParent.gameObject.SetActive(false);
+                    forwardButton.gameObject.SetActive(false);
+                    textPanal.gameObject.SetActive(true);
+                    StartCoroutine(MoveToBlankInvislbePanalUnit17());
+                    break;
+                case 32: // gravel
+                    forwardParent.gameObject.SetActive(false);
+                    forwardButton.gameObject.SetActive(false);
+                    textPanal.gameObject.SetActive(true);
+                    StartCoroutine(MoveToBlankInvislbePanalUnit17());
+                    break;
+                case 33: // gFlakes
+                    forwardParent.gameObject.SetActive(false);
+                    forwardButton.gameObject.SetActive(false);
+                    textPanal.gameObject.SetActive(true);
+                    StartCoroutine(MoveToBlankInvislbePanalUnit17());
+                    break;
+                case 34: // all sediemtn
+                    StartCoroutine(DelayTextButton());
+                    playerCont.moveSpeed = 0;
+                    arrowMan.gameObject.SetActive(true);
+                    arrowMan.target = machineInSceneP2;
+                    textPanal.gameObject.SetActive(true);
+                    StartCoroutine(MoveToBlankInvislbePanalUnit17());
+                    break;
+                case 35: // head to machine
+                    textPanal.gameObject.SetActive(true);
+                    sideSediementIgames.gameObject.SetActive(false);
+                    break;
+                case 36: // machine 1
+                   
+                    StartCoroutine(MoveToBlankInvislbePanalUnit17());
+                    break;
+                case 37: //machine 2
+                    textPanal.gameObject.SetActive(true);
+                    forwardButton.gameObject.SetActive(false);
+                    forwardParent.gameObject.SetActive(false);
+                    StartCoroutine(MoveToBlankInvislbePanalUnit17());
+                    break;
+                case 38: //Wrong
+                    textPanal.gameObject.SetActive(true);
+                   
+                    StartCoroutine(MoveToBlankInvislbePanalUnit17());
+                    break;
+                case 39: // Correct
+                    StartCoroutine(DelayTextButton());
+                    textPanal.gameObject.SetActive(true);
+                    break;
+                case 40:
+                    sedimentUI.gameObject.SetActive(false);
+                   // textPanal.gameObject.SetActive(false);
+                    StartCoroutine(MoveToBlankInvislbePanalUnit17());
+                    break;
+                case 41:
                     textPanal.gameObject.SetActive(false);
                     break;
-
-
             }
         }
 
@@ -282,7 +392,7 @@ namespace Alpha.Phases.Geoquest
                 forwardButton.gameObject.SetActive(false);
 
                 // Only run DelayTextButton if the next arrayPos is not 2
-                if (arrayPos != 2 && arrayPos != 7 && arrayPos != 8 && arrayPos != 9 && arrayPos != 10 && arrayPos != 11 && arrayPos != 15)
+                if (arrayPos != 2 && arrayPos != 7 && arrayPos != 8 && arrayPos != 9 && arrayPos != 10 && arrayPos != 11 && arrayPos != 15 && arrayPos != 28 && arrayPos != 30 && arrayPos != 31 && arrayPos != 32 && arrayPos != 3 && arrayPos != 37 && arrayPos != 38 && arrayPos != 41)
                 {
                     StartCoroutine(DelayTextButton());
                 }
@@ -353,7 +463,7 @@ namespace Alpha.Phases.Geoquest
             yield return new WaitForSeconds(5);
             //playerMoveScript.enabled = true;
             textPanal.gameObject.SetActive(false);
-            arrayPos = 25;
+            arrayPos = 41;
             playerCont.moveSpeed = 5;
             Debug.Log("This start coRoutine Runs");
 
@@ -364,7 +474,7 @@ namespace Alpha.Phases.Geoquest
             yield return new WaitForSeconds(2);
             //playerMoveScript.enabled = true;
             textPanal.gameObject.SetActive(false);
-            arrayPos = 25;
+            arrayPos = 41;
             playerCont.moveSpeed = 5;
             Debug.Log("This start coRoutine Runs");
 
@@ -400,6 +510,7 @@ namespace Alpha.Phases.Geoquest
         {
             yield return new WaitForSeconds(5);
             positionChanged = true;
+            door.gameObject.SetActive(false);
             arrayPos = 22;
         }
     }

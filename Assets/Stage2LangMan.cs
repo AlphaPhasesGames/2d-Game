@@ -32,6 +32,13 @@ namespace Alpha.Phases.Geoquest
         public TextMeshProUGUI journalMineralLimestoneName;
         public TextMeshProUGUI journalMineralSlateName;
 
+        public TextMeshProUGUI journalTitle3;
+        public TextMeshProUGUI journal2Clay;
+      //  public TextMeshProUGUI journal2GFlakes;
+        public TextMeshProUGUI journal2Silt;
+        public TextMeshProUGUI journal2Gravel;
+        public TextMeshProUGUI journal2Sand;
+
         public TextMeshProUGUI sidePanal1Clay;
         public TextMeshProUGUI sidePanal1Mica;
         public TextMeshProUGUI sidePanal1Calcite;
@@ -62,6 +69,20 @@ namespace Alpha.Phases.Geoquest
         public TextMeshProUGUI combineButtonIngeous;
         public TextMeshProUGUI combineButtonUnknown;
 
+
+        public TextMeshProUGUI sidePanal3Sand;
+        public TextMeshProUGUI sidePanal3Clay;
+        public TextMeshProUGUI sidePanal3Gravel;
+        public TextMeshProUGUI sidePanal3GoldFlakes;
+        public TextMeshProUGUI sidePanal3Silt;
+
+        public TextMeshProUGUI sidePanal4Sand;
+        public TextMeshProUGUI sidePanal4Clay;
+        public TextMeshProUGUI sidePanal4Gravel;
+        public TextMeshProUGUI sidePanal4GoldFlakes;
+        public TextMeshProUGUI sidePanal4Silt;
+
+
         public TextMeshProUGUI stage1Text1;
         public TextMeshProUGUI stage1Text2;
         public TextMeshProUGUI stage1Text3;
@@ -86,6 +107,24 @@ namespace Alpha.Phases.Geoquest
         public TextMeshProUGUI stage1Text22;
         public TextMeshProUGUI stage1Text23;
         public TextMeshProUGUI stage1Text24;
+
+        public TextMeshProUGUI stage1Step2Text1;
+        public TextMeshProUGUI stage1Step2Text2;
+        public TextMeshProUGUI stage1Step2Text3;
+        public TextMeshProUGUI stage1Step2Text4;
+        public TextMeshProUGUI stage1Step2Text5;
+        public TextMeshProUGUI stage1Step2Text6;
+        public TextMeshProUGUI stage1Step2Text7;
+        public TextMeshProUGUI stage1Step2Text8;
+        public TextMeshProUGUI stage1Step2Text9;
+        public TextMeshProUGUI stage1Step2Text10;
+        public TextMeshProUGUI stage1Step2Text11; // all sediaments
+        public TextMeshProUGUI stage1Step2Text12;
+        public TextMeshProUGUI stage1Step2Text13;
+        public TextMeshProUGUI stage1Step2Text14;
+        public TextMeshProUGUI stage1Step2Text15;
+        public TextMeshProUGUI stage1Step2Text16;
+        public TextMeshProUGUI stage1Step2Text17;
 
 
         private void Awake()
@@ -112,9 +151,16 @@ namespace Alpha.Phases.Geoquest
             journalMineralLimestone.text = defs["stage2LimeStoneType"];
             journalMineralSlate.text = defs["stage2GraniteType"];
 
+
             journalMineralGraniteName.text = defs["stage2GraniteName"];
             journalMineralLimestoneName.text = defs["stage2LimestoneName"];
             journalMineralSlateName.text = defs["stage2SlateName"];
+
+            journalTitle3.text = defs["stage2SedimentSandJournalP2"];
+            journal2Clay.text = defs["stage2MineralClay"];
+            journal2Silt.text = defs["stage2SedimentSilt"];
+            journal2Gravel.text = defs["stage2SedimentGravel"];
+            journal2Sand.text = defs["stage2SedimentSand"];
 
             sidePanal1Clay.text = defs["stage2MineralClay"];
             sidePanal1Mica.text = defs["stage2MineralMica"];
@@ -145,6 +191,19 @@ namespace Alpha.Phases.Geoquest
             combineButtonIngeous.text = defs["stage2CombButtonGranite"];
             combineButtonUnknown.text = defs["stage2UnknownButton"];
 
+
+           sidePanal3Sand.text = defs["stage2SedimentSand"];
+           sidePanal3Clay.text = defs["stage2MineralClay"];
+           sidePanal3Gravel.text = defs["stage2SedimentGravel"];
+           sidePanal3GoldFlakes.text = defs["stage2SedimentGoldFlakes"];
+           sidePanal3Silt.text = defs["stage2SedimentSilt"];
+
+            sidePanal4Sand.text = defs["stage2SedimentSand"];
+            sidePanal4Clay.text = defs["stage2MineralClay"];
+            sidePanal4Gravel.text = defs["stage2SedimentGravel"];
+            sidePanal4GoldFlakes.text = defs["stage2SedimentGoldFlakes"];
+            sidePanal4Silt.text = defs["stage2SedimentSilt"];
+
             stage1Text1.text = defs["stage2RCText1"];
             stage1Text2.text = defs["stage2RCText2"];
             stage1Text3.text = defs["stage2RCText3"];
@@ -169,6 +228,24 @@ namespace Alpha.Phases.Geoquest
             stage1Text22.text = defs["stage2RCText22"];
             stage1Text23.text = defs["stage2RCText23"];
             stage1Text24.text = defs["stage2RCText24"];
+
+            stage1Step2Text1.text = defs["stage2RCText25"];
+            stage1Step2Text2.text = defs["stage2RCText26"];
+            stage1Step2Text3.text = defs["stage2RCText27"];
+            stage1Step2Text4.text = defs["stage2RCText28"];
+            stage1Step2Text5.text = defs["stage2RCText29"];
+            stage1Step2Text6.text = defs["stage2RCText30"];
+            stage1Step2Text7.text = defs["stage2RCText31"];
+            stage1Step2Text8.text = defs["stage2RCText32"];
+            stage1Step2Text9.text = defs["stage2RCText33"];
+            stage1Step2Text10.text = defs["stage2RCText34"];
+            stage1Step2Text11.text = defs["stage2RCText35"];
+            stage1Step2Text12.text = defs["stage2RCText36"];
+            stage1Step2Text13.text = defs["stage2RCText37"];
+            stage1Step2Text14.text = defs["stage2RCText38"];
+            stage1Step2Text15.text = defs["stage2RCText39"];
+            stage1Step2Text16.text = defs["stage2RCText40"];
+            stage1Step2Text17.text = defs["stage2RCText41"];
 
         }
     }

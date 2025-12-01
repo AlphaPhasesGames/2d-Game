@@ -9095,7 +9095,7 @@ TextureImporter:
         serializedVersion: 2
         x: 64
         y: 352
-        width: 16
+        width: 14
         height: 16
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
@@ -9114,9 +9114,9 @@ TextureImporter:
       name: FG_Abandoned_Mines_428
       rect:
         serializedVersion: 2
-        x: 80
+        x: 84
         y: 352
-        width: 16
+        width: 12
         height: 16
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
@@ -9725,7 +9725,7 @@ TextureImporter:
         serializedVersion: 2
         x: 64
         y: 336
-        width: 16
+        width: 13
         height: 16
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
@@ -9744,9 +9744,9 @@ TextureImporter:
       name: FG_Abandoned_Mines_458
       rect:
         serializedVersion: 2
-        x: 80
+        x: 83
         y: 336
-        width: 16
+        width: 13
         height: 16
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
@@ -10355,11 +10355,11 @@ TextureImporter:
         serializedVersion: 2
         x: 64
         y: 320
-        width: 16
+        width: 15
         height: 16
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
+      border: {x: 0, y: 0, z: 2, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
@@ -10374,9 +10374,9 @@ TextureImporter:
       name: FG_Abandoned_Mines_488
       rect:
         serializedVersion: 2
-        x: 80
+        x: 84
         y: 320
-        width: 16
+        width: 12
         height: 16
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
@@ -10964,7 +10964,7 @@ TextureImporter:
         serializedVersion: 2
         x: 64
         y: 304
-        width: 16
+        width: 14
         height: 16
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
@@ -12369,10 +12369,10 @@ TextureImporter:
       name: FG_Abandoned_Mines_583
       rect:
         serializedVersion: 2
-        x: 384
+        x: 385
         y: 272
-        width: 16
-        height: 16
+        width: 15
+        height: 15
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -12393,7 +12393,7 @@ TextureImporter:
         x: 400
         y: 272
         width: 16
-        height: 16
+        height: 15
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -12414,7 +12414,7 @@ TextureImporter:
         x: 416
         y: 272
         width: 16
-        height: 16
+        height: 15
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
