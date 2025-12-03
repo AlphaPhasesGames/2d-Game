@@ -73,7 +73,13 @@ namespace Alpha.Phases.Geoquest
         public Button quartzButton;
         public Button feldsparButton;
 
-       // public GameObject door2;
+        public GameObject taskBar;
+        public GameObject task1MineralsCollect;
+        public GameObject task2CombineMinerals;
+        public GameObject task3CollectSediments;
+        public GameObject task4CompressSediements;
+
+        // public GameObject door2;
         public BoxCollider2D doorCollider;
 
         private void Awake()
@@ -188,6 +194,8 @@ namespace Alpha.Phases.Geoquest
                     backwardsButton.gameObject.SetActive(false);
                     textPanal.gameObject.SetActive(true);
                     openJourn.ToggleJournal();
+                    taskBar.gameObject.SetActive(true);
+                    task1MineralsCollect.gameObject.SetActive(true);
                     StartCoroutine(DelayTextButton());
                     break;
                 case 4:
@@ -234,11 +242,14 @@ namespace Alpha.Phases.Geoquest
                     arrowMan.gameObject.SetActive(true); 
                     arrowMan.target = machineInScene;
                     playerCont.moveSpeed = 0;
+                    task1MineralsCollect.gameObject.SetActive(false);
+                    task2CombineMinerals.gameObject.SetActive(true);
                     machineONMap.gameObject.SetActive(true);
                     textPanal.gameObject.SetActive(true);
                     StartCoroutine(MoveToBlankInvislbePanalUnit17());
                     break;
                 case 13:
+                    taskBar.gameObject.SetActive(false);
                     playerCont.moveSpeed = 0;
                     textPanal.gameObject.SetActive(true);
                     StartCoroutine(DelayTextButton());
@@ -313,6 +324,9 @@ namespace Alpha.Phases.Geoquest
                 case 28:
                     backwardsButton.gameObject.SetActive(false);
                     playerCont.moveSpeed = 0;
+                    taskBar.gameObject.SetActive(true);
+                    task2CombineMinerals.gameObject.SetActive(false);
+                    task3CollectSediments.gameObject.SetActive(true);
                     StartCoroutine(DelayTextButton());
                     textPanal.gameObject.SetActive(true);
                     break;
@@ -350,6 +364,8 @@ namespace Alpha.Phases.Geoquest
                     StartCoroutine(MoveToBlankInvislbePanalUnit17());
                     break;
                 case 34: // all sediemtn
+                    task3CollectSediments.gameObject.SetActive(false);
+                    task4CompressSediements.gameObject.SetActive(true);
                     StartCoroutine(DelayTextButton());
                     playerCont.moveSpeed = 0;
                     arrowMan.gameObject.SetActive(true);
@@ -362,7 +378,7 @@ namespace Alpha.Phases.Geoquest
                     sideSediementIgames.gameObject.SetActive(false);
                     break;
                 case 36: // machine 1
-                   
+                    taskBar.gameObject.SetActive(false);
                     StartCoroutine(MoveToBlankInvislbePanalUnit17());
                     break;
                 case 37: //machine 2

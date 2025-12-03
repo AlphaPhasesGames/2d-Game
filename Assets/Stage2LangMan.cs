@@ -39,6 +39,11 @@ namespace Alpha.Phases.Geoquest
         public TextMeshProUGUI journal2Gravel;
         public TextMeshProUGUI journal2Sand;
 
+        public TextMeshProUGUI stage2Task1;
+        public TextMeshProUGUI stage2Task2;
+        public TextMeshProUGUI stage2Task3;
+        public TextMeshProUGUI stage2Task4;
+
         public TextMeshProUGUI sidePanal1Clay;
         public TextMeshProUGUI sidePanal1Mica;
         public TextMeshProUGUI sidePanal1Calcite;
@@ -161,6 +166,12 @@ namespace Alpha.Phases.Geoquest
             journal2Silt.text = defs["stage2SedimentSilt"];
             journal2Gravel.text = defs["stage2SedimentGravel"];
             journal2Sand.text = defs["stage2SedimentSand"];
+
+
+            stage2Task1.text = defs["stage2Task1"];
+            stage2Task2.text = defs["stage2Task2"];
+            stage2Task3.text = defs["stage2Task3"];
+            stage2Task4.text = defs["stage2Task4"];
 
             sidePanal1Clay.text = defs["stage2MineralClay"];
             sidePanal1Mica.text = defs["stage2MineralMica"];

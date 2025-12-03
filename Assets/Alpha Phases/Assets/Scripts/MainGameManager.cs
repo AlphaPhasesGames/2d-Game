@@ -141,7 +141,11 @@ namespace Alpha.Phases.Geoquest
                 Debug.Log("Loaded Stage 1 Scene 2 Save");
             }
 
-           
+            if (gqSaveData.current_stage == 3)
+            {
+                SceneManager.LoadScene("Stage3");
+                Debug.Log("Loaded Stage 1 Scene 2 Save");
+            }
 
             Debug.Log("Load Function Called");
         }
@@ -183,6 +187,13 @@ namespace Alpha.Phases.Geoquest
         }
 
         public void SaveTaskS1()
+        {
+            gqSaveData.current_task = currentTask;
+            gqSaveData.collected_gems = collectedGems;
+            Save();
+        }
+
+        public void SaveTaskS2()
         {
             gqSaveData.current_task = currentTask;
             gqSaveData.collected_gems = collectedGems;
