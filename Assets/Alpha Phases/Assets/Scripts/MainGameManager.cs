@@ -80,18 +80,18 @@ namespace Alpha.Phases.Geoquest
 
         private void Update()
         {
-          //  gqSaveData.current_stage = currentStagedqwb;
+            //  gqSaveData.current_stage = currentStagedqwb;
 
-        
-              
+
+
 
 
 
             
-            if (Input.GetKeyDown(KeyCode.Alpha1))
-            {
-                SceneManager.LoadScene("Stage 2");
-            }
+           if (Input.GetKeyDown(KeyCode.Alpha1))
+           {
+               SceneManager.LoadScene("ExitStage");
+           }
             /*
              if (Input.GetKeyDown(KeyCode.Alpha2))
              {

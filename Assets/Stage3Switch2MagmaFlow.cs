@@ -6,10 +6,11 @@ namespace Alpha.Phases.Geoquest
 {
     public class Stage3Switch2MagmaFlow : MonoBehaviour
     {
+        public AddToGems gems;
         public Stage3SwitchManager switchMan;
         public GameObject switchUp;
         public GameObject switchDown;
-
+        public GameObject switch2Onmap;
         public GameObject textPanal;
         public Button pullSwitch;
 
@@ -37,6 +38,8 @@ namespace Alpha.Phases.Geoquest
 
         public void PullSwitch()
         {
+            gems.AddGems();
+            switch2Onmap.gameObject.SetActive(false);
             switchDown.gameObject.SetActive(true);
             switchUp.gameObject.SetActive(false);
             switchMan.PullSwitch(physicalID: 2, sequenceID: 3);

@@ -6,10 +6,12 @@ namespace Alpha.Phases.Geoquest
 {
     public class Stage3Switch1CoreHeat : MonoBehaviour
     {
+        public AddToGems gems;
+        public Stage3TextManager textMan;
         public Stage3SwitchManager switchMan;
         public GameObject switchUp;
         public GameObject switchDown;
-
+        public GameObject switchOnMap;
         public GameObject textPanal;
         public Button pullSwitch;
 
@@ -39,6 +41,10 @@ namespace Alpha.Phases.Geoquest
         {
             switchDown.gameObject.SetActive(true);
             switchUp.gameObject.SetActive(false);
+            textMan.positionChanged = true;
+            gems.AddGems();
+            textMan.arrayPos = 8;
+            switchOnMap.gameObject.SetActive(false);
             switchMan.PullSwitch(physicalID: 1, sequenceID: 1);
         }
     }

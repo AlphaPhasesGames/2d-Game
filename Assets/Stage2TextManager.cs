@@ -33,6 +33,7 @@ namespace Alpha.Phases.Geoquest
         public bool runOnce;
         public bool runOnce2;
         public bool submitOnce;
+        public bool submitOnce2;
         public GameObject forwardParent;
         public Button forwardButton;
         public Button backwardsButton;
@@ -59,6 +60,7 @@ namespace Alpha.Phases.Geoquest
         public bool thirdCorrectCombination;
         public GameObject combineMachineUI;
         public GameObject door;
+        public Transform exit2;
 
         public GameObject sideSediementIgames;
         public GameObject sedimentUI;
@@ -308,6 +310,11 @@ namespace Alpha.Phases.Geoquest
                     //Step 2 text -----------------!!!!!!!!!!!!!!!!!!!!!!------------------- not a warning just making a clear break between step texts
                 
                 case 25:
+                    if (!submitOnce2)
+                    {
+                        LOLSDK.Instance.SubmitProgress(0, 60, 100);
+                        submitOnce2 = true;
+                    }
                     backwardsButton.gameObject.SetActive(false);
                     textPanal.gameObject.SetActive(true);
                     StartCoroutine(DelayTextButton());
@@ -379,13 +386,13 @@ namespace Alpha.Phases.Geoquest
                     break;
                 case 36: // machine 1
                     taskBar.gameObject.SetActive(false);
-                    StartCoroutine(MoveToBlankInvislbePanalUnit17());
+                   
                     break;
-                case 37: //machine 2
+                case 37: //machine 2 layer 1
                     textPanal.gameObject.SetActive(true);
                     forwardButton.gameObject.SetActive(false);
                     forwardParent.gameObject.SetActive(false);
-                    StartCoroutine(MoveToBlankInvislbePanalUnit17());
+                   // StartCoroutine(MoveToBlankInvislbePanalUnit17());
                     break;
                 case 38: //Wrong
                     textPanal.gameObject.SetActive(true);
@@ -404,6 +411,7 @@ namespace Alpha.Phases.Geoquest
                     StartCoroutine(MoveToBlankInvislbePanalUnit17());
                     break;
                 case 41:
+                    arrowMan.target = exit2;
                     textPanal.gameObject.SetActive(true);
                     StartCoroutine(MoveToBlankInvislbePanalUnit17());
                     break;
@@ -526,8 +534,7 @@ namespace Alpha.Phases.Geoquest
             yield return new WaitForSeconds(2);
 
             textPanal.gameObject.SetActive(true);
-            LOLSDK.Instance.SubmitProgress(0, 40, 100);
-            arrayPos = 0;
+          
             positionChanged = true;      
             Debug.Log("This start coRoutine Runs");
         }

@@ -5,6 +5,7 @@ namespace Alpha.Phases.Geoquest
 {
     public class Stage2PickUpQuarzt : MonoBehaviour
     {
+        public AddToGems gems;
         public Stage2TextManager textMan;
         public Stage2MineralMan minMan;
         public bool inRange;
@@ -47,6 +48,7 @@ namespace Alpha.Phases.Geoquest
             quartzIcon.gameObject.SetActive(true);
             textMan.positionChanged = true;
             textMan.arrayPos = 10;
+            gems.AddGems();
             quartzObj.gameObject.SetActive(false);
         }
     }

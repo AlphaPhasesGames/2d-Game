@@ -5,6 +5,7 @@ namespace Alpha.Phases.Geoquest
 {
     public class Stage2PickupSilt : MonoBehaviour
     {
+        public AddToGems gems;
         public Stage2TextManager textMan;
         public SedimentManager sediMan;
         public bool inRange;
@@ -46,6 +47,7 @@ namespace Alpha.Phases.Geoquest
             siltOnMap.gameObject.SetActive(false);
             siltIcon.gameObject.SetActive(true);
             textMan.positionChanged = true;
+            gems.AddGems();
             textMan.arrayPos = 31;
             siltObj.gameObject.SetActive(false);
         }

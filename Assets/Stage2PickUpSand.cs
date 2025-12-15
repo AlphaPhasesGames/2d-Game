@@ -5,6 +5,7 @@ namespace Alpha.Phases.Geoquest
 {
     public class Stage2PickUpSand : MonoBehaviour
     {
+        public AddToGems gems;
         public Stage2TextManager textMan;
         public SedimentManager sediMan;
         public bool inRange;
@@ -46,6 +47,7 @@ namespace Alpha.Phases.Geoquest
             sandOnMap.gameObject.SetActive(false);
             sandIcon.gameObject.SetActive(true);
             textMan.positionChanged = true;
+            gems.AddGems();
             textMan.arrayPos = 30;
             sandObj.gameObject.SetActive(false);
         }

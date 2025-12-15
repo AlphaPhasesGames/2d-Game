@@ -87,6 +87,8 @@ namespace Alpha.Phases.Geoquest
         public TextMeshProUGUI sidePanal4GoldFlakes;
         public TextMeshProUGUI sidePanal4Silt;
 
+        public TextMeshProUGUI compress;
+        public TextMeshProUGUI reset;
 
         public TextMeshProUGUI stage1Text1;
         public TextMeshProUGUI stage1Text2;
@@ -214,6 +216,9 @@ namespace Alpha.Phases.Geoquest
             sidePanal4Gravel.text = defs["stage2SedimentGravel"];
             sidePanal4GoldFlakes.text = defs["stage2SedimentGoldFlakes"];
             sidePanal4Silt.text = defs["stage2SedimentSilt"];
+
+            compress.text = defs["stage2Compress"];
+            reset.text = defs["stage2Reset"];
 
             stage1Text1.text = defs["stage2RCText1"];
             stage1Text2.text = defs["stage2RCText2"];

@@ -15,6 +15,7 @@ namespace Alpha.Phases.Geoquest
             {
                 wayPointArrow.gameObject.SetActive(false);
                 MainGameManager.Instance.SaveStage2Part2Location();
+                MainGameManager.Instance.SaveTaskS2();
                 playerCont.moveSpeed = 0;
                 textMan.positionChanged = true;
                 textMan.arrayPos = 24;

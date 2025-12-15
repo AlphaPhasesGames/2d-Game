@@ -20,4 +20,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Alpha Phases/Assets/Scenes/Stage3.unity
     guid: fad65ad1254339645856bda5549bacad
+  - enabled: 1
+    path: Assets/Alpha Phases/Assets/Scenes/ExitStage.unity
+    guid: 3c231683f70b3964bbd572411cc9fdae
   m_configObjects: {}

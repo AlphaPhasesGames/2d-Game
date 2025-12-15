@@ -5,6 +5,7 @@ namespace Alpha.Phases.Geoquest
 {
     public class Stage2PickupGravel : MonoBehaviour
     {
+        public AddToGems gems;
         public Stage2TextManager textMan;
         public SedimentManager sediMan;
         public bool inRange;
@@ -46,6 +47,7 @@ namespace Alpha.Phases.Geoquest
             gravelOnMap.gameObject.SetActive(false);
             gravelIcon.gameObject.SetActive(true);
             textMan.positionChanged = true;
+            gems.AddGems();
             textMan.arrayPos = 32;
             gravelObj.gameObject.SetActive(false);
         }

@@ -7,10 +7,11 @@ namespace Alpha.Phases.Geoquest
 
     public class Stage3Switch3TectonicPressure : MonoBehaviour
     {
+        public AddToGems gems;
         public Stage3SwitchManager switchMan;
         public GameObject switchUp;
         public GameObject switchDown;
-
+        public GameObject switch3Onmap;
         public GameObject textPanal;
         public Button pullSwitch;
 
@@ -38,6 +39,8 @@ namespace Alpha.Phases.Geoquest
 
         public void PullSwitch()
         {
+            gems.AddGems();
+            switch3Onmap.gameObject.SetActive(false);
             switchDown.gameObject.SetActive(true);
             switchUp.gameObject.SetActive(false);
             switchMan.PullSwitch(physicalID: 3, sequenceID: 4);

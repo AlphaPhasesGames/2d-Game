@@ -6,6 +6,8 @@ namespace Alpha.Phases.Geoquest
 {
     public class Stage3SwitchManager : MonoBehaviour
     {
+        public Stage3TextManager textMan;
+
         // --- SWITCH UI OBJECTS ---
         public GameObject switchUp1CoreHeat;
         public GameObject switchDown1CoreHeat;
@@ -22,6 +24,9 @@ namespace Alpha.Phases.Geoquest
         public GameObject lavaStones;
         public ParticleSystem smoke1;
 
+        public AudioSource wrongSFX;
+        public AudioSource correctSFX;
+        public AudioSource rumble;
         // --- PUZZLE ORDER SYSTEM ---
         public int[] correctOrder = { 1, 3, 4, 2 };   // <-- Set your required order here
         private int currentIndex = 0;
@@ -47,7 +52,7 @@ namespace Alpha.Phases.Geoquest
                 Debug.Log("Correct sequence step!");
                 ActivateSwitch(physicalID);
                 currentIndex++;
-
+                correctSFX.Play();
                 if (currentIndex >= correctOrder.Length)
                 {
                     Debug.Log("PUZZLE COMPLETE!");
@@ -104,6 +109,12 @@ namespace Alpha.Phases.Geoquest
 
             switchUp4SurfaceEnergyRelease.SetActive(true);
             switchDown4SurfaceEnergyRelease.SetActive(false);
+
+            wrongSFX.Play();
+
+            textMan.ResetBools();
+            textMan.positionChanged = true;
+            textMan.arrayPos = 9;
         }
 
         public void PuzzleComplete()
@@ -111,6 +122,9 @@ namespace Alpha.Phases.Geoquest
             Debug.Log("Puzzle logic triggers here!");
             lavaStones.gameObject.SetActive(true);
             smoke1.Play();
+            rumble.Play();
+            textMan.positionChanged = true;
+            textMan.arrayPos = 10;
             // Open door, continue text, activate machine, whatever you need
         }
     }

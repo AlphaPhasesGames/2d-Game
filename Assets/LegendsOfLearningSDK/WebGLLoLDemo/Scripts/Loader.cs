@@ -102,7 +102,7 @@ public class Loader : MonoBehaviour
         // Either GameState.Paused or GameState.Resumed
         Debug.Log("HandleGameStateChange");
     }
-
+   // /*
 #if UNITY_EDITOR
     private void LoadMockData ()
     {
@@ -142,5 +142,7 @@ public class Loader : MonoBehaviour
 			HandleQuestions(qs);
 		}
     }
-#endif
+    #endif
+   // */
+
 }

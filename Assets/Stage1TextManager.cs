@@ -1,5 +1,3 @@
-
-
 using System.Collections;
 using System;
 using UnityEngine;
@@ -19,6 +17,8 @@ namespace Alpha.Phases.Geoquest
 
         public bool positionChanged; //= true;
 
+        public bool runThrice;
+
         public GameObject invButton;
 
         public GameObject[] modelArray;
@@ -28,7 +28,9 @@ namespace Alpha.Phases.Geoquest
         public bool panalOpen;
         public bool runOnce;
         public bool runOnce2;
+
         public bool submitOnce;
+        public bool submitTwice;
         public GameObject forwardParent;
         public Button forwardButton;
         public Button backwardsButton;
@@ -62,6 +64,10 @@ namespace Alpha.Phases.Geoquest
         public GameObject task1;
         public GameObject task2;
         public GameObject task3;
+
+        public Button crossButton1;
+
+
         //public bool inventoryReadToBeOpen;
 
         private void Awake()
@@ -81,6 +87,9 @@ namespace Alpha.Phases.Geoquest
             ttsButtonForConcept2GeoProcess.onClick.AddListener(SpeakJournal2GeoProcess);
             ttsButtonForConcept3Rock.onClick.AddListener(SpeakJournal3Rock);
             ttsButtonForConcept4RegMeta.onClick.AddListener(SpeakJournal4RegMeta);
+
+            crossButton1.onClick.AddListener(CrossButton);
+
 
             for (int i = 0; i < textButtons.Length; i++)
             {
@@ -195,7 +204,7 @@ namespace Alpha.Phases.Geoquest
                 case 12:
                     playerCont.moveSpeed = 0;
                     textPanal.gameObject.SetActive(true);
-                    StartCoroutine(MoveToBlankInvislbePanalUnit17());
+                    StartCoroutine(EnableCross());
                     break;
                 case 13:
                     playerCont.moveSpeed = 0;
@@ -229,43 +238,43 @@ namespace Alpha.Phases.Geoquest
                     playerCont.moveSpeed = 0;
                     backwardsButton.gameObject.SetActive(false);
                     textPanal.gameObject.SetActive(true);
-                    StartCoroutine(MoveToBlankInvislbePanalUnit17());
+                    StartCoroutine(EnableCross());
                     break;
                 case 20:
                     playerCont.moveSpeed = 0;
                     backwardsButton.gameObject.SetActive(false);
                     textPanal.gameObject.SetActive(true);
-                    StartCoroutine(MoveToBlankInvislbePanalUnit17());
+                    StartCoroutine(EnableCross());
                     break;
                 case 21:
                     playerCont.moveSpeed = 0;
                     backwardsButton.gameObject.SetActive(false);
                     textPanal.gameObject.SetActive(true);
-                    StartCoroutine(MoveToBlankInvislbePanalUnit17());
+                    StartCoroutine(EnableCross());
                     break;
                 case 22:
                     playerCont.moveSpeed = 0;
                     backwardsButton.gameObject.SetActive(false);
                     textPanal.gameObject.SetActive(true);
-                    StartCoroutine(MoveToBlankInvislbePanalUnit17());
+                    StartCoroutine(EnableCross());
                     break;
                 case 23:
                     playerCont.moveSpeed = 0;
                     backwardsButton.gameObject.SetActive(false);
                     textPanal.gameObject.SetActive(true);
-                    StartCoroutine(MoveToBlankInvislbePanalUnit17());
+                    StartCoroutine(EnableCross());
                     break;
                 case 24:
                     playerCont.moveSpeed = 0;
                     backwardsButton.gameObject.SetActive(false);
                     textPanal.gameObject.SetActive(true);
-                    StartCoroutine(MoveToBlankInvislbePanalUnit17());
+                    StartCoroutine(EnableCross());
                     break;
                 case 25:
                     playerCont.moveSpeed = 0;
                     backwardsButton.gameObject.SetActive(false);
                     textPanal.gameObject.SetActive(true);
-                    StartCoroutine(MoveToBlankInvislbePanalUnit17());
+                    StartCoroutine(EnableCross());
                     break;
                 case 26:
                     playerCont.moveSpeed = 0;
@@ -283,6 +292,11 @@ namespace Alpha.Phases.Geoquest
                     break;
                 case 28: // diagram text
                     playerCont.moveSpeed = 0;
+                    if (!submitTwice)
+                    {
+                        LOLSDK.Instance.SubmitProgress(0, 15, 100);
+                        submitTwice = true;
+                    }
                     concept2GeoProcess.gameObject.SetActive(true);
                     backwardsButton.gameObject.SetActive(false);
                     textPanal.gameObject.SetActive(true);
@@ -540,12 +554,30 @@ namespace Alpha.Phases.Geoquest
             yield return new WaitForSeconds(4);
 
             textPanal.gameObject.SetActive(true);
-            LOLSDK.Instance.SubmitProgress(0, 0, 100);
+           
             arrayPos = 0;
             positionChanged = true;      // <-- ensure Update processes arrayPos 0
                                          // textBools[0] = true;      // <-- remove this so case 0 will run
             Debug.Log("This start coRoutine Runs");
         }
+
+        public IEnumerator EnableCross()
+        {
+            yield return new WaitForSeconds(5);
+            crossButton1.gameObject.SetActive(true);
+            Debug.Log("This start coRoutine Runs");
+        }
+
+
+        public void CrossButton()
+        {
+            textPanal.gameObject.SetActive(false);
+            positionChanged = true;
+            arrayPos = 44;
+            playerCont.moveSpeed = 5;
+            crossButton1.gameObject.SetActive(false);
+        }
+
     }
 }
 

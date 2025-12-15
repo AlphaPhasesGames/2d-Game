@@ -96,11 +96,7 @@ namespace Alpha.Phases.Destiny.Quest
             switch (arrayPos)
             {
                 case 0:
-                    if (!submitOnce)
-                    {
-                        LOLSDK.Instance.SubmitProgress(0, 0, 100);
-                        submitOnce = true;
-                    }
+                  
                     //playerMoveScript.enabled = false;
                     textPanal.gameObject.SetActive(true);
                     backwardsButton.gameObject.SetActive(false);

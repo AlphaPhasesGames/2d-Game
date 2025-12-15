@@ -6,6 +6,8 @@ namespace Alpha.Phases.Geoquest
 {
     public class Stage3CarryMagma : MonoBehaviour
     {
+        public Stage3TextManager textMan;
+        public bool runOnce;
         public TopDownPlayerController playerCont;
         public bool isInRange;
         public CircleCollider2D col;
@@ -45,6 +47,13 @@ namespace Alpha.Phases.Geoquest
 
             playerCont.IsHeld = true;
             playerCont.heldObject = this.transform;
+
+            if (!runOnce)
+            {
+                textMan.positionChanged = true;
+                textMan.arrayPos = 14;
+                runOnce = true;
+            }
 
             // Optional: parent immediately if using parentToHoldPoint
             if (playerCont.parentToHoldPoint)
