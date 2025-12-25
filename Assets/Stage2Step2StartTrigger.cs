@@ -9,7 +9,6 @@ namespace Alpha.Phases.Geoquest
         public GameObject wayPointArrow;
         public TopDownPlayerController playerCont;
         public bool runOnce;
-        public OpenJournal journal;
     private void OnTriggerEnter2D(Collider2D collision)
         {
             if (!runOnce)
@@ -18,7 +17,6 @@ namespace Alpha.Phases.Geoquest
                 MainGameManager.Instance.SaveStage2Part2Location();
                 MainGameManager.Instance.SaveTaskS2();
                 playerCont.moveSpeed = 0;
-                journal.pageNo = 3;
                 textMan.positionChanged = true;
                 textMan.arrayPos = 24;
                 runOnce = true;

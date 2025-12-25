@@ -10,7 +10,7 @@ namespace Alpha.Phases.Geoquest
     {
         public TopDownPlayerController playerCont;
         public Stage2CombinationManager combMan;
-       // public ArrowPointer arrowMan;
+        public ArrowPointer arrowMan;
         public OpenJournal openJourn;
         public GameObject journal;
         public bool hasScrolled;
@@ -66,7 +66,6 @@ namespace Alpha.Phases.Geoquest
         public GameObject sedimentUI;
 
         public GameObject mapStep1;
-        public GameObject mapStep2;
 
         public Button ttsButtonForWrongText;
 
@@ -242,8 +241,8 @@ namespace Alpha.Phases.Geoquest
                     StartCoroutine(MoveToBlankInvislbePanalUnit17());
                     break;
                 case 12:
-                    arrow.gameObject.SetActive(true); 
-                    arrow.target = machineInScene;
+                    arrowMan.gameObject.SetActive(true); 
+                    arrowMan.target = machineInScene;
                     playerCont.moveSpeed = 0;
                     task1MineralsCollect.gameObject.SetActive(false);
                     task2CombineMinerals.gameObject.SetActive(true);
@@ -297,9 +296,8 @@ namespace Alpha.Phases.Geoquest
                     StartCoroutine(DelayTextButton());
                     break;
                 case 23:
-                    playerCont.moveSpeed = 0;
                     StartCoroutine(MoveToBlankInvislbePanalUnit17());
-                    arrow.target = part2WP;
+                    arrowMan.target = part2WP;
                     combineMachineUI.gameObject.SetActive(false);
                     break;
                 case 24: // wrong box
@@ -319,8 +317,6 @@ namespace Alpha.Phases.Geoquest
                     }
                     backwardsButton.gameObject.SetActive(false);
                     textPanal.gameObject.SetActive(true);
-                    mapStep1.gameObject.SetActive(false);
-                    mapStep2.gameObject.SetActive(true);
                     StartCoroutine(DelayTextButton());
                     break;
 
@@ -379,8 +375,8 @@ namespace Alpha.Phases.Geoquest
                     task4CompressSediements.gameObject.SetActive(true);
                     StartCoroutine(DelayTextButton());
                     playerCont.moveSpeed = 0;
-                    arrow.gameObject.SetActive(true);
-                    arrow.target = machineInSceneP2;
+                    arrowMan.gameObject.SetActive(true);
+                    arrowMan.target = machineInSceneP2;
                     textPanal.gameObject.SetActive(true);
                     StartCoroutine(MoveToBlankInvislbePanalUnit17());
                     break;
@@ -389,8 +385,6 @@ namespace Alpha.Phases.Geoquest
                     sideSediementIgames.gameObject.SetActive(false);
                     break;
                 case 36: // machine 1
-                    arrow.gameObject.SetActive(false);
-                    arrow.target = null;
                     taskBar.gameObject.SetActive(false);
                    
                     break;
@@ -402,7 +396,7 @@ namespace Alpha.Phases.Geoquest
                     break;
                 case 38: //Wrong
                     textPanal.gameObject.SetActive(true);
-
+                   
                     StartCoroutine(MoveToBlankInvislbePanalUnit17());
                     break;
                 case 39: // Correct
@@ -410,8 +404,6 @@ namespace Alpha.Phases.Geoquest
                     textPanal.gameObject.SetActive(true);
                     break;
                 case 40:
-                    arrow.gameObject.SetActive(true);
-                    arrow.target = exit2;
                     sedimentUI.gameObject.SetActive(false);
                     //door2.gameObject.SetActive(false);
                     doorCollider.enabled = true;
@@ -419,7 +411,7 @@ namespace Alpha.Phases.Geoquest
                     StartCoroutine(MoveToBlankInvislbePanalUnit17());
                     break;
                 case 41:
-                 
+                    arrowMan.target = exit2;
                     textPanal.gameObject.SetActive(true);
                     StartCoroutine(MoveToBlankInvislbePanalUnit17());
                     break;

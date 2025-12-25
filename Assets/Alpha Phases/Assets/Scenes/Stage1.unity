@@ -498,7 +498,6 @@ MonoBehaviour:
   inRange: 0
   gemMan: {fileID: 919654225}
   chestToHide: {fileID: 1576531832684566571}
-  runOnce: 0
 --- !u!61 &439978555
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1438,7 +1437,6 @@ MonoBehaviour:
   inRange: 0
   gemMan: {fileID: 919654225}
   chestToHide: {fileID: 1921773140855405269}
-  runOnce: 0
 --- !u!114 &533444295
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1595,7 +1593,6 @@ MonoBehaviour:
   inRange: 0
   gemMan: {fileID: 919654225}
   chestToHide: {fileID: 3792850672637362536}
-  runOnce: 0
 --- !u!61 &628342938
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -3129,7 +3126,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.05351156, y: -1.3300124}
+  m_Offset: {x: 0, y: -0.75667596}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -3140,7 +3137,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 2.9237828, y: 2.226679}
+  m_Size: {x: 1.93, y: 3.373352}
   m_EdgeRadius: 0
 --- !u!114 &1025649278
 MonoBehaviour:
@@ -3911,7 +3908,6 @@ MonoBehaviour:
   inRange: 0
   gemMan: {fileID: 919654225}
   chestToHide: {fileID: 7239449716305435763}
-  runOnce: 0
 --- !u!61 &1232467438
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -4251,7 +4247,6 @@ MonoBehaviour:
   inRange: 0
   gemMan: {fileID: 919654225}
   chestToHide: {fileID: 7066224715336404600}
-  runOnce: 0
 --- !u!61 &1434111845
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -5196,7 +5191,6 @@ MonoBehaviour:
   inRange: 0
   gemMan: {fileID: 919654225}
   chestToHide: {fileID: 2574751387487737283}
-  runOnce: 0
 --- !u!61 &1908094158
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -5408,7 +5402,6 @@ MonoBehaviour:
   inRange: 0
   gemMan: {fileID: 919654225}
   chestToHide: {fileID: 8826008482224023194}
-  runOnce: 0
 --- !u!61 &1924791391
 BoxCollider2D:
   m_ObjectHideFlags: 0

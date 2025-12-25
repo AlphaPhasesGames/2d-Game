@@ -12,7 +12,6 @@ namespace Alpha.Phases.Geoquest
         public bool inRange;
         public Stage1BottleManager gemMan;
         public GameObject chestToHide;
-        public bool runOnce;
         void Start()
         {
             sr = GetComponent<SpriteRenderer>();
@@ -24,12 +23,7 @@ namespace Alpha.Phases.Geoquest
             {
                 if (Input.GetKeyDown(KeyCode.E))
                 {
-                    if (!runOnce)
-                    {
-                        OpenChest();
-                        runOnce = true;
-                    }
-                 
+                    OpenChest();
                 }
             }
         }
