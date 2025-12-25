@@ -52,6 +52,12 @@ namespace Alpha.Phases.Geoquest
         public bool layer3Filled;
         public bool layer4Filled;
 
+        private bool sandUsed;
+        private bool gravelUsed;
+        private bool siltUsed;
+        private bool clayUsed;
+        private bool goldUsed;
+
         public bool goldPlaced;
         public bool placedOnce;
         private void Awake()
@@ -88,135 +94,88 @@ namespace Alpha.Phases.Geoquest
 
         public void AddSand()
         {
-            if (!layer1Filled)
-            {
-                layerSand1.SetActive(true);
-                layer1Filled = true;
-            }
-            else if (!layer2Filled)
-            {
-                layerSand2.SetActive(true);
-                layer2Filled = true;
-            }
-            else if (!layer3Filled)
-            {
-                layerSand3.SetActive(true);
-                layer3Filled = true;
-            }
-            else if (!layer4Filled)
-            {
-                layerSand4.SetActive(true);
-                layer4Filled = true;
-            }
+            if (sandUsed)
+                return;
+
+            sandUsed = true;
+            AddToNextLayer(
+                layerSand1,
+                layerSand2,
+                layerSand3,
+                layerSand4
+            );
         }
 
         public void AddGravel()
         {
-            if (!layer1Filled)
-            {
-                layerGravel1.SetActive(true);
-                layer1Filled = true;
-            }
-            else if (!layer2Filled)
-            {
-                layerGravel2.SetActive(true);
-                layer2Filled = true;
-            }
-            else if (!layer3Filled)
-            {
-                layerGravel3.SetActive(true);
-                layer3Filled = true;
-            }
-            else if (!layer4Filled)
-            {
-                layerGravel4.SetActive(true);
-                layer4Filled = true;
-            }
+            if (gravelUsed)
+                return;
+
+            gravelUsed = true;
+            AddToNextLayer(
+                layerGravel1,
+                layerGravel2,
+                layerGravel3,
+                layerGravel4
+            );
         }
+
+
 
         public void AddSilt()
         {
-            if (!layer1Filled)
-            {
-                layerSilt1.SetActive(true);
-                layer1Filled = true;
-            }
-            else if (!layer2Filled)
-            {
-                layerSilt2.SetActive(true);
-                layer2Filled = true;
-            }
-            else if (!layer3Filled)
-            {
-                layerSilt3.SetActive(true);
-                layer3Filled = true;
-            }
-            else if (!layer4Filled)
-            {
-                layerSilt4.SetActive(true);
-                layer4Filled = true;
-            }
+            if (siltUsed)
+                return;
+
+            siltUsed = true;
+            AddToNextLayer(
+                layerSilt1,
+                layerSilt2,
+                layerSilt3,
+                layerSilt4
+            );
         }
 
         public void AddClay()
         {
-            if (!layer1Filled)
-            {
-                layerClay1.SetActive(true);
-                layer1Filled = true;
-            }
-            else if (!layer2Filled)
-            {
-                layerClay2.SetActive(true);
-                layer2Filled = true;
-            }
-            else if (!layer3Filled)
-            {
-                layerClay3.SetActive(true);
-                layer3Filled = true;
-            }
-            else if (!layer4Filled)
-            {
-                layerClay4.SetActive(true);
-                layer4Filled = true;
-            }
+            if (clayUsed)
+                return;
+
+            clayUsed = true;
+            AddToNextLayer(
+                layerClay1,
+                layerClay2,
+                layerClay3,
+                layerClay4
+            );
         }
 
         public void AddGFlakes()
         {
-            if (!layer1Filled)
-            {
-                layerGoldFlakes1.SetActive(true);
-                goldPlaced = true;
-                layer1Filled = true;
-            }
-            else if (!layer2Filled)
-            {
-                layerGoldFlakes2.SetActive(true);
-                goldPlaced = true;
-                layer2Filled = true;
-            }
-            else if (!layer3Filled)
-            {
-                layerGoldFlakes3.SetActive(true);
-                goldPlaced = true;
-                layer3Filled = true;
-            }
-            else if (!layer4Filled)
-            {
-                layerGoldFlakes4.SetActive(true);
-                goldPlaced = true;
-                layer4Filled = true;
-            }
+            if (goldUsed)
+                return;
+
+            goldUsed = true;
+            goldPlaced = true;
+
+            AddToNextLayer(
+                layerGoldFlakes1,
+                layerGoldFlakes2,
+                layerGoldFlakes3,
+                layerGoldFlakes4
+            );
         }
+
 
         public void ResetLayers()
         {
-            layer1Filled = false;
-            layer2Filled = false;
-            layer3Filled = false;
-            layer4Filled = false;
+            layer1Filled = layer2Filled = layer3Filled = layer4Filled = false;
 
+            sandUsed = gravelUsed = siltUsed = clayUsed = goldUsed = false;
+            goldPlaced = false;
+            placedOnce = false;
+
+            // Disable all visuals
             layerSand1.SetActive(false);
             layerSand2.SetActive(false);
             layerSand3.SetActive(false);
@@ -241,7 +200,6 @@ namespace Alpha.Phases.Geoquest
             layerGoldFlakes2.SetActive(false);
             layerGoldFlakes3.SetActive(false);
             layerGoldFlakes4.SetActive(false);
-            goldPlaced = false;
         }
 
 
@@ -261,6 +219,34 @@ namespace Alpha.Phases.Geoquest
                     textMan.positionChanged = true;
                     textMan.arrayPos = 39;
                 }
+            }
+        }
+
+        private void AddToNextLayer(
+              GameObject l1,
+              GameObject l2,
+              GameObject l3,
+              GameObject l4)
+        {
+            if (!layer1Filled)
+            {
+                l1.SetActive(true);
+                layer1Filled = true;
+            }
+            else if (!layer2Filled)
+            {
+                l2.SetActive(true);
+                layer2Filled = true;
+            }
+            else if (!layer3Filled)
+            {
+                l3.SetActive(true);
+                layer3Filled = true;
+            }
+            else if (!layer4Filled)
+            {
+                l4.SetActive(true);
+                layer4Filled = true;
             }
         }
 

@@ -87,22 +87,22 @@ namespace Alpha.Phases.Geoquest
 
 
 
-            
-           if (Input.GetKeyDown(KeyCode.Alpha1))
-           {
-               SceneManager.LoadScene("ExitStage");
-           }
             /*
-             if (Input.GetKeyDown(KeyCode.Alpha2))
-             {
-                 SceneManager.LoadScene("ParisStudy");
+        if (Input.GetKeyDown(KeyCode.Alpha1))
+        {
+            SceneManager.LoadScene("Stage 2");
+        }
 
-             }
-             if (Input.GetKeyDown(KeyCode.Alpha3))
-             {
-                 SceneManager.LoadScene("Stage2Scene3");
-             }
-             */
+          if (Input.GetKeyDown(KeyCode.Alpha2))
+          {
+              SceneManager.LoadScene("ParisStudy");
+
+          }
+          if (Input.GetKeyDown(KeyCode.Alpha3))
+          {
+              SceneManager.LoadScene("Stage2Scene3");
+          }
+          */
         }
 
         public void Save()

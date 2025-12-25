@@ -61,12 +61,18 @@ namespace Alpha.Phases.Geoquest
             if (amountOfCorrectAnswers == 7 && !allAnswersCorrect)
             {
                 textMan.positionChanged = true;
-                textMan.arrayPos = 31; // not 13 - change when text setup
+                textMan.arrayPos = 31;
                 allAnswersCorrect = true;
+
                 MainGameManager.Instance.collectedGems = bMan.amountOfGems += 20;
                 MainGameManager.Instance.SaveTaskS1();
-                chests.gameObject.SetActive(false);
-                switches.gameObject.SetActive(true);
+
+                chests.SetActive(false);
+                switches.SetActive(true);
+
+                // Lock incorrect choices
+                frictionBUtton.interactable = false;
+                evaporationButton.interactable = false;
             }
         }
 
@@ -121,9 +127,13 @@ namespace Alpha.Phases.Geoquest
 
         public void FrictionPRessed()
         {
+            // Do not allow incorrect feedback once the player has progressed
+            if (firstAnswerCorrect || allAnswersCorrect)
+                return;
+
             textMan.ResetBools();
             textMan.positionChanged = true;
-            textMan.arrayPos = 29; // not 13 - change when text setup
+            textMan.arrayPos = 29;
         }
     }
 }
