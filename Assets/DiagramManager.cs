@@ -36,8 +36,8 @@ namespace Alpha.Phases.Geoquest
         public GameObject switches;
         private void Awake()
         {
-            upliftButton.onClick.AddListener(UpliftCorrect);
-            weatheringButton.onClick.AddListener(WeatheringCorrect);
+            //upliftButton.onClick.AddListener(UpliftCorrect);
+            //weatheringButton.onClick.AddListener(WeatheringCorrect);
             erosionButton.onClick.AddListener(ErosionCorrect);
             depositionButton.onClick.AddListener(DepositionCorrect);
             crystalizationButton.onClick.AddListener(CrystalisationCorrect);
@@ -124,6 +124,27 @@ namespace Alpha.Phases.Geoquest
             textMan.ResetBools();
             textMan.positionChanged = true;
             textMan.arrayPos = 29; // not 13 - change when text setup
+        }
+
+
+        public void RegisterCorrectStep(string stepID)
+        {
+            amountOfCorrectAnswers++;
+
+            switch (stepID)
+            {
+                case "Uplift": upliftPlaced.SetActive(true);
+                    UpliftCorrect();  
+                    break;
+                case "Weathering": weatheringPlaced.SetActive(true);
+                    WeatheringCorrect();
+                    break;
+                case "Erosion": erosionPlaced.SetActive(true); break;
+                case "Deposition": despoitionPlaced.SetActive(true); break;
+                case "Crystallization": crystalIzationPlaced.SetActive(true); break;
+                case "Metamorphism": metamorphismPlaced.SetActive(true); break;
+                case "Melting": meltingPlaced.SetActive(true); break;
+            }
         }
     }
 }
