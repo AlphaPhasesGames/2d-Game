@@ -54,6 +54,8 @@ namespace Alpha.Phases.Geoquest
 
         public bool goldPlaced;
         public bool placedOnce;
+        public Animator compressRock;
+
         private void Awake()
         {
             sand.onClick.AddListener(AddSand);
@@ -260,6 +262,7 @@ namespace Alpha.Phases.Geoquest
                 {
                     textMan.positionChanged = true;
                     textMan.arrayPos = 39;
+                    compressRock.SetBool("compress", true);
                 }
             }
         }

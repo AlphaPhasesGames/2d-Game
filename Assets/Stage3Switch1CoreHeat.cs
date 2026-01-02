@@ -25,7 +25,10 @@ namespace Alpha.Phases.Geoquest
             if (collision.CompareTag("Player"))
             {
                 textPanal.gameObject.SetActive(true);
-
+                if (Input.GetKeyDown(KeyCode.E))
+                {
+                    PullSwitch();
+                }
             }
         }
 

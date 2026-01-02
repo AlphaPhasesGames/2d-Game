@@ -115,6 +115,19 @@ namespace Alpha.Phases.Geoquest
         public TextMeshProUGUI task1;
         public TextMeshProUGUI task2;
         public TextMeshProUGUI task3;
+
+
+        public TextMeshProUGUI stepUpliftNameJDiag;
+        public TextMeshProUGUI stepWeatheringJDiag;
+        public TextMeshProUGUI stepErosionJDiag;
+        public TextMeshProUGUI stepDepositionJDiag;
+        public TextMeshProUGUI stepMeltingJDiag;
+        public TextMeshProUGUI stepCrystallizationJDiag;
+        public TextMeshProUGUI stepMetamorphismJDiag;
+        public TextMeshProUGUI sedimentaryRockJDiag;
+        public TextMeshProUGUI metamorphicRockJDiag;
+        public TextMeshProUGUI igenousRockJDiag;
+        public TextMeshProUGUI compactionJDiag;
         private void Awake()
         {
             JSONNode defs = SharedState.LanguageDefs;
@@ -229,7 +242,19 @@ namespace Alpha.Phases.Geoquest
             task1.text = defs["stage1Task1"];
             task2.text = defs["stage1Task2"];
             task3.text = defs["stage1Task3"];
-    }
+
+            stepUpliftNameJDiag.text = defs["stage1RCStep1Name"];
+            stepWeatheringJDiag.text = defs["stage1RCStep2Name"]; 
+            stepErosionJDiag.text = defs["stage1RCStep3Name"];
+            stepDepositionJDiag.text = defs["stage1RCStep4Name"];
+            stepMeltingJDiag.text = defs["stage1RCStep5Name"];
+            stepCrystallizationJDiag.text = defs["stage1RCStep6Name"];
+            stepMetamorphismJDiag.text = defs["stage1RCStep7Name"]; 
+            sedimentaryRockJDiag.text = defs["stage1RCSedimentary"];
+            metamorphicRockJDiag.text = defs["stage1RCMetamorphic"]; 
+            igenousRockJDiag.text = defs["stage1RCIgneous"]; 
+            compactionJDiag.text = defs["stage1RCCompaction"]; 
+        }
 
     }
 }

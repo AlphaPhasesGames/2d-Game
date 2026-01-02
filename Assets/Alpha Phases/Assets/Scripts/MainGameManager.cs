@@ -90,7 +90,7 @@ namespace Alpha.Phases.Geoquest
             
            if (Input.GetKeyDown(KeyCode.Alpha1))
            {
-               SceneManager.LoadScene("ExitStage");
+               SceneManager.LoadScene("Stage3");
            }
             /*
              if (Input.GetKeyDown(KeyCode.Alpha2))
