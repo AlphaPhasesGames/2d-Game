@@ -11,7 +11,7 @@ namespace Alpha.Phases.Geoquest
         private Canvas canvas;
         private Vector2 startPos;
         public bool isWeatherHeld;
-
+        public DiagramManager diagMan;
         void Awake()
         {
             rect = GetComponent<RectTransform>();
@@ -22,10 +22,19 @@ namespace Alpha.Phases.Geoquest
 
         void Update()
         {
+
+            if (isWeatherHeld)
+            {
+                if (Input.GetKeyDown(KeyCode.Escape) || Input.GetMouseButtonDown(1))
+                {
+                    ResetPosition();
+                }
+            }
+
             if (!isWeatherHeld) return;
 
             RectTransform parentRect = rect.parent as RectTransform;
-
+            //diagMan.areWeGrabbingSomething = true;
             Vector2 localMousePos;
             RectTransformUtility.ScreenPointToLocalPointInRectangle(
                 parentRect,
@@ -41,17 +50,22 @@ namespace Alpha.Phases.Geoquest
 
         public void OnPointerClick(PointerEventData eventData)
         {
-            if (DiagramPickupManager.Instance.HasItemHeld())
-                return;
-
-            PickUp();
+            //  if (DiagramPickupManager.Instance.HasItemHeld())
+            //      return;
+            if (!diagMan.areWeGrabbingSomething)
+            {
+                PickUp();
+            }
+          
         }
 
         void PickUp()
         {
+            if (isWeatherHeld) return;
+
             isWeatherHeld = true;
             canvasGroup.blocksRaycasts = false; //  THIS IS THE FIX
-           // DiagramPickupManager.Instance.
+            diagMan.areWeGrabbingSomething = true;
         }
 
         public void PlaceAt(Vector2 targetPos)
@@ -67,6 +81,8 @@ namespace Alpha.Phases.Geoquest
             isWeatherHeld = false;
             canvasGroup.blocksRaycasts = true;
             rect.anchoredPosition = startPos;
+            diagMan.areWeGrabbingSomething = false;
+
         }
 
         public bool IsHeld => isWeatherHeld;

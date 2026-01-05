@@ -9,22 +9,10 @@ namespace Alpha.Phases.Geoquest
         public Stage1TextManager textMan;
         public Stage1BottleManager bMan;
 
-        public GameObject upliftPlaced;
-        public GameObject weatheringPlaced;
-        public GameObject erosionPlaced;
-        public GameObject despoitionPlaced;
-        public GameObject crystalIzationPlaced;
-        public GameObject metamorphismPlaced;
-        public GameObject meltingPlaced;
+        public bool areWeGrabbingSomething;
 
         public int amountOfCorrectAnswers;
-        public Button upliftButton;
-        public Button weatheringButton;
-        public Button erosionButton;
-        public Button depositionButton;
-        public Button crystalizationButton;
-        public Button metamorhismButton;
-        public Button meltingButton;
+   
 
         public Button evaporationButton;
         public Button frictionBUtton;
@@ -36,13 +24,7 @@ namespace Alpha.Phases.Geoquest
         public GameObject switches;
         private void Awake()
         {
-            //upliftButton.onClick.AddListener(UpliftCorrect);
-            //weatheringButton.onClick.AddListener(WeatheringCorrect);
-            erosionButton.onClick.AddListener(ErosionCorrect);
-            depositionButton.onClick.AddListener(DepositionCorrect);
-            crystalizationButton.onClick.AddListener(CrystalisationCorrect);
-            metamorhismButton.onClick.AddListener(MetamorphismtCorrect);
-            meltingButton.onClick.AddListener(MeltingCorrect);
+            areWeGrabbingSomething = false;
 
             frictionBUtton.onClick.AddListener(FrictionPRessed);
             evaporationButton.onClick.AddListener(FrictionPRessed);
@@ -73,50 +55,63 @@ namespace Alpha.Phases.Geoquest
         public void UpliftCorrect()
         {
             amountOfCorrectAnswers +=1;
-            upliftPlaced.gameObject.SetActive(true);
-            upliftButton.gameObject.SetActive(false);
+            areWeGrabbingSomething = false;
+           // upliftPlaced.gameObject.SetActive(true);
+           // upliftButton.gameObject.SetActive(false);
         }
 
         public void WeatheringCorrect()
         {
             amountOfCorrectAnswers += 1;
-            weatheringPlaced.gameObject.SetActive(true);
-            weatheringButton.gameObject.SetActive(false);
+            areWeGrabbingSomething = false;
+
+            // weatheringPlaced.gameObject.SetActive(true);
+            // weatheringButton.gameObject.SetActive(false);
         }
 
         public void ErosionCorrect()
         {
             amountOfCorrectAnswers += 1;
-            erosionPlaced.gameObject.SetActive(true);
-            erosionButton.gameObject.SetActive(false);
+            areWeGrabbingSomething = false;
+
+            // erosionPlaced.gameObject.SetActive(true);
+            // erosionButton.gameObject.SetActive(false);
         }
 
         public void CrystalisationCorrect()
         {
             amountOfCorrectAnswers += 1;
-            crystalIzationPlaced.gameObject.SetActive(true);
-            crystalizationButton.gameObject.SetActive(false);
+            areWeGrabbingSomething = false;
+
+            // crystalIzationPlaced.gameObject.SetActive(true);
+            //crystalizationButton.gameObject.SetActive(false);
         }
 
         public void DepositionCorrect()
         {
             amountOfCorrectAnswers += 1;
-            despoitionPlaced.gameObject.SetActive(true);
-            depositionButton.gameObject.SetActive(false);
+            areWeGrabbingSomething = false;
+
+            // despoitionPlaced.gameObject.SetActive(true);
+            // depositionButton.gameObject.SetActive(false);
         }
 
         public void MetamorphismtCorrect()
         {
             amountOfCorrectAnswers += 1;
-            metamorphismPlaced.gameObject.SetActive(true);
-            metamorhismButton.gameObject.SetActive(false);
+            areWeGrabbingSomething = false;
+
+            // metamorphismPlaced.gameObject.SetActive(true);
+            // metamorhismButton.gameObject.SetActive(false);
         }
 
         public void MeltingCorrect()
         {
             amountOfCorrectAnswers += 1;
-            meltingPlaced.gameObject.SetActive(true);
-            meltingButton.gameObject.SetActive(false);
+            areWeGrabbingSomething = false;
+
+            // meltingPlaced.gameObject.SetActive(true);
+            // meltingButton.gameObject.SetActive(false);
         }
 
         public void FrictionPRessed()
@@ -126,25 +121,6 @@ namespace Alpha.Phases.Geoquest
             textMan.arrayPos = 29; // not 13 - change when text setup
         }
 
-
-        public void RegisterCorrectStep(string stepID)
-        {
-            amountOfCorrectAnswers++;
-
-            switch (stepID)
-            {
-                case "Uplift": upliftPlaced.SetActive(true);
-                    UpliftCorrect();  
-                    break;
-                case "Weathering": weatheringPlaced.SetActive(true);
-                    WeatheringCorrect();
-                    break;
-                case "Erosion": erosionPlaced.SetActive(true); break;
-                case "Deposition": despoitionPlaced.SetActive(true); break;
-                case "Crystallization": crystalIzationPlaced.SetActive(true); break;
-                case "Metamorphism": metamorphismPlaced.SetActive(true); break;
-                case "Melting": meltingPlaced.SetActive(true); break;
-            }
-        }
+      
     }
 }

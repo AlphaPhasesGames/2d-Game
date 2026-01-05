@@ -716,6 +716,7 @@ GameObject:
   m_Component:
   - component: {fileID: 173730091}
   - component: {fileID: 173730090}
+  - component: {fileID: 173730092}
   m_Layer: 0
   m_Name: Rock small (4)
   m_TagString: Untagged
@@ -790,6 +791,27 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &173730092
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 173730089}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 5.4286804, y: 4.999101, z: 0.19999994}
+  m_Center: {x: 0.0000009854314, y: -0.12887472, z: 0}
 --- !u!1 &191162775
 GameObject:
   m_ObjectHideFlags: 0
@@ -1011,6 +1033,7 @@ GameObject:
   m_Component:
   - component: {fileID: 215256763}
   - component: {fileID: 215256762}
+  - component: {fileID: 215256764}
   m_Layer: 0
   m_Name: Rock small (2)
   m_TagString: Untagged
@@ -1085,6 +1108,27 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &215256764
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 215256761}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 5.4286804, y: 4.999101, z: 0.19999994}
+  m_Center: {x: 0.0000009854314, y: -0.12887472, z: 0}
 --- !u!1001 &225688520
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -48715,6 +48759,7 @@ GameObject:
   m_Component:
   - component: {fileID: 625928925}
   - component: {fileID: 625928924}
+  - component: {fileID: 625928926}
   m_Layer: 0
   m_Name: Rock small (5)
   m_TagString: Untagged
@@ -48789,6 +48834,27 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &625928926
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 625928923}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 5.4286804, y: 4.999101, z: 0.19999994}
+  m_Center: {x: 0.0000009854314, y: -0.12887472, z: 0}
 --- !u!1 &640977785
 GameObject:
   m_ObjectHideFlags: 0
@@ -50399,6 +50465,7 @@ MonoBehaviour:
   switchOnMap: {fileID: 1105257434}
   textPanal: {fileID: 1165536549}
   pullSwitch: {fileID: 5253409}
+  inRange: 0
 --- !u!1 &1057103755
 GameObject:
   m_ObjectHideFlags: 0
@@ -50543,6 +50610,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1069485802}
   - component: {fileID: 1069485801}
+  - component: {fileID: 1069485803}
   m_Layer: 0
   m_Name: Rock small (3)
   m_TagString: Untagged
@@ -50617,6 +50685,27 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &1069485803
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1069485800}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 5.4286804, y: 4.999101, z: 0.19999994}
+  m_Center: {x: 0.0000009854314, y: -0.12887472, z: 0}
 --- !u!1 &1102574852
 GameObject:
   m_ObjectHideFlags: 0
@@ -50995,6 +51084,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1297448646}
   - component: {fileID: 1297448645}
+  - component: {fileID: 1297448647}
   m_Layer: 0
   m_Name: Rock small (1)
   m_TagString: Untagged
@@ -51069,6 +51159,27 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &1297448647
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1297448644}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 5.4286804, y: 4.999101, z: 0.19999994}
+  m_Center: {x: 0.0000009854314, y: -0.12887472, z: 0}
 --- !u!1 &1328258794
 GameObject:
   m_ObjectHideFlags: 0
@@ -51828,6 +51939,7 @@ MonoBehaviour:
   switch4OnMap: {fileID: 1105257431}
   textPanal: {fileID: 2093950555}
   pullSwitch: {fileID: 1328258796}
+  inRange: 0
 --- !u!1001 &1449081467
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -52267,7 +52379,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 4
+  m_Constraints: 7
 --- !u!1 &1476538174
 GameObject:
   m_ObjectHideFlags: 0
@@ -65768,6 +65880,7 @@ MonoBehaviour:
   switch2Onmap: {fileID: 1105257433}
   textPanal: {fileID: 228783242}
   pullSwitch: {fileID: 1353538156}
+  inRange: 0
 --- !u!1 &1560248092
 GameObject:
   m_ObjectHideFlags: 0
@@ -66138,6 +66251,7 @@ MonoBehaviour:
   switch3Onmap: {fileID: 1105257432}
   textPanal: {fileID: 1770351253}
   pullSwitch: {fileID: 1586874043}
+  inRange: 0
 --- !u!1001 &1637611811
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -67371,6 +67485,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1708953747}
   - component: {fileID: 1708953746}
+  - component: {fileID: 1708953748}
   m_Layer: 0
   m_Name: Rock small
   m_TagString: Untagged
@@ -67445,6 +67560,27 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &1708953748
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1708953745}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 5.858258, y: 5.3427687, z: 0.19999994}
+  m_Center: {x: -0.12887472, y: -0.21479054, z: 0}
 --- !u!114 &1734363488 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 107434242166652706, guid: 1cd7f31226f801349995214a6de92037, type: 3}

@@ -43,8 +43,18 @@ namespace Alpha.Phases.Geoquest
         // ----------------------------------------------------------
         public void PullSwitch(int physicalID, int sequenceID)
         {
+
+            if (currentIndex >= correctOrder.Length)
+            {
+                Debug.LogWarning("PullSwitch called but puzzle already complete.");
+                return;
+            }
             Debug.Log($"Switch pulled. Physical ID = {physicalID}, Sequence ID = {sequenceID}");
-            Debug.Log($"Expected sequence: {correctOrder[currentIndex]}");
+
+            if (currentIndex < correctOrder.Length)
+            {
+                Debug.Log($"Expected sequence: {correctOrder[currentIndex]}");
+            }
 
             // Check sequence first
             if (sequenceID == correctOrder[currentIndex])

@@ -14,17 +14,16 @@ namespace Alpha.Phases.Geoquest
         public GameObject switch3Onmap;
         public GameObject textPanal;
         public Button pullSwitch;
-
+        public bool inRange;
         private void Awake()
         {
             pullSwitch.onClick.AddListener(PullSwitch);
         }
 
-        private void OnTriggerEnter2D(Collider2D collision)
+        private void Update()
         {
-            if (collision.CompareTag("Player"))
+            if (inRange)
             {
-                textPanal.gameObject.SetActive(true);
                 if (Input.GetKeyDown(KeyCode.E))
                 {
                     PullSwitch();
@@ -32,11 +31,22 @@ namespace Alpha.Phases.Geoquest
             }
         }
 
+        private void OnTriggerEnter2D(Collider2D collision)
+        {
+            if (collision.CompareTag("Player"))
+            {
+                textPanal.gameObject.SetActive(true);
+                inRange = true;
+            }
+        }
+
+     
         private void OnTriggerExit2D(Collider2D collision)
         {
             if (collision.CompareTag("Player"))
             {
                 textPanal.gameObject.SetActive(false);
+                inRange = false;
             }
         }
 

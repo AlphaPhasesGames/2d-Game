@@ -2937,6 +2937,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5865d487e946f474c8f0d807f06b8e96, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  diagMan: {fileID: 919654232}
   placedVisual: {fileID: 8144967575085183037}
   heldLabel: {fileID: 8900296943363325019}
   uplift: {fileID: 8900296943363325020}
@@ -3453,6 +3454,7 @@ MonoBehaviour:
   placedVisual: {fileID: 4830204774570695946}
   heldLabel: {fileID: 4021894574623636447}
   weather: {fileID: 8925927683930462397}
+  diagMan: {fileID: 919654232}
 --- !u!114 &787591933
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3807,8 +3809,8 @@ GameObject:
   - component: {fileID: 919654228}
   - component: {fileID: 919654229}
   - component: {fileID: 919654230}
-  - component: {fileID: 919654231}
   - component: {fileID: 919654232}
+  - component: {fileID: 919654233}
   m_Layer: 0
   m_Name: Game manager
   m_TagString: Untagged
@@ -4240,18 +4242,6 @@ MonoBehaviour:
   diagramButton: {fileID: 1922171417}
   closeDiagram: {fileID: 1163847014}
   diagram: {fileID: 534703967}
---- !u!114 &919654231
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 919654216}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 939ba75cb01230b46b9d12a7cacc850a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &919654232
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4264,29 +4254,28 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e4df223a2a59ad74188134a20a1efea5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  textMan: {fileID: 0}
-  bMan: {fileID: 0}
-  upliftPlaced: {fileID: 0}
-  weatheringPlaced: {fileID: 0}
-  erosionPlaced: {fileID: 0}
-  despoitionPlaced: {fileID: 0}
-  crystalIzationPlaced: {fileID: 0}
-  metamorphismPlaced: {fileID: 0}
-  meltingPlaced: {fileID: 0}
+  textMan: {fileID: 919654217}
+  bMan: {fileID: 919654225}
+  areWeGrabbingSomething: 0
   amountOfCorrectAnswers: 0
-  upliftButton: {fileID: 0}
-  weatheringButton: {fileID: 0}
-  erosionButton: {fileID: 0}
-  depositionButton: {fileID: 0}
-  crystalizationButton: {fileID: 0}
-  metamorhismButton: {fileID: 0}
-  meltingButton: {fileID: 0}
-  evaporationButton: {fileID: 0}
-  frictionBUtton: {fileID: 0}
+  evaporationButton: {fileID: 8985621083325096221}
+  frictionBUtton: {fileID: 1619319801025699927}
   firstAnswerCorrect: 0
   allAnswersCorrect: 0
-  chests: {fileID: 0}
-  switches: {fileID: 0}
+  chests: {fileID: 449717486}
+  switches: {fileID: 568087176}
+--- !u!114 &919654233
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 919654216}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7069343e8bae09f429a0591bd1ebbd3b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &940808681
 GameObject:
   m_ObjectHideFlags: 0
@@ -4650,6 +4639,7 @@ MonoBehaviour:
   placedVisual: {fileID: 1895034481700702086}
   heldLabel: {fileID: 1565664152013977943}
   crystal: {fileID: 2678152949870835401}
+  diagMan: {fileID: 919654232}
 --- !u!114 &989731329
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4888,6 +4878,7 @@ MonoBehaviour:
   placedVisual: {fileID: 448743780079408056}
   heldLabel: {fileID: 6248528262685161319}
   melting: {fileID: 8492655663036000991}
+  diagMan: {fileID: 919654232}
 --- !u!114 &1032202228
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5513,6 +5504,7 @@ MonoBehaviour:
   placedVisual: {fileID: 4653955708343445474}
   heldLabel: {fileID: 5141973079099843889}
   deposition: {fileID: 7850226933938589881}
+  diagMan: {fileID: 919654232}
 --- !u!114 &1072473901
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5999,6 +5991,7 @@ MonoBehaviour:
   placedVisual: {fileID: 3828492873200708400}
   heldLabel: {fileID: 839671636275624979}
   metamorph: {fileID: 8571065366622264364}
+  diagMan: {fileID: 919654232}
 --- !u!114 &1185081730
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6640,6 +6633,7 @@ MonoBehaviour:
   placedVisual: {fileID: 6759606731009826376}
   heldLabel: {fileID: 1580421401878566861}
   weather: {fileID: 8353809742356154405}
+  diagMan: {fileID: 919654232}
 --- !u!114 &1316562319
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9764,7 +9758,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &39763082331629713
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -19512,6 +19506,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isCrystalisationHeld: 0
+  diagMan: {fileID: 919654232}
 --- !u!225 &2678152949870835402
 CanvasGroup:
   m_ObjectHideFlags: 0
@@ -37170,9 +37165,10 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Here is the diagram again but the labels are missing. Can you click on
-    all the stages you feel are correct. There are incorrect choices so be careful
-    which ones you choose. You can check the journal if you have forgotten. T
+  m_text: "Here\u2019s the diagram again without labels. Don\u2019t drag anything
+    - Just click a stage you think is correct and then click again to place it where
+    you think it should go. Some choices are wrong, so pick carefully. You can check
+    the Journal if you need a reminder. T"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: ff93913c1c6b5f146a2817e8ea28267f, type: 2}
   m_sharedMaterial: {fileID: 5064143332982569253, guid: ff93913c1c6b5f146a2817e8ea28267f, type: 2}
@@ -37266,7 +37262,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -139.89941, y: 47}
+  m_AnchoredPosition: {x: -139.89941, y: 87}
   m_SizeDelta: {x: 242.4803, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &7789978079644883553
@@ -37394,6 +37390,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isDepositionHeld: 0
+  diagMan: {fileID: 919654232}
 --- !u!225 &7850226933938589882
 CanvasGroup:
   m_ObjectHideFlags: 0
@@ -39214,6 +39211,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isWeatherHeld: 0
+  diagMan: {fileID: 919654232}
 --- !u!225 &8353809742356154406
 CanvasGroup:
   m_ObjectHideFlags: 0
@@ -94676,6 +94674,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isMeltingHeld: 0
+  diagMan: {fileID: 919654232}
 --- !u!225 &8492655663036000992
 CanvasGroup:
   m_ObjectHideFlags: 0
@@ -94905,6 +94904,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isMetamorphismHeld: 0
+  diagMan: {fileID: 919654232}
 --- !u!225 &8571065366622264365
 CanvasGroup:
   m_ObjectHideFlags: 0
@@ -95799,6 +95799,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isUpliftHeld: 0
+  diagMan: {fileID: 919654232}
 --- !u!225 &8900296943363325021
 CanvasGroup:
   m_ObjectHideFlags: 0
@@ -95840,6 +95841,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isErosionHeld: 0
+  diagMan: {fileID: 919654232}
 --- !u!225 &8925927683930462398
 CanvasGroup:
   m_ObjectHideFlags: 0
@@ -96198,7 +96200,10 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Welcome to the island of Isla Surna. T
+  m_text: "ere\u2019s the diagram again without labels. Don\u2019t drag anything-
+    Just click the stages you think are correct and then click again to place it
+    where you think it should go. Some choices are wrong, so pick carefully. You
+    can check the Journal if you need a reminder."
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: ff93913c1c6b5f146a2817e8ea28267f, type: 2}
   m_sharedMaterial: {fileID: 5064143332982569253, guid: ff93913c1c6b5f146a2817e8ea28267f, type: 2}

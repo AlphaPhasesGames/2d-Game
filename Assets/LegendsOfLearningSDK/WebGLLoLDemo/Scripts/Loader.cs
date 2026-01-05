@@ -52,9 +52,9 @@ public class Loader : MonoBehaviour
         LOLSDK.Instance.GameStateChanged += new GameStateChangedHandler(HandleGameStateChange);
 
         // Mock the platform-to-game messages when in the Unity editor.
-#if UNITY_EDITOR
-		LoadMockData();
-#endif
+//#if UNITY_EDITOR
+//		LoadMockData();
+//#endif
 
         // Then, tell the platform the game is ready.
         LOLSDK.Instance.GameIsReady();
@@ -102,7 +102,7 @@ public class Loader : MonoBehaviour
         // Either GameState.Paused or GameState.Resumed
         Debug.Log("HandleGameStateChange");
     }
-   // /*
+    /*
 #if UNITY_EDITOR
     private void LoadMockData ()
     {
@@ -143,6 +143,6 @@ public class Loader : MonoBehaviour
 		}
     }
     #endif
-    //*/
+    */
 
 }

@@ -7,6 +7,7 @@ namespace Alpha.Phases.Geoquest
         public GameObject placedVisual;
         public GameObject heldLabel;
         public DiagramPickUpWeathering weather;
+        public DiagramManager diagMan;
         private void Awake()
         {
 
@@ -17,6 +18,7 @@ namespace Alpha.Phases.Geoquest
         {
             if (weather.isWeatherHeld)
             {
+                diagMan.WeatheringCorrect();
                 placedVisual.gameObject.SetActive(true);
                 weather.isWeatherHeld = false;
                 heldLabel.gameObject.SetActive(false);

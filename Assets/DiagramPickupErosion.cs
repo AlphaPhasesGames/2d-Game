@@ -11,6 +11,7 @@ namespace Alpha.Phases.Geoquest
         private Canvas canvas;
         private Vector2 startPos;
         public bool isErosionHeld;
+        public DiagramManager diagMan;
 
         void Awake()
         {
@@ -22,6 +23,14 @@ namespace Alpha.Phases.Geoquest
 
         void Update()
         {
+            if (isErosionHeld)
+            {
+                if (Input.GetKeyDown(KeyCode.Escape) || Input.GetMouseButtonDown(1))
+                {
+                    ResetPosition();
+                }
+            }
+
             if (!isErosionHeld) return;
 
             RectTransform parentRect = rect.parent as RectTransform;
@@ -41,15 +50,20 @@ namespace Alpha.Phases.Geoquest
 
         public void OnPointerClick(PointerEventData eventData)
         {
-            if (DiagramPickupManager.Instance.HasItemHeld())
-                return;
+            if (!diagMan.areWeGrabbingSomething)
+            {
+                PickUp();
+            }
 
-            PickUp();
+           
         }
 
         void PickUp()
         {
+            if (isErosionHeld) return;
+
             isErosionHeld = true;
+            diagMan.areWeGrabbingSomething = true;
             canvasGroup.blocksRaycasts = false; //  THIS IS THE FIX
                                                 // DiagramPickupManager.Instance.SetHeld(this);
         }
@@ -67,6 +81,7 @@ namespace Alpha.Phases.Geoquest
             isErosionHeld = false;
             canvasGroup.blocksRaycasts = true;
             rect.anchoredPosition = startPos;
+            diagMan.areWeGrabbingSomething = false;
         }
 
         public bool IsHeld => isErosionHeld;

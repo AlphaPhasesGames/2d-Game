@@ -4,8 +4,8 @@ namespace Alpha.Phases.Geoquest
 {
     public class DiagramClickSlot : MonoBehaviour, IPointerClickHandler
     {
-       
-       
+
+        public DiagramManager diagMan;
         public GameObject placedVisual;
         public GameObject heldLabel;
         public DiagramPickupUplift uplift;
@@ -19,6 +19,7 @@ namespace Alpha.Phases.Geoquest
         {
             if (uplift.isUpliftHeld)
             {
+                diagMan.UpliftCorrect();
                 placedVisual.gameObject.SetActive(true);
                 uplift.isUpliftHeld = false;
                 heldLabel.gameObject.SetActive(false);

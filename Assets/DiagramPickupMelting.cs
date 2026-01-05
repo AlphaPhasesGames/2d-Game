@@ -11,6 +11,7 @@ namespace Alpha.Phases.Geoquest
         private Canvas canvas;
         private Vector2 startPos;
         public bool isMeltingHeld;
+        public DiagramManager diagMan;
 
         void Awake()
         {
@@ -22,6 +23,14 @@ namespace Alpha.Phases.Geoquest
 
         void Update()
         {
+            if (isMeltingHeld)
+            {
+                if (Input.GetKeyDown(KeyCode.Escape) || Input.GetMouseButtonDown(1))
+                {
+                    ResetPosition();
+                }
+            }
+
             if (!isMeltingHeld) return;
 
             RectTransform parentRect = rect.parent as RectTransform;
@@ -41,17 +50,19 @@ namespace Alpha.Phases.Geoquest
 
         public void OnPointerClick(PointerEventData eventData)
         {
-            if (DiagramPickupManager.Instance.HasItemHeld())
-                return;
-
-            PickUp();
+            if (!diagMan.areWeGrabbingSomething)
+            {
+                PickUp();
+            }
         }
 
         void PickUp()
         {
+            if (isMeltingHeld) return;
+
             isMeltingHeld = true;
             canvasGroup.blocksRaycasts = false; //  THIS IS THE FIX
-                                                // DiagramPickupManager.Instance.SetHeld(this);
+            diagMan.areWeGrabbingSomething = true;
         }
 
         public void PlaceAt(Vector2 targetPos)
@@ -67,6 +78,7 @@ namespace Alpha.Phases.Geoquest
             isMeltingHeld = false;
             canvasGroup.blocksRaycasts = true;
             rect.anchoredPosition = startPos;
+            diagMan.areWeGrabbingSomething = false;
         }
 
         public bool IsHeld => isMeltingHeld;

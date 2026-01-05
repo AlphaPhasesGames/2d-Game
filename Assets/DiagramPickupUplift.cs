@@ -10,7 +10,8 @@ namespace Alpha.Phases.Geoquest
         private Canvas canvas;
         private Vector2 startPos;
         public bool isUpliftHeld;
-
+        public DiagramManager diagMan;
+        //public bool areWeGrabbing;
         void Awake()
         {
             rect = GetComponent<RectTransform>();
@@ -21,10 +22,18 @@ namespace Alpha.Phases.Geoquest
 
         void Update()
         {
-            if (!isUpliftHeld) return;
+            if (isUpliftHeld)
+            {
+                if(Input.GetKeyDown(KeyCode.Escape) || Input.GetMouseButtonDown(1))
+                {
+                    ResetPosition();
+                }
+            }
+
+                if (!isUpliftHeld) return;
 
             RectTransform parentRect = rect.parent as RectTransform;
-
+           // diagMan.areWeGrabbingSomething = true;
             Vector2 localMousePos;
             RectTransformUtility.ScreenPointToLocalPointInRectangle(
                 parentRect,
@@ -37,22 +46,31 @@ namespace Alpha.Phases.Geoquest
 
             rect.anchoredPosition = localMousePos;
         }
+        
+                public void OnPointerClick(PointerEventData eventData)
+                {
+            // if (DiagramPickupManager.Instance.HasItemHeld())
+            //    return;
+                    if (!diagMan.areWeGrabbingSomething)
+                    {
+                      PickUp();
+                    }
+                   
+                }
 
-        public void OnPointerClick(PointerEventData eventData)
-        {
-            if (DiagramPickupManager.Instance.HasItemHeld())
-                return;
+                void PickUp()
+                {
+                         if (isUpliftHeld) return;
 
-            PickUp();
-        }
+                   
+                        isUpliftHeld = true;
+                        diagMan.areWeGrabbingSomething = true;
+                        canvasGroup.blocksRaycasts = false; //  THIS IS THE FIX
+                                                            // DiagramPickupManager.Instance.SetHeld(this);
+                   
 
-        void PickUp()
-        {
-            isUpliftHeld = true;
-            canvasGroup.blocksRaycasts = false; //  THIS IS THE FIX
-           // DiagramPickupManager.Instance.SetHeld(this);
-        }
-
+                }
+      
         public void PlaceAt(Vector2 targetPos)
         {
             isUpliftHeld = false;
@@ -60,12 +78,13 @@ namespace Alpha.Phases.Geoquest
             rect.anchoredPosition = targetPos;
             gameObject.SetActive(false);
         }
-
+          
         public void ResetPosition()
         {
             isUpliftHeld = false;
             canvasGroup.blocksRaycasts = true;
             rect.anchoredPosition = startPos;
+            diagMan.areWeGrabbingSomething = false;
         }
 
         public bool IsHeld => isUpliftHeld;
