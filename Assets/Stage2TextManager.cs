@@ -401,6 +401,8 @@ namespace Alpha.Phases.Geoquest
                     break;
                 case 39: // Correct
                     StartCoroutine(DelayTextButton());
+                    arrowMan.target = exit2;
+                    taskBar.gameObject.SetActive(false);
                     textPanal.gameObject.SetActive(true);
                     break;
                 case 40:
@@ -411,7 +413,7 @@ namespace Alpha.Phases.Geoquest
                     StartCoroutine(MoveToBlankInvislbePanalUnit17());
                     break;
                 case 41:
-                    arrowMan.target = exit2;
+                   
                     textPanal.gameObject.SetActive(true);
                     StartCoroutine(MoveToBlankInvislbePanalUnit17());
                     break;
