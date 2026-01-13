@@ -7,7 +7,7 @@ namespace Alpha.Phases.Geoquest
     public class Stage3SwitchManager : MonoBehaviour
     {
         public Stage3TextManager textMan;
-
+        public AddToGems gems;
         // --- SWITCH UI OBJECTS ---
         public GameObject switchUp1CoreHeat;
         public GameObject switchDown1CoreHeat;
@@ -31,6 +31,8 @@ namespace Alpha.Phases.Geoquest
         public int[] correctOrder = { 1, 3, 4, 2 };   // <-- Set your required order here
         private int currentIndex = 0;
 
+
+        private int lastPhysicalSwitchPulled = -1;
         private void Update()
         {
             if (Input.GetKeyDown(KeyCode.B))
@@ -39,10 +41,16 @@ namespace Alpha.Phases.Geoquest
 
         // ----------------------------------------------------------
         //  Call this from your UI button or OnClick event:
-        //      e.g. switchButton.onClick.AddListener(() => PullSwitch(1));
+        //      e.g. switchButton.onClick.AddListener(() = PullSwitch(1));
         // ----------------------------------------------------------
         public void PullSwitch(int physicalID, int sequenceID)
         {
+
+            if (physicalID == lastPhysicalSwitchPulled)
+            {
+                Debug.Log("Same switch pulled twice — ignored.");
+                return;
+            }
 
             if (currentIndex >= correctOrder.Length)
             {
@@ -61,8 +69,13 @@ namespace Alpha.Phases.Geoquest
             {
                 Debug.Log("Correct sequence step!");
                 ActivateSwitch(physicalID);
+
+                lastPhysicalSwitchPulled = physicalID; // lock this switch
+
                 currentIndex++;
                 correctSFX.Play();
+                gems.AddGems();
+
                 if (currentIndex >= correctOrder.Length)
                 {
                     Debug.Log("PUZZLE COMPLETE!");
@@ -107,6 +120,8 @@ namespace Alpha.Phases.Geoquest
         public void ResetSwitches()
         {
             currentIndex = 0;
+
+            lastPhysicalSwitchPulled = -1; // unlock all switches
 
             switchUp1CoreHeat.SetActive(true);
             switchDown1CoreHeat.SetActive(false);

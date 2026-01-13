@@ -52664,6 +52664,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   textMan: {fileID: 1485151135}
+  gems: {fileID: 1485151139}
   switchUp1CoreHeat: {fileID: 5253407}
   switchDown1CoreHeat: {fileID: 1120088592}
   switchUp2MagmaFlow: {fileID: 1353538154}

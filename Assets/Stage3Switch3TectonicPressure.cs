@@ -40,7 +40,18 @@ namespace Alpha.Phases.Geoquest
             }
         }
 
-     
+        private void OnTriggerStay2D(Collider2D collision)
+        {
+            if (collision.CompareTag("Player"))
+            {
+               // if (Input.GetKeyDown(KeyCode.E))
+               // {
+                //    PullSwitch();
+                    inRange = true;
+                
+            }
+        }
+
         private void OnTriggerExit2D(Collider2D collision)
         {
             if (collision.CompareTag("Player"))
@@ -52,7 +63,7 @@ namespace Alpha.Phases.Geoquest
 
         public void PullSwitch()
         {
-            gems.AddGems();
+            //gems.AddGems();
             switch3Onmap.gameObject.SetActive(false);
             switchDown.gameObject.SetActive(true);
             switchUp.gameObject.SetActive(false);

@@ -39,9 +39,20 @@ namespace Alpha.Phases.Geoquest
                 inRange = true;
             }
         }
+        private void OnTriggerStay2D(Collider2D collision)
+        {
+            if (collision.CompareTag("Player"))
+            {
+                // if (Input.GetKeyDown(KeyCode.E))
+                // {
+                //    PullSwitch();
+                inRange = true;
+            }
+        }
+    
 
-      
-        private void OnTriggerExit2D(Collider2D collision)
+
+    private void OnTriggerExit2D(Collider2D collision)
         {
             if (collision.CompareTag("Player"))
             {
@@ -55,7 +66,7 @@ namespace Alpha.Phases.Geoquest
             switchDown.gameObject.SetActive(true);
             switchUp.gameObject.SetActive(false);
             textMan.positionChanged = true;
-            gems.AddGems();
+            //gems.AddGems();
             textMan.arrayPos = 8;
             switchOnMap.gameObject.SetActive(false);
             switchMan.PullSwitch(physicalID: 1, sequenceID: 1);

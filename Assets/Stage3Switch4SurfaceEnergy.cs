@@ -43,11 +43,11 @@ namespace Alpha.Phases.Geoquest
         {
             if (collision.CompareTag("Player"))
             {
-                if (Input.GetKeyDown(KeyCode.E))
-                {
-                    PullSwitch();
-                    inRange = false;
-                }
+                //if (Input.GetKeyDown(KeyCode.E))
+               // {
+                 //   PullSwitch();
+                    inRange = true;
+               // }
             }
         }
 
@@ -56,12 +56,13 @@ namespace Alpha.Phases.Geoquest
             if (collision.CompareTag("Player"))
             {
                 textPanal.gameObject.SetActive(false);
+                inRange = false;
             }
         }
 
         public void PullSwitch()
         {
-            gems.AddGems();
+            //gems.AddGems();
             switch4OnMap.gameObject.SetActive(false);
             switchDown.gameObject.SetActive(true);
             switchUp.gameObject.SetActive(false);
