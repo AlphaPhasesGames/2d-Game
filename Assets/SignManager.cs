@@ -15,13 +15,19 @@ namespace Alpha.Phases.Geoquest
             {
                 if (amountOfSwitches >= 2)
                 {
-                    moveRock.SetBool("moveRock", true);
-                    textMan.positionChanged = true;
-                    textMan.arrayPos = 43;
+                    StartCoroutine(MoveToFinalText());
                     runOnce = true;
                 }
             }
            
+        }
+
+        public IEnumerator MoveToFinalText()
+        {
+            yield return new WaitForSeconds(7);
+            moveRock.SetBool("moveRock", true);
+            textMan.positionChanged = true;
+            textMan.arrayPos = 43;
         }
     }
 }

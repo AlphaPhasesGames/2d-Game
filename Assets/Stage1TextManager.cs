@@ -162,9 +162,9 @@ namespace Alpha.Phases.Geoquest
                 case 3:
                     break;
                 case 4:
-                  
-                    StartCoroutine(MoveToBlankInvislbePanalUnit17());
-                   
+
+                    StartCoroutine(EnableCross());
+
                     break;
                 case 5:
                     playerCont.moveSpeed = 0;
@@ -193,7 +193,7 @@ namespace Alpha.Phases.Geoquest
                     break;
                 case 10:
                
-                    StartCoroutine(MoveToBlankInvislbePanalUnit17());
+                    StartCoroutine(EnableCross());
                     break;
                 case 11:
                     playerCont.moveSpeed = 0;
@@ -505,7 +505,7 @@ namespace Alpha.Phases.Geoquest
         public IEnumerator DelayTextButton()
         {
 
-            yield return new WaitForSeconds(5);
+            yield return new WaitForSeconds(6);
             forwardParent.gameObject.SetActive(true);
             forwardButton.gameObject.SetActive(true);
 
@@ -516,7 +516,7 @@ namespace Alpha.Phases.Geoquest
         public IEnumerator MoveToQuestion()
         {
 
-            yield return new WaitForSeconds(3);
+            yield return new WaitForSeconds(4);
             positionChanged = true;
             ResetBools();
             arrayPos = 28;
@@ -528,7 +528,7 @@ namespace Alpha.Phases.Geoquest
 
         public IEnumerator MoveToBlankInvislbePanalUnit17()
         {
-            yield return new WaitForSeconds(5);
+            yield return new WaitForSeconds(7);
             //playerMoveScript.enabled = true;
             textPanal.gameObject.SetActive(false);
             arrayPos = 44;
@@ -539,7 +539,7 @@ namespace Alpha.Phases.Geoquest
 
         public IEnumerator MoveToBlankInvislbePanalUnit172()
         {
-            yield return new WaitForSeconds(5);
+            yield return new WaitForSeconds(7);
             //playerMoveScript.enabled = true;
             textPanal.gameObject.SetActive(false);
             arrayPos = 44;
@@ -563,7 +563,7 @@ namespace Alpha.Phases.Geoquest
 
         public IEnumerator EnableCross()
         {
-            yield return new WaitForSeconds(5);
+            yield return new WaitForSeconds(6);
             crossButton1.gameObject.SetActive(true);
             Debug.Log("This start coRoutine Runs");
         }

@@ -44,7 +44,7 @@ namespace Alpha.Phases.Geoquest
 
         public IEnumerator DelayText1()
         {
-            yield return new WaitForSeconds(7);
+            yield return new WaitForSeconds(10);
             textMan.positionChanged = true;
             textMan.arrayPos = 26;
             Debug.Log("This Extra Text Runs");
@@ -52,7 +52,7 @@ namespace Alpha.Phases.Geoquest
 
         public IEnumerator DelayText2()
         {
-            yield return new WaitForSeconds(6);
+            yield return new WaitForSeconds(10);
             textMan.positionChanged = true;
             textMan.arrayPos = 27;
             Debug.Log("This Extra Text Runs as well");
