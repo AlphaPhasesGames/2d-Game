@@ -14,7 +14,8 @@ namespace Alpha.Phases.Geoquest
         public int arrayPos;
         public int maxLengthArray;
         public int minLengthArray = 0;
-
+        public Button journalFWD;
+        public Button journalBCK;
         public bool positionChanged; //= true;
 
         public bool runThrice;
@@ -280,6 +281,8 @@ namespace Alpha.Phases.Geoquest
                     playerCont.moveSpeed = 0;
                     backwardsButton.gameObject.SetActive(false);
                     textPanal.gameObject.SetActive(true);
+                    journalFWD.gameObject.SetActive(true);
+                    journalBCK.gameObject.SetActive(true);
                     StartCoroutine(MoveToBlankInvislbePanalUnit17());
                     break;
                 case 27:

@@ -1,18 +1,100 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
-public class OpenJournalStage1 : MonoBehaviour
+namespace Alpha.Phases.Geoquest
 {
-    // Start is called before the first frame update
-    void Start()
+    public class OpenJournalStage1 : MonoBehaviour
     {
-        
-    }
+        [Header("Journal")]
+        public GameObject journal;
+        public Button journalButton;
+        public bool journalOpen;
 
-    // Update is called once per frame
-    void Update()
-    {
-        
+        [Header("Map")]
+        public GameObject map;
+        public Button mapButton;
+        public bool mapOpen;
+
+        [Header("Journal Pages")]
+        public Button forwardButton;
+        public Button backButton;
+
+        public GameObject page1;
+        public GameObject page2;
+        public GameObject page3;
+        public GameObject page4;
+        public int pageNo; // start on page 1
+
+        private void Awake()
+        {
+            journalButton.onClick.AddListener(ToggleJournal);
+            mapButton.onClick.AddListener(ToggleMap);
+
+            // Hook up page navigation
+            forwardButton.onClick.AddListener(MovePageForward);
+            backButton.onClick.AddListener(MovePageBack);
+
+            // Make sure correct page is shown at start
+            UpdatePages();
+        }
+
+        private void Update()
+        {
+            if (Input.GetKeyDown(KeyCode.J))
+                ToggleJournal();
+
+            if (Input.GetKeyDown(KeyCode.M))
+                ToggleMap();
+        }
+
+        public void ToggleJournal()
+        {
+            journalOpen = !journalOpen;
+            journal.SetActive(journalOpen);
+
+            // Optional: whenever you open the journal, go back to page 1
+            if (journalOpen)
+            {
+                // pageNo = 1;
+                UpdatePages();
+            }
+        }
+
+        public void ToggleMap()
+        {
+            mapOpen = !mapOpen;
+            map.SetActive(mapOpen);
+        }
+
+        public void MovePageForward()
+        {
+            pageNo++;
+
+            // Clamp so we don't go past page 3
+            if (pageNo > 4)
+                pageNo = 1;
+
+            UpdatePages();
+        }
+
+        public void MovePageBack()
+        {
+            pageNo--;
+
+            // Clamp so we don't go below page 1
+            if (pageNo < 1)
+                pageNo = 4;
+
+            UpdatePages();
+        }
+
+        private void UpdatePages()
+        {
+            // Turn on only the current page
+            page1.SetActive(pageNo == 1);
+            page2.SetActive(pageNo == 2);
+            page3.SetActive(pageNo == 3);
+            page4.SetActive(pageNo == 4);
+        }
     }
 }

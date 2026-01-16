@@ -24,6 +24,9 @@ namespace Alpha.Phases.Geoquest
         public GameObject page3;
         public GameObject page4;
         public GameObject page5;
+        public GameObject page6;
+        public GameObject page7;
+        public GameObject page8;
         public int pageNo; // start on page 1
 
         private void Awake()
@@ -72,7 +75,7 @@ namespace Alpha.Phases.Geoquest
             pageNo++;
 
             // Clamp so we don't go past page 3
-            if (pageNo > 5)
+            if (pageNo > 8)
                 pageNo = 1;
 
             UpdatePages();
@@ -84,7 +87,7 @@ namespace Alpha.Phases.Geoquest
 
             // Clamp so we don't go below page 1
             if (pageNo < 1)
-                pageNo = 5;
+                pageNo = 8;
 
             UpdatePages();
         }
@@ -97,6 +100,9 @@ namespace Alpha.Phases.Geoquest
             page3.SetActive(pageNo == 3);
             page4.SetActive(pageNo == 4);
             page5.SetActive(pageNo == 5);
+            page6.SetActive(pageNo == 6);
+            page7.SetActive(pageNo == 7);
+            page8.SetActive(pageNo == 8);
         }
     }
 }

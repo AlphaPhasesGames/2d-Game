@@ -45,6 +45,28 @@ namespace Alpha.Phases.Geoquest
         public TextMeshProUGUI stage1Text35;
         public TextMeshProUGUI stage1Text36;
 
+        public TextMeshProUGUI page2Title;
+        public TextMeshProUGUI page3Title;
+        public TextMeshProUGUI page4Title;
+
+        public TextMeshProUGUI sandstoneName1;
+        public TextMeshProUGUI sandstoneName2;
+
+        public TextMeshProUGUI slateName1;
+        public TextMeshProUGUI slateName2;
+
+        public TextMeshProUGUI basaltName1;
+        public TextMeshProUGUI basaltName2;
+
+
+        public TextMeshProUGUI sandStone1; // text body - 
+        public TextMeshProUGUI sandStone2;
+        public TextMeshProUGUI slate1;
+        public TextMeshProUGUI slate2;
+        public TextMeshProUGUI basalt1;
+        public TextMeshProUGUI basalt2;
+
+
         public TextMeshProUGUI allBottlesCollected;
         public TextMeshProUGUI stepUplift;
         public TextMeshProUGUI stepWeathering;
@@ -169,6 +191,28 @@ namespace Alpha.Phases.Geoquest
             stage1Text34.text = defs["stage1Text34"];
             stage1Text35.text = defs["stage1Text35"];
             stage1Text36.text = defs["stage1Text36"];
+
+
+             page2Title.text = defs["journalRockTitlePage2"];
+             page3Title.text = defs["journalRockTitlePage2"];
+             page4Title.text = defs["journalRockTitlePage2"];
+
+            slateName1.text = defs["JournalRockSlateUnderTitle"];
+            slateName2.text = defs["JournalRockSlateUnderTitle"];
+
+            sandstoneName1.text = defs["JournalRockSandUnderTitle"];
+            sandstoneName2.text = defs["JournalRockSandUnderTitle"];
+
+
+            basaltName1.text = defs["JournalRockBasaltUnderTitle"]; 
+            basaltName2.text = defs["JournalRockBasaltUnderTitle"];
+
+        sandStone1.text = defs["journalSandStone1Text"];
+            sandStone2.text = defs["journalSandStone2Text"];
+            slate1.text = defs["journalSlate1Text"];
+            slate2.text = defs["journalSlate2Text"];
+            basalt1.text = defs["journalBasalt1Text"];
+            basalt2.text = defs["journalBasalt2Text"];
 
             stepUplift.text = defs["stage1RCStep1"];
             stepWeathering.text = defs["stage1RCStep2"];

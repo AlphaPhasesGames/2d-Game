@@ -46,6 +46,8 @@ namespace Alpha.Phases.Geoquest
                 textMan.arrayPos = 31; // not 13 - change when text setup
                 allAnswersCorrect = true;
                 MainGameManager.Instance.collectedGems = bMan.amountOfGems += 20;
+                frictionBUtton.gameObject.SetActive(false);
+                evaporationButton.gameObject.SetActive(false);
                 MainGameManager.Instance.SaveTaskS1();
                 chests.gameObject.SetActive(false);
                 switches.gameObject.SetActive(true);

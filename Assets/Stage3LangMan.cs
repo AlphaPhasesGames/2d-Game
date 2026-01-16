@@ -26,6 +26,28 @@ namespace Alpha.Phases.Geoquest
         public TextMeshProUGUI stage3Text16;
         public TextMeshProUGUI stage3Text17;
 
+        public TextMeshProUGUI page6Title;
+        public TextMeshProUGUI page7Title;
+        public TextMeshProUGUI page8Title;
+
+        public TextMeshProUGUI sandstoneName1;
+        public TextMeshProUGUI sandstoneName2;
+
+        public TextMeshProUGUI slateName1;
+        public TextMeshProUGUI slateName2;
+
+        public TextMeshProUGUI basaltName1;
+        public TextMeshProUGUI basaltName2;
+
+
+        public TextMeshProUGUI sandStone1; // text body - 
+        public TextMeshProUGUI sandStone2;
+        public TextMeshProUGUI slate1;
+        public TextMeshProUGUI slate2;
+        public TextMeshProUGUI basalt1;
+        public TextMeshProUGUI basalt2;
+
+
         public TextMeshProUGUI journalTitle;
         public TextMeshProUGUI journalPage1Concept1;
         public TextMeshProUGUI journalPage1Concept2;
@@ -93,6 +115,29 @@ namespace Alpha.Phases.Geoquest
         stage3Text15.text = defs["stage3Text15"];
         stage3Text16.text = defs["stage3Text16"];
         stage3Text17.text = defs["stage3Text17"];
+
+
+            page6Title.text = defs["journalRockTitlePage2"];
+            page7Title.text = defs["journalRockTitlePage2"];
+            page8Title.text = defs["journalRockTitlePage2"];
+
+            slateName1.text = defs["JournalRockSlateUnderTitle"];
+            slateName2.text = defs["JournalRockSlateUnderTitle"];
+
+            sandstoneName1.text = defs["JournalRockSandUnderTitle"];
+            sandstoneName2.text = defs["JournalRockSandUnderTitle"];
+
+
+            basaltName1.text = defs["JournalRockBasaltUnderTitle"];
+            basaltName2.text = defs["JournalRockBasaltUnderTitle"];
+
+            sandStone1.text = defs["journalSandStone1Text"];
+            sandStone2.text = defs["journalSandStone2Text"];
+            slate1.text = defs["journalSlate1Text"];
+            slate2.text = defs["journalSlate2Text"];
+            basalt1.text = defs["journalBasalt1Text"];
+            basalt2.text = defs["journalBasalt2Text"];
+
 
             journalTitle.text = defs["stage2JournalTitle"];
             journalPage1Concept1.text = defs["concept1Process"];

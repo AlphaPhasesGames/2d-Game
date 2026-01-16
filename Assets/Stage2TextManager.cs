@@ -66,7 +66,7 @@ namespace Alpha.Phases.Geoquest
         public GameObject sedimentUI;
 
         public GameObject mapStep1;
-
+        public GameObject mapStep2;
         public Button ttsButtonForWrongText;
 
         public Button clayButton;
@@ -341,6 +341,8 @@ namespace Alpha.Phases.Geoquest
                 case 29:
                     backwardsButton.gameObject.SetActive(true);
                     journal.gameObject.SetActive(false);
+                    mapStep1.gameObject.SetActive(false);
+                    mapStep2.gameObject.SetActive(true);
                      sedisOnMap.SetActive(true);
                      sedisObj.SetActive(true);
                     StartCoroutine(MoveToBlankInvislbePanalUnit17());
